@@ -1,0 +1,102 @@
+/* MOBILE MENU */
+  .menu_container {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    width: 100%;
+    background: #fff;
+    height: 100%;
+    padding: 15px;
+    z-index: 1;
+    @include transition(.4s);
+    .menu li {
+      display: block;
+      text-align: center;
+      border-bottom: 1px dashed $light_grey*1.2;
+      &:hover {
+        i {
+          color: $blue;
+        }
+      }
+      i {
+        margin-right: 10px;
+        color: $light_grey;
+      }
+    }
+    .menu li a {
+      text-align: left;
+      color: $grey;
+      text-transform: none;
+      font-weight: 100;
+      width: 100%;
+    }
+  }
+  .menu_container.show {
+    right: 0;
+  }
+
+  .menu_container {
+    text-align: left;
+    float: left;
+  }
+  .header_contacts, .menu_container {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .header_contacts {
+    text-align: right;
+    float: right;
+  }
+  .nav_line {
+    display: inline-block;
+    width: 100%;
+  }
+  .menu {
+    list-style: none;
+    //padding-top: 15px;
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline-block;
+    }
+    .navbar {
+      margin-bottom: 0;
+    }
+    li a {
+      color: white;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 15px 10px;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 700;
+    }
+  }
+  .navbar-toggle {
+    float: left;
+    span{
+      background: white;
+    }
+    margin-right: 5px;
+  }
+
+  .header_contacts {
+    div {
+      color: white;
+      margin-bottom: 3px;
+    }
+    div i {
+      display: inline-block;
+      width: 20px;
+      vertical-align: middle;
+    }
+    div span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    //margin-right: 15px;
+  }
+
+@media (min-width: 970px) {
+
+}

@@ -1,0 +1,17 @@
+@import 'fonts';
+@import 'common';
+
+body {
+  margin:0 auto;
+  padding:0;
+}
+.nav_cover {
+  background: url("../img/bg.jpg")50% 50%;
+  padding: 20px 15px 20px 15px;
+  text-align: center;
+  color: white;
+  .nav_line {
+    max-width: 1366px;
+    margin: 0 auto;
+  }
+}

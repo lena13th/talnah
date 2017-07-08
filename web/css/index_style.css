@@ -1,0 +1,32 @@
+.index-logo {
+  margin-top: 10px;
+  width: 200px; }
+
+.index_section1 {
+  max-height: 600px; }
+
+.index_section1_company_description {
+  padding: 0 20px;
+  margin-top: 35px; }
+  .index_section1_company_description .index_company_name {
+    margin-top: 3px; }
+
+.index_socials {
+  margin-bottom: 15px;
+  margin-top: 40px;
+  display: block; }
+  .index_socials a {
+    color: white;
+    padding: 8px;
+    text-decoration: none; }
+
+@media (min-width: 1200px) {
+  .index-logo {
+    margin-top: 30px;
+    width: auto; }
+
+  .index_socials {
+    margin-top: 115px;
+    display: inline-block; } }
+
+/*# sourceMappingURL=index_style.css.map */

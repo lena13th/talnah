@@ -1,0 +1,59 @@
+<?php
+//use app\components\ContactFormWidget;
+use yii\helpers\Html;
+use yii\helpers\Url;
+use app\assets\MainAsset;
+MainAsset::register($this);
+use app\assets\IndexAsset;
+IndexAsset::register($this);
+?>
+
+<?php $this->beginPage() ?>
+    <!DOCTYPE html>
+    <html lang="<?= Yii::$app->language ?>">
+    <head>
+        <meta charset="<?= Yii::$app->charset ?>">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <?= Html::csrfMetaTags() ?>
+        <title><?= Html::encode($this->title) ?></title>
+
+        <?php $this->head() ?>
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body data-spy="scroll">
+
+    <?php $this->beginBody() ?>
+
+    <div class="nav_cover index_section1">
+        <?php $this->beginContent('@app/views/layouts/menu.php'); ?>
+        <?php $this->endContent(); ?>
+        <?= Html::img("@web/img/index_logo.png", ['alt' => 'Логотип', 'class'=> 'index-logo']) ?>
+        <div class="index_section1_company_description">
+            <div class="index_company_type">Управление по спорту администрации города Норильск, муниципальное бюджетное учреждение </div>
+            <div class="index_company_name h2">Спортивный комплекс  «Талнах»</div>
+        </div>
+        <div class="index_socials">
+            <a href="#">
+                <i class="fa fa-vk" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-odnoklassniki" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+    <?= $content ?>
+
+    <?php  $this->beginContent('@app/views/layouts/footer.php'); ?>
+    <?php  $this->endContent(); ?>
+
+    <?php $this->endBody() ?>
+    </body>
+    </html>
+<?php $this->endPage() ?>

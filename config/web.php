@@ -11,6 +11,7 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'Kbf8yOXqLc7mXbLIBDWIv1k3RuGwHWZh',
+            'baseUrl' => ''
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -39,6 +40,25 @@ $config = [
             ],
         ],
         'db' => $db,
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                // ['class'=>'app\components\SefRule', 'connectionID' => 'db'],
+//                'menu/<id:\d+>/page=<page:\d+>/size=<pageSize:\d+>/' => 'menu/view',
+//                'menu/<id:\d+>/size=<pageSize:\d+>/' => 'menu/view',
+//                'menu/<id:\d+>/page=<page:\d+>' => 'menu/view',
+//                'menu/<id:\d+>' => 'menu/view',
+//                'product/<id:\d+>' => 'product/view',
+                'index' => 'test/index',
+//                'login' => 'site/login',
+//                'events' => 'site/events',
+//                'contact' => 'site/contact',
+//                '' => 'site/index',
+            ],
+        ],
+
+    ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -47,8 +67,6 @@ $config = [
             ],
         ],
         */
-    ],
-    'params' => $params,
 ];
 
 if (YII_ENV_DEV) {
