@@ -1,102 +1,279 @@
 /* MOBILE MENU */
   .menu_container {
     position: fixed;
-    right: -100%;
+    @include transform(-100%, 0);
     top: 0;
+    left: 0;
     width: 100%;
     background: #fff;
     height: 100%;
     padding: 15px;
+    overflow-y: auto;
     z-index: 1;
-    @include transition(.4s);
-    .menu li {
-      display: block;
-      text-align: center;
-      border-bottom: 1px dashed $light_grey*1.2;
-      &:hover {
+    .menu {
+      li {
+        display: block;
+        border-bottom: 1px dashed $light_grey*1.2;
         i {
-          color: $blue;
+          margin-right: 10px;
+          color: $light_grey;
         }
       }
-      i {
-        margin-right: 10px;
-        color: $light_grey;
+      li:last-child {
+        border:none
+      }
+      li.active {
+        position: relative;
+      }
+      li.active::before {
+        content: '';
+        border-right: 8px solid $light_blue;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        width: 0;
+        height: 0;
+        position: absolute;
+        right: 0;
+        top: 20px;
       }
     }
-    .menu li a {
+    .menu li a, .menu li span {
       text-align: left;
       color: $grey;
       text-transform: none;
       font-weight: 100;
       width: 100%;
+      &:hover {
+        i {
+          color: $light_blue;
+        }
+      }
     }
   }
   .menu_container.show {
-    right: 0;
+    @include transform(0, 0);
   }
-
   .menu_container {
     text-align: left;
-    float: left;
-  }
-  .header_contacts, .menu_container {
-    display: inline-block;
-    vertical-align: middle;
-  }
-  .header_contacts {
-    text-align: right;
-    float: right;
   }
   .nav_line {
     display: inline-block;
     width: 100%;
   }
+  .submenu {
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    margin:0px 10px;
+    background: white*0.99;
+    border:1px solid $light_grey*1.25;
+  }
+  .show_submenu {
+    height: auto;
+    margin:5px 10px 20px 10px;
+  }
   .menu {
     list-style: none;
-    //padding-top: 15px;
-    margin: 0;
     padding: 0;
-    li {
-      display: inline-block;
-    }
-    .navbar {
-      margin-bottom: 0;
-    }
-    li a {
-      color: white;
+    li a, li span {
       text-transform: uppercase;
       text-decoration: none;
-      padding: 15px 10px;
+      padding: 15px 7px;
       display: inline-block;
-      font-size: 14px;
-      font-weight: 700;
+      cursor: pointer;
+    }
+    .submenu_expand {
+      position: relative;
+    }
+    .submenu_expand:after{
+      display: inline-block;
+      content: '';
+      width: 6px;
+      height:6px;
+      border-bottom: 1px solid $grey;
+      border-right: 1px solid $grey;
+      @include rotate(45deg);
+      vertical-align: middle;
+      margin: 5px;
+      margin-top: -1px;
     }
   }
   .navbar-toggle {
     float: left;
+    background: rgba(0,0,0,0.5);
     span{
       background: white;
     }
-    margin-right: 5px;
   }
 
-  .header_contacts {
-    div {
-      color: white;
-      margin-bottom: 3px;
-    }
-    div i {
-      display: inline-block;
+/* HEADER CONTACTS */
+.header_contacts {
+  float: right;
+  text-align: right;
+  div {
+    display: none;
+    color: white;
+    margin-bottom: 5px;
+    i {
       width: 20px;
-      vertical-align: middle;
+      text-align: center;
+      padding-top: 2px;
     }
-    div span {
-      display: inline-block;
-      vertical-align: middle;
+    p {
+      margin-bottom: 5px;
     }
-    //margin-right: 15px;
   }
+  .head_phones {
+    display: block;
+  }
+  div i, div span {
+    display: inline-block;
+    vertical-align: top;
+  }
+  //margin-right: 15px;
+}
 
-@media (min-width: 970px) {
+/* FULLSIZE MENU */
+@media (min-width: 768px) {
+  .header_contacts {
+    text-align: center;
+    float: none;
+    margin-top: 0px;
+    div {
+      display: block;
+    }
+    p {
+      display: inline;
+    }
+  }
+  .window {
+    padding: 0;
+  }
+  .menu_container {
+    height:auto;
+    overflow: inherit;
+    position: initial;
+    @include transform(0, 0);
+    background: none;
+    padding: 0;
+    text-align: center;
+    .close_window, .window_header {
+      display: none;
+    }
+    .inside_window {
+      margin-top: 0;
+    }
+    .menu {
+      background: rgba(0,0,0,0.4);
+      border-radius: 5px;
+      li {
+        border-bottom: none;
+        display: inline-block;
+      }
+      li a, li span {
+        width:auto;
+        color: white;
+        width:auto;
+        font-weight: 700;
+        i {
+          display: none;
+        }
+      }
+      li>span:after {
+        border-color: white;
+        border-width: 2px;
+      }
+      li .submenu {
+        position: absolute;
+      }
+      >li.active::before {
+        content: '';
+        border-right: 10px solid transparent;
+        border-left: 10px solid transparent;
+        border-bottom: 10px solid white;
+        border-top: 0px;
+        width: 0;
+        height:0;
+        position: absolute;
+        top:55px;
+        left: 50%;
+        margin-left: -5px;
+      }
+    }
+  }
+  .submenu {
+    width: 250px;
+    top: 70px;
+    @include transition(0.2s);
+    background: white*0.99;
+    height: auto;
+    overflow: initial;
+  }
+  .show_submenu {
+    top: 50px;
+    margin:5px 10px 20px 10px;
+  }
+  .submenu:before {
+    content: '';
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 7px solid white*0.99;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -7px;
+    left: 10px;
+  }
+}
 
+@media (min-width: 1200px) {
+  .menu_container {
+    width: auto;
+    .menu {
+      background: none;
+      border-radius: 5px;
+      li {
+        a, span {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+  .header_contacts {
+    text-align: right;
+    position: absolute;
+    right:0;
+  }
+}
+.menu_container {
+  .submenu {
+    //display: none;
+    opacity: 0;
+    pointer-events: none;
+    padding: 0px;
+    @include border-radius(5px);
+    //@include box-shadow(0,0,10px,0px,rgba(0,0,0,0.1),false);
+    //border: 1px solid rgba(0,0,0,0.05);
+    li {
+      border-bottom: 1px dashed $light_grey*1.3;
+      display: block;
+      a {
+        color: $grey;
+        font-weight: 100;
+        //padding:10px;
+        width:100%;
+        padding-left: 15px;
+      }
+      :hover {
+        background: rgba(0,0,0,0.01);
+      }
+    }
+    li:last-child {
+      border:none;
+    }
+  }
+  .show_submenu {
+    pointer-events: auto;
+    opacity:1;
+  }
 }

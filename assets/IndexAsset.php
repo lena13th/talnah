@@ -18,18 +18,10 @@ class IndexAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/index_style.scss',
+        'css/index_style.css',
     ];
     public $js = [
-//        'js/main.js',
-//        'js/catmenu.js',
-        // 'js/subproduct.js',
-//        'js/down.js',
-        // 'js/owl.carousel.min.js',
-//        'https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.1.1/ekko-lightbox.min.js'
     ];
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
     ];
 }

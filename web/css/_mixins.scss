@@ -24,11 +24,11 @@
 }
 
 @mixin transition($duration) {
-    -webkit-transition: $duration;
-    -moz-transition: $duration;
-    -ms-transition: $duration;
-    -o-transition: $duration;
-    transition: $duration;
+    -webkit-transition: $duration ease-in-out;
+    -moz-transition: $duration ease-in-out;
+    -ms-transition: $duration ease-in-out;
+    -o-transition: $duration ease-in-out;
+    transition: $duration ease-in-out;
 }
 
 @mixin box-shadow($top, $left, $blur, $spread, $color, $inset: false) {
@@ -61,4 +61,19 @@
       -ms-transform: translateX(0) translateY(-50%);
       -o-transform: translateX(0) translateY(-50%);
       transform: translateX(0) translateY(-50%);
+}
+
+@mixin transform($x, $y) {
+  transform: translate($x,$y);
+  -webkit-transform: translate($x,$y); /** Chrome & Safari **/
+  -o-transform: translate($x,$y); /** Opera **/
+  -moz-transform: translate($x,$y); /** Firefox **/
+}
+
+@mixin rotate($x) {
+  -moz-transform: rotate($x); /* Для Firefox */
+  -ms-transform: rotate($x); /* Для IE */
+  -webkit-transform: rotate($x); /* Для Safari, Chrome, iOS */
+  -o-transform: rotate($x); /* Для Opera */
+  transform: rotate($x);
 }

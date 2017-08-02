@@ -1,79 +1,69 @@
 <?php
-
-/* @var $this \yii\web\View */
-/* @var $content string */
-
+//use app\components\ContactFormWidget;
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
-use app\assets\AppAsset;
+use yii\helpers\Url;
+use app\assets\MainAsset;
+use app\assets\IndexAsset;
 
-AppAsset::register($this);
+MainAsset::register($this);
+IndexAsset::register($this);
 ?>
+
 <?php $this->beginPage() ?>
-<!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
-<head>
-    <meta charset="<?= Yii::$app->charset ?>">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
-</head>
-<body>
-<?php $this->beginBody() ?>
+    <!DOCTYPE html>
+    <html lang="<?= Yii::$app->language ?>">
+    <head>
+        <meta charset="<?= Yii::$app->charset ?>">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <?= Html::csrfMetaTags() ?>
+        <title><?= Html::encode($this->title) ?></title>
 
-<div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
-    ]);
-    NavBar::end();
-    ?>
+        <?php $this->head() ?>
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= $content ?>
+    <body data-spy="scroll">
+
+    <?php $this->beginBody() ?>
+    <div class="pre_header_container">
+        <div class="pre_header">
+            <div class="pre_header_logo col-xs-12 col-sm-2 col-md-2 col-lg-1">
+                <?= Html::img("@web/img/logo.png", ['alt' => 'Логотип', 'class'=> 'pre_header-logo']) ?>
+            </div>
+            <div class="pre_header_company_information col-xs-12 col-sm-8 col-md-8 col-lg-9">
+                <div class="pre_header_company_type">Управление по спорту администрации города Норильск, муниципальное бюджетное учреждение </div>
+                <div class="pre_header_company_name h3">Спортивный комплекс  «ТАЛНАХ»</div>
+            </div>
+            <div class="pre_header_socials_container col-xs-12 col-sm-2 col-md-2">
+                <div class="socials pre_header_socials">
+                    <a href="#">
+                        <i class="fa fa-vk" aria-hidden="true"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-odnoklassniki" aria-hidden="true"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
     </div>
-</div>
-
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
+    <div class="nav_cover index_section1">
+        <?php $this->beginContent('@app/views/layouts/menu.php'); ?>
+        <?php $this->endContent(); ?>
     </div>
-</footer>
+    <?= $content ?>
 
-<?php $this->endBody() ?>
-</body>
-</html>
+    <?php  $this->beginContent('@app/views/layouts/footer.php'); ?>
+    <?php  $this->endContent(); ?>
+
+    <?php $this->endBody() ?>
+    </body>
+    </html>
 <?php $this->endPage() ?>

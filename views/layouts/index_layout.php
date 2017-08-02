@@ -3,8 +3,9 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use app\assets\MainAsset;
-MainAsset::register($this);
 use app\assets\IndexAsset;
+
+MainAsset::register($this);
 IndexAsset::register($this);
 ?>
 
@@ -13,6 +14,7 @@ IndexAsset::register($this);
     <html lang="<?= Yii::$app->language ?>">
     <head>
         <meta charset="<?= Yii::$app->charset ?>">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
@@ -34,9 +36,9 @@ IndexAsset::register($this);
         <?= Html::img("@web/img/index_logo.png", ['alt' => 'Логотип', 'class'=> 'index-logo']) ?>
         <div class="index_section1_company_description">
             <div class="index_company_type">Управление по спорту администрации города Норильск, муниципальное бюджетное учреждение </div>
-            <div class="index_company_name h2">Спортивный комплекс  «Талнах»</div>
+            <div class="index_company_name h2">Спортивный комплекс  «ТАЛНАХ»</div>
         </div>
-        <div class="index_socials">
+        <div class="index_socials socials">
             <a href="#">
                 <i class="fa fa-vk" aria-hidden="true"></i>
             </a>

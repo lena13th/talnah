@@ -20,7 +20,7 @@
 	background: $red!important;
 	color: white!important;
 	border-color:$red!important;
-	text-shadow: 0 0px 0!important;
+	text-shadow: 0 0 0!important;
 	box-shadow: none!important;
 	i {
   		@include transition(all 0.1s cubic-bezier(0.46, 0.03, 0.52, 0.96));
@@ -33,7 +33,7 @@
 .btn-default {
 	background: rgba(0,0,0,0)!important;
 	color: $text_grey!important;
-	text-shadow: 0 0px 0!important;
+	text-shadow: 0 0 0!important;
 	box-shadow: none!important;
 	&:hover {
 		background: rgba(0,0,0,0.2);
@@ -46,12 +46,6 @@
 }
 
 .close_window {
-	top:0px;
-	left: 0px;
-	float: left;
-	color: $grey;
-	z-index: 3;
-	padding: 10px;
-	font-size: 20px;
-	cursor: pointer;
+
 }
+

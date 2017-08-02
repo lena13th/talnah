@@ -16,4 +16,10 @@ class TestController extends Controller
         $this->layout = 'index_layout';
         return $this->render('index');
     }
+
+    public function actionBuildings()
+    {
+        $this->layout = 'main';
+        return $this->render('buildings');
+    }
 }

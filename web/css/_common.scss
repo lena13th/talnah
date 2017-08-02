@@ -3,11 +3,11 @@
 @import 'mixins';
 @import 'bootstrap_changes';
 @import 'buttons';
+@import 'elements';
 @import 'menu';
 @import 'typography';
-//@import 'footer';
-
-
+@import 'left_block';
+@import 'footer';
 
 html, body {
 	padding: 0;
@@ -17,72 +17,11 @@ html {
 	position: relative;
 	min-height: 100%;
 }
+.main_wrapper {
+
+}
 .wrapper {
-    @include transition(0.3s);
-	
-}
-.vcenter {
-	display: inline-block;
-	vertical-align: middle;
-}
-
-.navbar-form {
-    padding: 8px 15px!important;
-}
-
-.navbar-brand {
-	padding: 0px 15px!important;
-}
-
-h1 {
-	font-weight: 100!important;
-}
-.h1 {
-	margin-top: 0px;
-    margin-bottom: 10px;
-    display: inline-block;
-}
-.overlay {
-	width: 100%;
-	height: 100%;
-	position: fixed;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	background: rgba(0,0,0,0.6);
-	z-index: 2;
-	display: none;
-}
-.cat_nav {
-	.affix {
-		position: relative;
-	}
-	.affix-bottom {
-	    position: relative!important;
-	}
-}
-
-@media screen and (min-width: 1200px) {
-	.cat_nav {
-		.affix {
-			top:0px;
-			position: fixed;
-		}
-	}
-	footer {
-		position: absolute;
-	    bottom: 0;
-	    width: 100%;
-	}
-	body {
-	  /* Margin bottom by footer height */
-	  margin-bottom: 400px;
-	}	
-
-	body.admin {
-		margin-bottom: 200px;
-	}
+    //@include transition(0.3s);
 }
 
 .events {
@@ -107,10 +46,4 @@ h1 {
 			width: 100%!important;
 		}
 	}
-}
-
-
-.site-login {
-	text-align: left;
-
 }
