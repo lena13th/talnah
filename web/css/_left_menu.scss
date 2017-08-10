@@ -1,0 +1,25 @@
+.left_menu {
+  list-style: none;
+  padding: 0;
+  margin:0;
+  li {
+    border-bottom: 1px solid $dark_blue*0.9;
+    border-top: 1px solid $light_blue*0.8;
+    list-style: none;
+    :hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    a {
+      color: white;
+      padding: 9px 0 8px 40px;
+      display: inline-block;
+      width: 100%;
+      text-decoration: none;
+    }
+
+  }
+}
+.left_block {
+  padding: 0!important;
+  overflow: hidden;
+}

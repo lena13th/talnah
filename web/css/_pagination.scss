@@ -1,0 +1,17 @@
+.pagination {
+  margin: 0 auto;
+  border: none;
+}
+.pagination_block {
+  width:100%;
+  text-align: center;
+}
+.pagination {
+  li {
+    display: inline-block;
+    span, a{
+      border: none;
+      @include border-radius(50%);
+    }
+  }
+}
