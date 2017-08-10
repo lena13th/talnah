@@ -2,10 +2,7 @@
 //use app\components\ContactFormWidget;
 use yii\helpers\Html;
 use yii\helpers\Url;
-use app\assets\MainAsset;
 use app\assets\IndexAsset;
-
-MainAsset::register($this);
 IndexAsset::register($this);
 ?>
 

@@ -1,31 +1,25 @@
 @import 'common';
+@import 'breadcrumbs';
+@import 'left_block';
+@import 'left_menu';
+@import 'pagination';
 
-body {
-  margin:0 auto;
-  padding:0;
-}
-.nav_cover {
-  background: url("../img/bg.jpg")50% 50%;
-  padding: 20px 15px 0px 15px;
-  text-align: center;
-  color: white;
-  max-height: 800px;
-  height: 100%;
-  position: relative;
-  z-index:2;
-  .nav_line {
-    max-width: 1366px;
-    margin: 0 auto;
-    position: relative;
+.news {
+  h1 {
+    text-align: center;
+  }
+  hr {
+    margin-left: 15px;
   }
 }
+
 .pre_header_container {
   width:100%;
   display: inline-block;
   .pre_header {
     max-width: 1366px;
     margin:0 auto;
-    min-height:101px;
+    min-height:98px;
     text-align: center;
   }
 }
@@ -44,33 +38,46 @@ body {
     margin-top: 10px;
   }
 }
-.main_wrapper {
-  width: 100%;
-  background: white;
+.news {
+  h1, .h1 {
+    margin-top: 0;
+    margin-bottom: 42px;
+  }
 }
+.content {
+  padding: 0;
+  padding-bottom: 50px;
 
-.main {
-  max-width: 1366px;
-  margin: 0 auto;
-  padding: 50px 20px;
+  .h4, h4 {
+    margin-top: 20px;
+  }
+  img {
+    max-width: 100%;
+  }
+  p {
+  }
+}
+.news_item_page {
+  .breadcrumbs {
+    padding-left: 15px;
+    margin-bottom: 20px;
+  }
+  .slider {
+    margin: 30px 0 10px 0;
+  }
 }
 
 @media (min-width: 768px) {
   .pre_header_company_information {
-    padding: 25px;
+    padding: 29px 25px 0 54px;
+    .h4 {
+      margin-top: 5px;
+    }
   }
   .pre_header_socials {
     padding-right: 13px;
     float: right;
     margin-bottom: 35px;
     margin-top: 40px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .pre_header_container {
-    .pre_header {
-      text-align: left;
-    }
   }
 }

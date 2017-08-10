@@ -10,7 +10,8 @@ use yii\helpers\Url;
         <ul class="menu">
             <li><a href="<?= Url::to(['/test/index'])?>"><i class="fa fa-home" aria-hidden="true"></i> Главная</a></li>
             <li class="active">
-                <span class="submenu_expand"><i class="fa fa-building" aria-hidden="true"></i>Спортивные сооружения</span>
+                <a href="<?= Url::to(['/test/buildings'])?>"><i class="fa fa-building" aria-hidden="true"></i>Спортивные сооружения</a>
+                <span class="submenu_expand"></span>
                 <ul class="submenu">
                     <li><a href="<?= Url::to(['/test/buildings'])?>">СОЦ “Восток”</a></li>
                     <li class="active"><a href="<?= Url::to(['/test/buildings'])?>">КОЦ</a></li>
@@ -20,7 +21,7 @@ use yii\helpers\Url;
                     <li><a href="<?= Url::to(['/test/buildings'])?>">СТК “Гора Отдельная”</a></li>
                 </ul>
             </li>
-            <li><a href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Новости</a></li>
+            <li><a href="<?= Url::to(['/test/news'])?>"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Новости</a></li>
             <li><a href="#"><i class="fa fa-users" aria-hidden="true"></i> О нас</a></li>
             <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> Календарь мероприятий</a></li>
             <li><a href="#"><i class="fa fa-address-card-o" aria-hidden="true"></i> Контакты</a></li>

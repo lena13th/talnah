@@ -22,4 +22,16 @@ class TestController extends Controller
         $this->layout = 'main';
         return $this->render('buildings');
     }
+
+    public function actionNews()
+    {
+        $this->layout = 'main';
+        return $this->render('news');
+    }
+
+    public function actionNews_1()
+    {
+        $this->layout = 'main';
+        return $this->render('news_1');
+    }
 }

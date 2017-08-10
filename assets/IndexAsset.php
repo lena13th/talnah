@@ -21,7 +21,15 @@ class IndexAsset extends AssetBundle
         'css/index_style.css',
     ];
     public $js = [
+        'js/menu.js',
+//        'js/catmenu.js',
+        // 'js/subproduct.js',
+//        'js/down.js',
+        // 'js/owl.carousel.min.js',
+//        'https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.1.1/ekko-lightbox.min.js'
     ];
     public $depends = [
+        'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapPluginAsset',
     ];
 }

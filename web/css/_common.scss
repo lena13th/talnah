@@ -6,7 +6,6 @@
 @import 'elements';
 @import 'menu';
 @import 'typography';
-@import 'left_block';
 @import 'footer';
 
 html, body {
@@ -24,6 +23,44 @@ html {
     //@include transition(0.3s);
 }
 
+body {
+	margin:0 auto;
+	padding:0;
+}
+.nav_cover {
+	background: url("../img/bg.jpg")50% 50%;
+	padding: 20px 15px 8px 15px;
+	text-align: center;
+	color: white;
+	max-height: 800px;
+	height: 100%;
+	position: relative;
+	z-index:2;
+	.nav_line {
+		max-width: 1366px;
+		margin: 0 auto;
+		position: relative;
+	}
+}
+.main_wrapper {
+	width: 100%;
+	background: white;
+}
+
+.main {
+	max-width: 1366px;
+	margin: 0 auto;
+	padding: 40px 20px;
+}
+
+
+@media (min-width: 1200px) {
+	.pre_header_container {
+		.pre_header {
+			text-align: left;
+		}
+	}
+}
 .events {
 	padding-bottom: 30px;
 }

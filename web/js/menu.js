@@ -12,8 +12,15 @@ $(document).ready(function(){
         $(this).closest('.window').removeClass('show');
     });
     $('.submenu_expand').click(function(event){
-       $(this).next('.submenu').toggleClass('show_submenu');
-        event.stopPropagation();
+        if ($(window).width() <= '768') {
+            $(this).next('.submenu').toggleClass('show_submenu');
+            event.stopPropagation();
+        }
+    });
+    $('.menu li').hover(function(event){
+        if ($(window).width() > '768') {
+            $(this).find('.submenu').toggleClass('show_submenu');
+        }
     });
     $(document).click(function() {
         $('.submenu').removeClass('show_submenu');
