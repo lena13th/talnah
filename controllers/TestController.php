@@ -55,17 +55,8 @@ class TestController extends Controller
                 $year_data = $year;
             }
         }
-        $new_arr_year=[];
-        foreach ($year_data as $key=>$value) {
-
-            if (strripos(' Январь Февраль Март Апрель Май Июнь Июль Август Сентябрь Октябрь Ноябрь Декабрь ', $key)) {
-                $new_arr=array("Месяц"=>$key, "Дни"=>$value);
-            }
-            $new_arr_year[]=$new_arr;
-
-        }
         return $this->render('calendar.php', [
-            'gov_data' => $year,
+            'gov_data' => $year_data,
             'current_month' => $current_month
         ]);
     }

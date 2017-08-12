@@ -1,4 +1,16 @@
 .disable_month {
   display: none; }
 
+.day {
+  width: 5px;
+  display: inline-block; }
+
+.calendar {
+  width: 966px; }
+
+.calendar_header {
+  height: 76px;
+  background: #9bcc86;
+  color: white; }
+
 /*# sourceMappingURL=calendar.css.map */

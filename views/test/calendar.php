@@ -5,11 +5,11 @@
  * Date: 23.07.2017
  * Time: 19:14
  */
-use yii\helpers\Html;
+use yii\helpers\Url;
 $days = 31;
 $before = 3;
-use app\assets\CalendarAsset;
-CalendarAsset::register($this);
+//use app\assets\CalendarAsset;
+//CalendarAsset::register($this);
 ?>
 <div class="main_wrapper">
     <ul class="breadcrumbs col-lg-offset-3">
@@ -36,27 +36,33 @@ CalendarAsset::register($this);
 
                 <?php
                 foreach ($gov_data as $key => $value) {
-
                     if (strripos(' Январь Февраль Март Апрель Май Июнь Июль Август Сентябрь Октябрь Ноябрь Декабрь ', $key)) { ?>
                 <div class="month <?= ($current_month==$key) ? 'active_month': 'disable_month'; ?>">
-                    <div class="calendar_header"><?= $key ?></div>
-<!--                    <div class="month_before">< --><?//=  ?><!--</div>-->
-                    <div class="month_before">></div>
+                    <div class="calendar_header h2"><?= $key.' '.$gov_data["Год/Месяц"] ?></div>
+                    <div class="month_before"><a href="<?= Url::to(['/test/news'])?>">< Июль</a></div>
+                    <div class="month_before"><a href="<?= Url::to(['/test/news'])?>"> Сентябрь ></a></div>
                     <div class="week">
-<!--                        <div>Понедельник</div>-->
-<!--                        <div>Вторник</div>-->
-<!--                        <div>Среда</div>-->
-<!--                        <div>Четверг</div>-->
-<!--                        <div>Пятница</div>-->
-<!--                        <div>Суббота</div>-->
-<!--                        <div>Воскресенье</div>-->
+                        <div>Понедельник</div>
+                        <div>Вторник</div>
+                        <div>Среда</div>
+                        <div>Четверг</div>
+                        <div>Пятница</div>
+                        <div>Суббота</div>
+                        <div>Воскресенье</div>
                     </div>
                     <div class="calendar_body">
-
-                        <div class="week_days">
-
-                        </div>
-                        <div class="week_days"></div>
+                            <div class="week_days">
+                                <?php if ($i==0) {
+                                    for ($j = 0; $j < $before; $j++) { ?>
+                                        <div class="day"></div>
+                                    <?php }
+                                    for ($x = $before; $x < $days; $x++) { ?>
+                                        <div class="day">
+                                            <?= $x ?>
+                                        </div>
+                                    <?php }
+                                } ?>
+                            </div>
                     </div>
                 </div>
 

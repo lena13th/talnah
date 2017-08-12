@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA,cAAe;EACb,OAAO,EAAE,IAAI",
-"sources": ["calendar.scss"],
+"mappings": "AACA,cAAe;EACb,OAAO,EAAE,IAAI;;AAEf,IAAK;EACH,KAAK,EAAE,GAAG;EACV,OAAO,EAAE,YAAY;;AAEvB,SAAU;EACR,KAAK,EAAE,KAAK;;AAEd,gBAAiB;EACf,MAAM,EAAE,IAAI;EACZ,UAAU,ECNJ,OAAO;EDOb,KAAK,EAAE,KAAK",
+"sources": ["calendar.scss","_var.scss"],
 "names": [],
 "file": "calendar.css"
 }
