@@ -9,21 +9,27 @@ use yii\helpers\Url;
         <div class="h3 window_header">Меню</div>
         <ul class="menu">
             <li><a href="<?= Url::to(['/test/index'])?>"><i class="fa fa-home" aria-hidden="true"></i> Главная</a></li>
-            <li class="active">
+            <li class="<?php if ((Yii::$app->controller->action->id)=='buildings') {?>active<? } ?>">
                 <a href="<?= Url::to(['/test/buildings'])?>"><i class="fa fa-building" aria-hidden="true"></i>Спортивные сооружения</a>
                 <span class="submenu_expand"></span>
                 <ul class="submenu">
                     <li><a href="<?= Url::to(['/test/buildings'])?>">СОЦ “Восток”</a></li>
-                    <li class="active"><a href="<?= Url::to(['/test/buildings'])?>">КОЦ</a></li>
+                    <li><a href="<?= Url::to(['/test/buildings'])?>">КОЦ</a></li>
                     <li><a href="<?= Url::to(['/test/buildings'])?>">Плавательный бассейн</a></li>
                     <li><a href="<?= Url::to(['/test/buildings'])?>">СЗ “Горняк”</a></li>
                     <li><a href="<?= Url::to(['/test/buildings'])?>">КК “Умка”</a></li>
                     <li><a href="<?= Url::to(['/test/buildings'])?>">СТК “Гора Отдельная”</a></li>
                 </ul>
             </li>
-            <li><a href="<?= Url::to(['/test/news'])?>"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Новости</a></li>
-            <li><a href="#"><i class="fa fa-users" aria-hidden="true"></i> О нас</a></li>
-            <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> Календарь мероприятий</a></li>
+            <li class="<?php if ((Yii::$app->controller->action->id)=='news') {?>active<? } ?>">
+                <a href="<?= Url::to(['/test/news'])?>"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Новости</a>
+            </li>
+            <li class="<?php if ((Yii::$app->controller->action->id)=='about') {?>active<? } ?>">
+                <a href="#"><i class="fa fa-users" aria-hidden="true"></i> О нас</a>
+            </li>
+            <li class="<?php if ((Yii::$app->controller->action->id)=='calendar') {?>active<? } ?>">
+                <a href="<?= Url::to(['/test/calendar'])?>"><i class="fa fa-calendar" aria-hidden="true"></i> Календарь мероприятий</a>
+            </li>
             <li><a href="#"><i class="fa fa-address-card-o" aria-hidden="true"></i> Контакты</a></li>
             <li><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> Обратная связь</a></li>
         </ul>

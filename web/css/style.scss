@@ -47,7 +47,9 @@
 .content {
   padding: 0;
   padding-bottom: 50px;
-
+  .h1, h1 {
+    margin-top: 0;
+  }
   .h4, h4 {
     margin-top: 20px;
   }
