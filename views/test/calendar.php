@@ -35,6 +35,15 @@ CalendarAsset::register($this);
 
 
                 <?php
+                echo'<pre>';
+                print_r($gov_data);
+                echo '</pre>';
+
+
+
+
+
+
                 foreach ($gov_data as $key => $value) {
 
                     if (strripos(' Январь Февраль Март Апрель Май Июнь Июль Август Сентябрь Октябрь Ноябрь Декабрь ', $key)) { ?>
