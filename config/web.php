@@ -50,7 +50,7 @@ $config = [
 //                'menu/<id:\d+>/page=<page:\d+>' => 'menu/view',
 //                'menu/<id:\d+>' => 'menu/view',
 //                'product/<id:\d+>' => 'product/view',
-                'index' => 'test/index',
+//                'index' => 'test/index',
 //                'login' => 'site/login',
 //                'events' => 'site/events',
 //                'contact' => 'site/contact',

@@ -8,6 +8,7 @@
 
 namespace app\controllers;
 use yii\base\Controller;
+use Yii;
 
 class TestController extends Controller
 {
@@ -37,6 +38,7 @@ class TestController extends Controller
 
     public function actionCalendar()
     {
+        $ys=Yii::$app->request->get('ys');
         $this->layout = 'main';
 
         // TODO Перенести в общий файл для общей доступности
@@ -51,12 +53,42 @@ class TestController extends Controller
 
         // Формируем массив для текущего года поскольку в $data содержатся все года
         foreach ($data as $year) {
-            if ($year["Год/Месяц"] == "2017") {
+            if ($year["Год/Месяц"] == $ys) {
                 $year_data = $year;
             }
         }
+        $new_year_data=[]; $y=0;
+        foreach ($year_data as $key=>$value) {
+            $new_arr='';
+            if (strripos(' Январь Февраль Март Апрель Май Июнь Июль Август Сентябрь Октябрь Ноябрь Декабрь ', $key)) {
+                $y++;
+                $value=str_replace("*","",$value);
+                $days = explode(",", $value);
+
+                $number_days = cal_days_in_month(CAL_GREGORIAN, $y, $ys);
+                for ($i = 1; $i <= $number_days; $i++) {
+                    if (in_array($i, $days)) {
+                        $new_arr_days[]=0; //выходной день
+                    } else {
+                        $new_arr_days[]=1; //рабочий день
+                    }
+
+                }
+
+
+                $new_arr=array("month"=>$key, "days"=>$new_arr_days);
+            }
+
+
+
+
+            if ($new_arr){
+                $new_year_data[]=$new_arr;
+            }
+
+        }
         return $this->render('calendar.php', [
-            'gov_data' => $year_data,
+            'gov_data' => $new_year_data,
             'current_month' => $current_month
         ]);
     }
