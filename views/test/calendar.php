@@ -8,8 +8,13 @@
 use yii\helpers\Url;
 $days = 31;
 $before = 3;
-//use app\assets\CalendarAsset;
-//CalendarAsset::register($this);
+$event = array("title"=>'Результаты турнира по футболу',
+    "content"=>'15.06.2017 прошел турнир по футболу, участие в котором приняло 8 команд нашего города.',
+    "date"=>'2017-08-10');
+$sql_event_date = date_create($event[date]);
+$event_date = date_format($sql_event_date, 'd');
+use app\assets\CalendarAsset;
+CalendarAsset::register($this);
 ?>
 <div class="main_wrapper">
     <ul class="breadcrumbs col-lg-offset-3">
@@ -29,54 +34,85 @@ $before = 3;
                 </div>
             </div>
         </div>
-        <div class="content col-xs-12 col-sm-9 col-md-8 col-lg-9">
+        <div class="content col-xs-12 col-sm-12 col-md-12 col-lg-9">
             <h1>Календарь спортивных мероприятий</h1>
             <div class="calendar">
 
 
                 <?php
-                echo'<pre>';
-                print_r($gov_data);
-                echo '</pre>';
-
-
-
-
-
-
-                foreach ($gov_data as $key => $value) {
-                    if (strripos(' Январь Февраль Март Апрель Май Июнь Июль Август Сентябрь Октябрь Ноябрь Декабрь ', $key)) { ?>
-                <div class="month <?= ($current_month==$key) ? 'active_month': 'disable_month'; ?>">
-                    <div class="calendar_header h2"><?= $key.' '.$gov_data["Год/Месяц"] ?></div>
-                    <div class="month_before"><a href="<?= Url::to(['/test/news'])?>">< Июль</a></div>
-                    <div class="month_before"><a href="<?= Url::to(['/test/news'])?>"> Сентябрь ></a></div>
-                    <div class="week">
-                        <div>Понедельник</div>
-                        <div>Вторник</div>
-                        <div>Среда</div>
-                        <div>Четверг</div>
-                        <div>Пятница</div>
-                        <div>Суббота</div>
-                        <div>Воскресенье</div>
-                    </div>
-                    <div class="calendar_body">
-                            <div class="week_days">
-                                <?php if ($i==0) {
-                                    for ($j = 0; $j < $before; $j++) { ?>
-                                        <div class="day"></div>
+                foreach ($gov_data as $mkey => $value) { ?>
+                    <div class="month <?= ($current_month==$mkey+1) ? 'active_month': 'disable_month'; ?>">
+                        <div class="calendar_header h2"><?= $value[month].' '.$yr ?></div>
+                        <div class="month_before">
+                            <i class="fa fa-angle-left"></i>
+                            <?php if($mkey==0) { ?>
+                                <a href="<?= Url::to(['/test/calendar/yr='.($yr-1).'/mn=last'])?>">Декабрь <?= $yr-1 ?></a>
+                            <? } else { ?>
+                                <span class="month_before_button"><?= $gov_data[$mkey-1][month] ?></span>
+                            <? } ?>
+                        </div>
+                        <div class="month_after">
+                            <?php if($mkey==11) { ?>
+                                <a href="<?= Url::to(['/test/calendar/yr='.($yr+1)])?>">Январь <?= $yr+1 ?></a>
+                            <? } else { ?>
+                                <span class="month_after_button"><?= $gov_data[$mkey+1][month] ?></span>
+                            <? } ?>
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                        <div class="week">
+                            <div>Понедельник</div>
+                            <div>Вторник</div>
+                            <div>Среда</div>
+                            <div>Четверг</div>
+                            <div>Пятница</div>
+                            <div>Суббота</div>
+                            <div>Воскресенье</div>
+                        </div>
+                        <div class="calendar_body">
+                                <div class="week_days">
+                                    <!--
+                                    <?php
+                                    $x = date("N", mktime(0, 0, 0, $mkey+1,1, $yr));
+                                    if ($x!=1) {
+                                        for ($j = 1; $j < $x; $j++) { ?>
+                                    --><div class="empty_day"></div><!--
+                                        <?php }
+                                    }
+                                    foreach ($value[days] as $key => $day) { ?>
+                                        --><div class="day day_<?= ($day==1)? 'work': 'holiday'?> <?= ($key+1==date('d') && $mkey+1 == date('m'))? 'today': ''?>">
+                                                <div class="small_week_title"><?= $week[date("N", mktime(0, 0, 0, $mkey+1,$key+1, $yr))];?></div>
+                                                <?php if ($event_date==$key) { ?>
+                                                    <div class="small_date_number"><?=$key+1?></div>
+                                                    <div class="calendar_event">
+                                                        <div title="<?= $event[title] ?>" class="event_link <?= ($event_date<=date('d'))? 'active':'old' ?>"><?= $event[title] ?></div>
+                                                        <div class="event_item">
+                                                            <div class="event_title"><?= $event[title] ?></div>
+                                                            <div class="event_content"><?= $event[content] ?></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="calendar_event">
+                                                        <div title="<?= $event[title] ?>" class="event_link <?= ($event_date<=date('d'))? 'active':'old' ?>">Другое событие</div>
+                                                        <div class="event_item">
+                                                            <div class="event_title"><?= $event[title] ?></div>
+                                                            <div class="event_content"><?= $event[content] ?></div>
+                                                        </div>
+                                                    </div>
+                                                <?php } else { ?>
+                                                    <div class="date_number"><?=$key+1?></div>
+                                                <?php }?>
+                                            </div><!--
                                     <?php }
-                                    for ($x = $before; $x < $days; $x++) { ?>
-                                        <div class="day">
-                                            <?= $x ?>
-                                        </div>
-                                    <?php }
-                                } ?>
-                            </div>
+                                    $x = date("N", mktime(0, 0, 0, $mkey+1,$key+1, $yr));
+                                    if ($x!=7) {
+                                        for ($k = $x+1; $k <= 7; $k++) { ?>
+                                            --><div class="empty_day"></div><!--
+                                        <?php }
+                                    } ?>
+                                    -->
+                                </div>
+                        </div>
                     </div>
-                </div>
-
-                <?php }
-                } ?>
+                <?php } ?>
             </div>
         </div>
     </div>

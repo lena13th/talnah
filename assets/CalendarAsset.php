@@ -18,10 +18,12 @@ class CalendarAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/calendar.css',
+//        'css/calendar.css',
     ];
     public $js = [
+        'js/calendar.js'
     ];
     public $depends = [
+        'yii\web\YiiAsset',
     ];
 }

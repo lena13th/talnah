@@ -77,3 +77,17 @@
   -o-transform: rotate($x); /* Для Opera */
   transform: rotate($x);
 }
+
+@mixin border-bottom-right-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius!important;
+  -moz-border-bottom-right-radius: $radius!important;
+  -ms-border-bottom-right-radius: $radius!important;
+  border-bottom-right-radius: $radius!important;
+}
+
+@mixin border-bottom-left-radius($radius) {
+  -webkit-border-bottom-left-radius: $radius!important;
+  -moz-border-bottom-left-radius: $radius!important;
+  -ms-border-bottom-left-radius: $radius!important;
+  border-bottom-left-radius: $radius!important;
+}
