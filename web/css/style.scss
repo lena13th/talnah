@@ -87,3 +87,31 @@
     margin-top: 40px;
   }
 }
+
+.contacts {
+  .breadcrumbs {
+
+  }
+  h3 {
+    display: block;
+    padding-top: 15px;
+    //border-top: 1px dashed #e7e7e7;
+  }
+  hr {
+    display: inline;
+  }
+  .info {
+    border-left: 2px solid #50b3e2;
+    @include box-shadow(-20px,0,35px,-20px,rgba(0,0,0,0.20));
+    >div {
+      display: inline-block;
+    }
+  }
+  .item {
+    display: inline-block;
+    padding: 0 0 10px 0;
+  }
+  .map {
+    margin-top: 40px;
+  }
+}

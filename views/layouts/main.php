@@ -32,7 +32,9 @@ IndexAsset::register($this);
     <div class="pre_header_container">
         <div class="pre_header">
             <div class="pre_header_logo col-xs-12 col-sm-2 col-md-2 col-lg-1">
-                <?= Html::img("@web/img/logo.png", ['alt' => 'Логотип', 'class'=> 'pre_header-logo']) ?>
+                <a href="<?= Url::Home() ?>">
+                        <?= Html::img("@web/img/logo.png", ['alt' => 'Логотип', 'class'=> 'pre_header-logo']) ?>
+                </a>
             </div>
             <div class="pre_header_company_information col-xs-12 col-sm-8 col-md-8 col-lg-9">
                 <div class="pre_header_company_type">Управление по спорту администрации города Норильск, муниципальное бюджетное учреждение </div>

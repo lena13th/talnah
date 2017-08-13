@@ -30,7 +30,9 @@ use yii\helpers\Url;
             <li class="<?php if ((Yii::$app->controller->action->id)=='calendar') {?>active<? } ?>">
                 <a href="<?= Url::to(['/test/calendar/yr='.date("o").'/mn=current'])?>"><i class="fa fa-calendar" aria-hidden="true"></i> Календарь мероприятий</a>
             </li>
-            <li><a href="#"><i class="fa fa-address-card-o" aria-hidden="true"></i> Контакты</a></li>
+            <li class="<?php if ((Yii::$app->controller->action->id)=='contacts') {?>active<? } ?>">
+                <a href="<?= Url::to(['/test/contacts'])?>"><i class="fa fa-address-card-o" aria-hidden="true"></i>Контакты</a>
+            </li>
             <li><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> Обратная связь</a></li>
         </ul>
         </div>

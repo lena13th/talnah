@@ -2688,7 +2688,7 @@ html * {
         position: absolute;
         top: 64px;
         left: 50%;
-        margin-left: -5px; }
+        margin-left: -15px; }
 
   .submenu {
     width: 250px;
@@ -2896,8 +2896,8 @@ body {
   .breadcrumbs {
     padding: 33px 0 0 10px;
     margin-bottom: 0; } }
-.news .breadcrumbs_left {
-  padding-left: 30px !important;
+.breadcrumbs_left {
+  padding-left: 35px !important;
   padding-right: 20px; }
 
 .left {
@@ -3261,5 +3261,22 @@ body {
     float: right;
     margin-bottom: 35px;
     margin-top: 40px; } }
+.contacts h3 {
+  display: block;
+  padding-top: 15px; }
+.contacts hr {
+  display: inline; }
+.contacts .info {
+  border-left: 2px solid #50b3e2;
+  -webkit-box-shadow: -20px 0 35px -20px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: -20px 0 35px -20px rgba(0, 0, 0, 0.2);
+  box-shadow: -20px 0 35px -20px rgba(0, 0, 0, 0.2); }
+  .contacts .info > div {
+    display: inline-block; }
+.contacts .item {
+  display: inline-block;
+  padding: 0 0 10px 0; }
+.contacts .map {
+  margin-top: 40px; }
 
 /*# sourceMappingURL=style.css.map */

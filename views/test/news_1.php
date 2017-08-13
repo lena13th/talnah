@@ -11,7 +11,7 @@ use app\assets\NewsAsset;
 NewsAsset::register($this);
 ?>
 <div class="main_wrapper news_item_page">
-    <ul class="breadcrumbs_left breadcrumbs col-xs-12 col-md-10 col-md-offset-1">
+    <ul class="breadcrumbs col-xs-12 col-md-10 col-md-offset-1">
         <li><a href="#"><i class="fa fa-home"></i>Главная</a></li>
         <li><a href="#">Новости</a></li>
         <li>Объявляется набор в группу по плаванию</li>
