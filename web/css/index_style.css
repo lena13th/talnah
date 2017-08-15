@@ -2452,6 +2452,7 @@ html * {
   /** Firefox **/ }
 
 .button {
+  border: none;
   font-size: 12px;
   background: #4866a7;
   display: inline-block;
@@ -2459,7 +2460,7 @@ html * {
   -moz-border-radius: 25px !important;
   -ms-border-radius: 25px !important;
   border-radius: 25px !important; }
-  .button a {
+  .button a, .button span {
     color: white;
     text-decoration: none;
     padding: 10px 20px;

@@ -2452,6 +2452,7 @@ html * {
   /** Firefox **/ }
 
 .button {
+  border: none;
   font-size: 12px;
   background: #4866a7;
   display: inline-block;
@@ -2459,7 +2460,7 @@ html * {
   -moz-border-radius: 25px !important;
   -ms-border-radius: 25px !important;
   border-radius: 25px !important; }
-  .button a {
+  .button a, .button span {
     color: white;
     text-decoration: none;
     padding: 10px 20px;
@@ -3277,6 +3278,31 @@ body {
   display: inline-block;
   padding: 0 0 10px 0; }
 .contacts .map {
-  margin-top: 40px; }
+  margin-top: 40px;
+  padding: 0; }
+
+.feedback .form {
+  padding: 0; }
+  .feedback .form input, .feedback .form textarea {
+    display: block;
+    padding: 10px;
+    margin: 10px 0;
+    -webkit-border-radius: 10px !important;
+    -moz-border-radius: 10px !important;
+    -ms-border-radius: 10px !important;
+    border-radius: 10px !important;
+    outline: none;
+    border: 1px solid #bababa;
+    width: 100%; }
+  .feedback .form label {
+    display: block;
+    text-align: left;
+    font-weight: 100; }
+    .feedback .form label input {
+      display: inline;
+      text-align: left;
+      width: 20px; }
+  .feedback .form .button {
+    margin-top: 20px; }
 
 /*# sourceMappingURL=style.css.map */

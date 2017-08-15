@@ -39,7 +39,7 @@
 }
 
 .button {
-  a {
+  a, span {
     color: white;
     text-decoration: none;
     padding: 10px 20px;
@@ -48,6 +48,7 @@
   i {
     margin-left: 15px;
   }
+  border: none;
   font-size: 12px;
   background: $blue;
   display: inline-block;

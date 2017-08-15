@@ -7,6 +7,7 @@
  */
 
 namespace app\controllers;
+use app\models\ContactForm;
 use yii\base\Controller;
 use Yii;
 
@@ -40,6 +41,25 @@ class TestController extends Controller
     {
         $this->layout = 'main';
         return $this->render('contacts');
+    }
+
+    public function actionFeedback()
+    {
+        $this->layout = 'main';
+        $model = new ContactForm();
+//        $this->setMeta('Контакты '.$company->name, '', 'Контактные данные, адрес и телефон '.$company->name);
+
+        if ($model->load(Yii::$app->request->post())) {
+            Yii::$app->session->setFlash('success', 'Ваше письмо отправлено.');
+            Yii::$app->mailer->compose('contact_view', ['model'=>$model])
+                ->setFrom(['mr-15@mail.ru' => 'Сайт спортивного комплекса "Талнах"'])
+                ->setTo('mr-15@mail.ru')
+                ->setSubject('Обратная связь с сайта')
+                ->send();
+            return $this->refresh();
+        }
+        // debug($company);
+        return $this->render('feedback', compact('model', 'company'));
     }
 
     public function actionCalendar()

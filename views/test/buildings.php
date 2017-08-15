@@ -6,7 +6,6 @@
  * Time: 19:14
  */
 use yii\helpers\Html;
-
 ?>
 <div class="main_wrapper">
     <ul class="breadcrumbs col-lg-offset-3">

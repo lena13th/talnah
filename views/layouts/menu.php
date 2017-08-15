@@ -33,7 +33,9 @@ use yii\helpers\Url;
             <li class="<?php if ((Yii::$app->controller->action->id)=='contacts') {?>active<? } ?>">
                 <a href="<?= Url::to(['/test/contacts'])?>"><i class="fa fa-address-card-o" aria-hidden="true"></i>Контакты</a>
             </li>
-            <li><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> Обратная связь</a></li>
+            <li class="<?php if ((Yii::$app->controller->action->id)=='feedback') {?>active<? } ?>">
+                <a href="<?= Url::to(['/test/feedback'])?>"><i class="fa fa-comments-o" aria-hidden="true"></i>Обратная связь</a>
+            </li>
         </ul>
         </div>
     </div>
