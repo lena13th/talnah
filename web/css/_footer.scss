@@ -47,6 +47,13 @@
       }
     }
   }
+  li:last-child {
+    a {
+      &:after {
+      border-right: none;
+      }
+    }
+  }
 }
 .footer_year_container {
   background: $black;

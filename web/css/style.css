@@ -2804,6 +2804,8 @@ body {
         display: inline-block;
         content: '';
         height: 10px; }
+  .footer_menu li:last-child a:after {
+    border-right: none; }
 
 .footer_year_container {
   background: #1d1c1f; }
@@ -2943,6 +2945,9 @@ body {
       display: inline-block;
       width: 100%;
       text-decoration: none; }
+  .left_menu li.active {
+    background: #33539a;
+    border-top: #072056; }
 
 .left_block {
   padding: 0 !important;

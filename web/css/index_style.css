@@ -2804,6 +2804,8 @@ body {
         display: inline-block;
         content: '';
         height: 10px; }
+  .footer_menu li:last-child a:after {
+    border-right: none; }
 
 .footer_year_container {
   background: #1d1c1f; }
