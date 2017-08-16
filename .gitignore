@@ -15,23 +15,6 @@ Thumbs.db
 # composer vendor dir
 /vendor
 
-# composer commands dir
-/commands
-
-# composer runtime dir
-/runtime
-
-# composer tests dir
-/tests
-
-.bowerrc
-codeception.yml
-composer.lock
-LICENSE.md
-requirements.php
-yii
-yii.bat
-
 # composer itself is not needed
 composer.phar
 

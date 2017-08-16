@@ -1,4 +1,5 @@
 <?php
+use app\components\CompanyWidget;
 use yii\helpers\Url;
 
 ?>
@@ -6,24 +7,23 @@ use yii\helpers\Url;
     <div class="footer">
         <div class="footer_left col-xs-12 col-md-6 col-lg-4">
             <div class="footer_company_description">
-                Управление по спорту администрации города Норильск, муниципальное бюджетное учреждение
+                    <?= CompanyWidget::widget(['object' => 'organization']); ?>
             </div>
             <div class="footer_company_name h3">
-                Спортивный комплекс  «ТАЛНАХ»
+                <?= CompanyWidget::widget(['object' => 'name']); ?>
             </div>
             <hr>
             <div class="footer_contacts">
                 <div class="footer_phones">
                     <i class="fa fa-phone" aria-hidden="true"></i>
                     <span>
-                        <p>+7 (347) 555 55-55,</p>
-                        <p>+7 (347) 123 45-67</p>
+                        <?= CompanyWidget::widget(['object' => 'phone']); ?>
                     </span>
                 </div>
                 <div class="footer_adress">
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                     <span>
-                        <p>г. Норильск, район Талнах,</p><p>ул. Таймырская, д. 15</p>
+                        <?= CompanyWidget::widget(['object' => 'address']); ?>
                     </span>
                 </div>
             </div>
@@ -32,25 +32,18 @@ use yii\helpers\Url;
             <div class="footer_menu_container">
                 <div class="h4">Карта сайта</div>
                 <ul class="footer_menu">
-                    <li><a href="#">Главная</a></li>
-                    <li><a href="#">Спортивные сооружения</a></li>
-                    <li><a href="#">Новости</a></li>
-                    <li><a href="#">О нас</a></li>
+                    <li><a href="<?= Url::to(['/site/index']) ?>">Главная</a></li>
+                    <li><a href="<?= Url::to(['/page/index', 'alias' => 'sportbuilding']) ?>">Спортивные сооружения</a></li>
+                    <li><a href="<?= Url::to(['/news/index']) ?>">Новости</a></li>
+                    <li><a href="<?= Url::to(['/page/index', 'alias' => 'about',]) ?>">О нас</a></li>
                     <li><a href="#">Календарь мероприятий</a></li>
-                    <li><a href="#">Контакты</a></li>
-                    <li><a href="#">Обратная связь</a></li>
+                    <li><a href="<?= Url::to(['/site/contacts']) ?>">Контакты</a></li>
+                    <li><a href="<?= Url::to(['/site/feedback']) ?>">Обратная связь</a></li>
                 </ul>
             </div>
             <div class="footer_menu_container">
                 <div class="h4">Спортивные сооружения</div>
-                <ul class="footer_menu">
-                    <li><a href="#">СОЦ “Восток”</a></li>
-                    <li><a href="#">КОЦ</a></li>
-                    <li><a href="#">Плавательный бассейн</a></li>
-                    <li><a href="#">СЗ “Горняк”</a></li>
-                    <li><a href="#">КК “Умка”</a></li>
-                    <li><a href="#">СТК “Гора Отдельная”</a></li>
-                </ul>
+                <?= app\components\SubmenuWidget::widget(['tpl' => 'submenu_footer', 'parent_alias' => 'sportbuilding']); ?>
             </div>
         </div>
     </div>

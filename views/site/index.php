@@ -1,53 +1,99 @@
 <?php
-
-/* @var $this yii\web\View */
-
-$this->title = 'My Yii Application';
+use yii\helpers\Url;
+use yii\helpers\Html;
+$this->params['active_page'][] = 'index';
 ?>
-<div class="site-index">
 
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
+<div class="main_wrapper">
+    <div class="main">
+        <?php if (!((empty($ads))&&(empty($company->rekblock)))): ?>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+        <div class="left col-xs-12 col-md-12 col-lg-3">
+            <?php if (!empty($ads)): ?>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+            <div class="left_block col-sm-6 col-lg-12">
+                <div class="left_block_header h3">Объявления</div>
+                <div class="left_block_content">
+                    <?php foreach ($ads as $key => $item_ads): ?>
+                        <?php
+                            if ($key!='0'){echo '<hr>';}
+                        ?>
+                        <?= $item_ads->title ?>
+                        <?= $item_ads->content ?>
+                    <?php endforeach; ?>
+                </div>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
+            <?php endif; ?>
+            <?php if (!empty($company->rekblock)): ?>
+            <div class="ad col-sm-6 col-lg-12">
+                <?= $company->rekblock ?>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+            <?php endif; ?>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+        </div>
+        <div class="content col-xs-12 col-sm-9 col-md-8 col-lg-6">
+            <?php else: ?>
+        <div class="content col-xs-12 col-sm-9 col-md-8 col-lg-9">
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+            <?php endif; ?>
+
+            <div class="h3">Лента новостей</div>
+            <div class="news">
+                <?php foreach ($news as $item_news): ?>
+                <div class="news_item row">
+                    <div class="news_item_event_date col-xs-12">
+                        <i class="fa-calendar fa"></i>
+                        <span><?= $item_news->date_event_start ?>
+                            <?php
+                                if (!empty($item_news->date_event_end)){
+                                echo ' - '.$item_news->date_event_end;
+                            }
+                            ?>
+                        </span>
+                    </div>
+                    <div class="news_item_image col-xs-12 col-sm-4">
+                        <?= Html::img("@web/img/news_preview/".$item_news->image, ['alt' => 'Новость1']) ?></div>
+                    <div class="news_item_content col-xs-12 col-sm-8">
+                        <a href="<?= Url::to(['/news/view', 'id'=>$item_news->news_id]) ?>" class="news_item_title"><?= $item_news->title ?></a>
+                        <div class="news_item_text">
+                            <p><?= $item_news->short_description ?></p>
+                        </div>
+                        <div class="news_item_public_date">Опубликовано: <?= $item_news->date_public ?></div>
+                    </div>
+                </div>
+                <hr>
+                <?php endforeach; ?>
+                <div class="button to_all_news"><a href="<?= Url::to(['/news/index']) ?>">Все новости <i class="fa fa-angle-right"></i></a></div>
             </div>
         </div>
-
+        <div class="right col-xs-12 col-sm-3 col-md-4 col-lg-3">
+            <div class="h3">Анонсы спортивных мероприятий</div>
+            <div class="news">
+                <?php foreach ($events as $key => $event): ?>
+                <?php
+                if ($key!='0'){echo '<hr>';}
+                ?>
+                <div class="news_item row">
+                    <div class="news_item_event_date col-xs-12">
+                        <i class="fa-calendar fa"></i>
+                        <span><?= $event->date_event_start ?>
+                            <?php
+                            if (!empty($event->date_event_end)){
+                                echo ' - '.$event->date_event_end;
+                            }
+                            ?>
+                        </span>
+                    </div>
+                    <div class="news_item_content col-xs-12">
+                        <a href="#" class="news_item_title"><?= $event->title ?></a>
+                        <div class="news_item_text">
+                            <p><?= $event->short_description ?></p>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+                <div class="button to_all_news"><a href="#">Календарь <i class="fa fa-angle-right"></i></a></div>
+            </div>
+        </div>
     </div>
 </div>

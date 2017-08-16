@@ -2,7 +2,12 @@
 
 namespace app\controllers;
 
+use app\models\Ads;
+use app\models\Events;
+use app\models\News;
+use app\models\Sportbuilding;
 use Yii;
+use yii\caching\DbDependency;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -10,7 +15,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 
-class SiteController extends Controller
+class SiteController extends AppController
 {
     /**
      * @inheritdoc
@@ -61,7 +66,32 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $this->layout = 'index_layout';
+
+        $dependency = new DbDependency([
+            'sql' => 'SELECT MAX(updated_on) FROM ads',
+        ]);
+        $ads = Yii::$app->db->cache(function ($db) {
+            return Ads::find()->where(['published' => 1])->all();
+        }, 0, $dependency);
+
+        $dependency = new DbDependency([
+            'sql' => 'SELECT MAX(updated_on) FROM news',
+        ]);
+        $news = Yii::$app->db->cache(function ($db) {
+            return News::find()->where(['published' => 1])->all();
+        }, 0, $dependency);
+
+        $dependency = new DbDependency([
+            'sql' => 'SELECT MAX(updated_on) FROM events',
+        ]);
+        $events = Yii::$app->db->cache(function ($db) {
+            return Events::find()->where(['published' => 1])->all();
+        }, 0, $dependency);
+
+        $company = $this->getCompany();
+
+        return $this->render('index', compact('ads','company','news','events'));
     }
 
     /**
@@ -96,31 +126,38 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    /**
-     * Displays contact page.
-     *
-     * @return Response|string
-     */
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
 
-            return $this->refresh();
-        }
-        return $this->render('contact', [
-            'model' => $model,
+
+    /**
+     * Displays contacts page.
+     */
+    public function actionContacts()
+    {
+        $dependency = new DbDependency([
+            'sql' => 'SELECT MAX(updated_on) FROM page',
         ]);
+        $sportbuildings = Yii::$app->db->cache(function ($db)  {
+            return Sportbuilding::find()->where(['published' => 1])->all();
+        }, 0, $dependency);
+
+        return $this->render('contacts',compact('sportbuildings'));
+    }
+
+
+    /**
+     * Displays ask page.
+     */
+    public function actionAsk()
+    {
+        return $this->render('ask');
     }
 
     /**
-     * Displays about.php page.
-     *
-     * @return string
+     * Displays questionary page.
      */
-    public function actionAbout()
+    public function actionQuestionary()
     {
-        return $this->render('about.php');
+        return $this->render('questionary');
     }
+
 }

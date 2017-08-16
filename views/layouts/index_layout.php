@@ -1,5 +1,6 @@
 <?php
 //use app\components\ContactFormWidget;
+use app\components\CompanyWidget;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use app\assets\IndexAsset;
@@ -32,8 +33,13 @@ IndexAsset::register($this);
         <?php $this->endContent(); ?>
         <?= Html::img("@web/img/index_logo.png", ['alt' => 'Логотип', 'class'=> 'index-logo']) ?>
         <div class="index_section1_company_description">
-            <div class="index_company_type">Управление по спорту администрации города Норильск, муниципальное бюджетное учреждение </div>
-            <div class="index_company_name h2">Спортивный комплекс  «ТАЛНАХ»</div>
+            <div class="index_company_type">
+                <?= CompanyWidget::widget(['object' => 'organization']); ?>
+            </div>
+            <div class="index_company_name h2">
+                <?= CompanyWidget::widget(['object' => 'name']); ?>
+
+            </div>
         </div>
         <div class="index_socials socials">
             <a href="#">

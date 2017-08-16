@@ -1,5 +1,6 @@
 <?php
 //use app\components\ContactFormWidget;
+use app\components\CompanyWidget;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use app\assets\MainAsset;
@@ -32,13 +33,17 @@ IndexAsset::register($this);
     <div class="pre_header_container">
         <div class="pre_header">
             <div class="pre_header_logo col-xs-12 col-sm-2 col-md-2 col-lg-1">
-                <a href="<?= Url::Home() ?>">
-                        <?= Html::img("@web/img/logo.png", ['alt' => 'Логотип', 'class'=> 'pre_header-logo']) ?>
+                <a href="<?= Url::to(['/site/index']) ?>">
+                <?= Html::img("@web/img/logo.png", ['alt' => 'Логотип', 'class' => 'pre_header-logo']) ?>
                 </a>
             </div>
             <div class="pre_header_company_information col-xs-12 col-sm-8 col-md-8 col-lg-9">
-                <div class="pre_header_company_type">Управление по спорту администрации города Норильск, муниципальное бюджетное учреждение </div>
-                <div class="pre_header_company_name h4">Спортивный комплекс  «ТАЛНАХ»</div>
+                <div class="pre_header_company_type">
+                    <?= CompanyWidget::widget(['object' => 'organization']); ?>
+                </div>
+                <div class="pre_header_company_name h4">
+                    <?= CompanyWidget::widget(['object' => 'name']); ?>
+                </div>
             </div>
             <div class="pre_header_socials_container col-xs-12 col-sm-2 col-md-2">
                 <div class="socials pre_header_socials">
@@ -62,8 +67,8 @@ IndexAsset::register($this);
     </div>
     <?= $content ?>
 
-    <?php  $this->beginContent('@app/views/layouts/footer.php'); ?>
-    <?php  $this->endContent(); ?>
+    <?php $this->beginContent('@app/views/layouts/footer.php'); ?>
+    <?php $this->endContent(); ?>
 
     <?php $this->endBody() ?>
     </body>
