@@ -63,8 +63,6 @@ class PageController extends AppController
             return Sportbuilding::find()->where(['published' => 1])->andWhere(['alias' => $parent_alias])->one();
         }, 0, $dependency);
 
-
-
         return $this->render('contacts', compact('parent_alias','parent_page','page','next_pages','grf'));
 
     }

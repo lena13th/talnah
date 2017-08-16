@@ -9,11 +9,8 @@ $this->params['active_parent_page'][] = 'about';
     <ul class="breadcrumbs col-lg-offset-3">
         <li><a href="<?= Url::to(['/site/index']) ?>"><i class="fa fa-home"></i>Главная</a></li>
         <li>
-            <a href="<?= Url::to(['/page/index', 'alias' => 'about']) ?>">
-                О нас
-            </a>
+            <a href="<?= Url::to(['/page/index', 'alias' => 'about']) ?>">О нас</a>
         </li>
-
         <li>Вакансии</li>
     </ul>
     <div class="main">

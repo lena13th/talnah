@@ -10,8 +10,8 @@ $this->params['active_parent_page'][] = 'about';
         <li><a href="<?= Url::to(['/site/index']) ?>"><i class="fa fa-home"></i>Главная</a></li>
         <li>
             <a href="<?= Url::to(['/page/index', 'alias' => 'about'])?>">
-                О нас
-            </a>
+                О нас<!--
+         --></a>
         </li>
         <li>
             <a href="<?= Url::to(['/vacancy/index']) ?>">

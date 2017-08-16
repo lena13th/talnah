@@ -12,8 +12,8 @@ use yii\helpers\Url;
             ?>
             <li>
                 <a href="<?= Url::to(['/page/index', 'alias' => $parent_page->alias]) ?>">
-                    <?= $parent_page->title ?>
-                </a>
+                    <?= $parent_page->title ?><!--
+            --></a>
             </li>
 
             <?php

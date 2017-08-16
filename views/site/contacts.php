@@ -35,7 +35,9 @@ use yii\helpers\Url;
                             </div>
                         </div>
                     </div>
-
+<pre>
+    <?= print_r($sportbuilding->page->full_title) ?>
+</pre>
                     <?php
                     if ($key % 2) {
                         echo '<div class="clearfix"></div>';

@@ -137,7 +137,7 @@ class SiteController extends AppController
             'sql' => 'SELECT MAX(updated_on) FROM page',
         ]);
         $sportbuildings = Yii::$app->db->cache(function ($db)  {
-            return Sportbuilding::find()->where(['published' => 1])->all();
+            return Sportbuilding::find()->with('page')->where(['published' => 1])->all();
         }, 0, $dependency);
 
         return $this->render('contacts',compact('sportbuildings'));
