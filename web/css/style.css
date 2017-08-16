@@ -3275,9 +3275,9 @@ body {
   display: inline; }
 .contacts .info {
   border-left: 2px solid #50b3e2;
-  -webkit-box-shadow: -20px 0 35px -20px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: -20px 0 35px -20px rgba(0, 0, 0, 0.2);
-  box-shadow: -20px 0 35px -20px rgba(0, 0, 0, 0.2); }
+  -webkit-box-shadow: -25px 0 30px -20px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: -25px 0 30px -20px rgba(0, 0, 0, 0.2);
+  box-shadow: -25px 0 30px -20px rgba(0, 0, 0, 0.2); }
   .contacts .info > div {
     display: inline-block; }
 .contacts .item {
@@ -3286,6 +3286,12 @@ body {
 .contacts .map {
   margin-top: 40px;
   padding: 0; }
+
+.build_contacts .info {
+  -webkit-box-shadow: 0 0px 0px 0px transparent;
+  -moz-box-shadow: 0 0px 0px 0px transparent;
+  box-shadow: 0 0px 0px 0px transparent;
+  border-left: 2px solid #50b3e2; }
 
 .feedback .form {
   padding: 0; }

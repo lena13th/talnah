@@ -51,21 +51,25 @@ use yii\helpers\Url;
                     </div>
                 </div>
             </div>
-            <div class="content col-xs-12 col-sm-9 col-md-8 col-lg-9">
+            <div class="content build_contacts col-xs-12 col-sm-9 col-md-8 col-lg-9">
                 <h1>Контакты</h1>
+                <br>
                 <div class="info col-xs-12">
-                    <div class="phones col-xs-12 col-md-4">
+                    <div class="phones col-xs-12 col-sm-3">
                         <h4>Телефон</h4>
                         <?= $page->phone ?>
                     </div>
-                    <div class="adress col-xs-12 col-md-4">
+                    <div class="adress col-xs-12 col-sm-5">
                         <h4>Адрес</h4>
                         <?= $page->address ?>
                     </div>
-                    <div class="worktime col-xs-12 col-md-4">
+                    <div class="worktime col-xs-12 col-sm-4">
                         <h4>Режим работы</h4>
                         <?= $page->work_hours ?>
                     </div>
+                </div>
+                <div>
+
                 </div>
 
             </div>

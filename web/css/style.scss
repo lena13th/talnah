@@ -102,7 +102,7 @@
   }
   .info {
     border-left: 2px solid #50b3e2;
-    @include box-shadow(-20px,0,35px,-20px,rgba(0,0,0,0.20));
+    @include box-shadow(-25px, 0, 30px, -20px,rgba(0,0,0,0.20));
     >div {
       display: inline-block;
     }
@@ -116,7 +116,12 @@
     padding: 0;
   }
 }
-
+.build_contacts {
+  .info {
+    @include box-shadow(0, 0px, 0px, 0px,rgba(0,0,0,0));
+    border-left: 2px solid #50b3e2;
+  }
+}
 .feedback {
   .form {
     padding: 0;

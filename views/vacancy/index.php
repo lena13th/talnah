@@ -42,7 +42,7 @@ $this->params['active_parent_page'][] = 'about';
         </div>
         <div class="content col-xs-12 col-sm-9 col-md-8 col-lg-9">
             <h1>Вакансии</h1>
-            <?php $vacancy=[]; if( !empty($vacancy) ): ?>
+            <?php if( !empty($vacancy) ): ?>
                 <?php foreach ($vacancy as $vacation): ?>
 
                     <div class="vacancy_item col-xs-12 col-sm-6 col-md-4 col-lg-4 vacation">
