@@ -22,7 +22,7 @@ use yii\captcha\Captcha;
                 <div class="left_block_content">
                     <ul class="left_menu">
                         <li class="active"><a href="#">Задать вопрос</a></li>
-                        <li><a href="#">Анкета</a></li>
+                        <li><a href="#">Анкетирование</a></li>
                     </ul>
                 </div>
             </div>

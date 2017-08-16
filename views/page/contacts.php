@@ -34,7 +34,7 @@ use yii\helpers\Url;
                                     <li
                                         <?php
                                         if ($next_page->alias == 'contacts') { ?>
-                                            class="active" style="background-color: #ff6b7f"
+                                            class="active"
                                         <?php }
                                         ?>
                                     >

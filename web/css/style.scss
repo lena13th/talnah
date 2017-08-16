@@ -144,3 +144,25 @@
     }
   }
 }
+
+.vacancy {
+  .vacancy_item {
+    padding-left: 0;
+    margin-bottom: 20px;
+  }
+}
+.empty_content {
+  h2, .h2 {
+    //margin-bottom: 20px;
+  }
+  .back_to_home {
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+}
+.empty_left {
+  text-align: left;
+}
+.empty_center {
+  text-align: center;
+}

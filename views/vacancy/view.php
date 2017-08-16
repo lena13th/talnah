@@ -32,7 +32,7 @@ $this->params['active_parent_page'][] = 'about';
                                 <li
                                     <?php
                                     if ($next_page->alias == 'vacancies') { ?>
-                                        class="active" style="background-color: #ff6b7f"
+                                        class="active"
                                     <?php }
                                     ?>
                                 >

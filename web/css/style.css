@@ -2555,7 +2555,8 @@ html * {
   overflow: hidden;
   margin: 0px 10px;
   background: #fcfcfc;
-  border: 1px solid #e9e9e9; }
+  border: 1px solid #e9e9e9;
+  z-index: 3; }
 
 .show_submenu {
   height: auto;
@@ -3309,5 +3310,19 @@ body {
       width: 20px; }
   .feedback .form .button {
     margin-top: 20px; }
+
+.vacancy .vacancy_item {
+  padding-left: 0;
+  margin-bottom: 20px; }
+
+.empty_content .back_to_home {
+  margin: 0 auto;
+  margin-top: 20px; }
+
+.empty_left {
+  text-align: left; }
+
+.empty_center {
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */

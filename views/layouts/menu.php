@@ -75,7 +75,7 @@ use yii\helpers\Url;
                     <span class="submenu_expand"></span>
                     <ul class="submenu">
                         <li><a href="<?= Url::to(['/site/ask']) ?>">Задать вопрос</a></li>
-                        <li><a href="<?= Url::to(['/site/questionary']) ?>">Анкета</a></li>
+                        <li><a href="<?= Url::to(['/site/questionary']) ?>">Анкетирование</a></li>
                     </ul>
                 </li>
             </ul>

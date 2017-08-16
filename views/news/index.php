@@ -16,7 +16,7 @@ $this->params['active_page'][] = 'news';
     <div class="main col-xs-12">
         <div class="content col-xs-12">
             <h1>Новости</h1>
-            <div class="content">
+            <div class="">
                 <?php if (!empty($news)): ?>
 
                 <div class="news">
@@ -49,36 +49,37 @@ $this->params['active_page'][] = 'news';
                                 <div class="news_item_text">
                                     <p><?= $item_news->short_description ?></p>
                                 </div>
-                                <div class="news_item_public_date">Опубликовано:  <?= $item_news->date_public ?></div>
+                                <div class="news_item_public_date">Опубликовано: <?= $item_news->date_public ?></div>
                             </div>
                             <hr class="col-xs-10 col-sm-11">
                         </div>
                         <?php
 
-                        if ($key % 2) {
+                        if (($key % 2) || ($key == count($news) - 1)) {
                             echo '</div>';
+
                         }
                         ?>
                     <?php endforeach; ?>
+                    <div class="pagination_block col-xs-12">
+                        <ul class="pagination">
+                            <li class="prev disabled"><span>&laquo;</span></li>
+                            <li class="active"><a href="/menu/4" data-page="0">1</a></li>
+                            <li><a href="/menu/4/page=2" data-page="1">2</a></li>
+                            <li class="next"><a href="/menu/4/page=2" data-page="1">&raquo;</a></li>
+                        </ul>
+                    </div>
 
-            <div class="pagination_block col-xs-12">
-                <ul class="pagination">
-                    <li class="prev disabled"><span>&laquo;</span></li>
-                    <li class="active"><a href="/menu/4" data-page="0">1</a></li>
-                    <li><a href="/menu/4/page=2" data-page="1">2</a></li>
-                    <li class="next"><a href="/menu/4/page=2" data-page="1">&raquo;</a></li>
-                </ul>
-            </div>
+                    <?php else: ?>
+                        <div class="empty_content empty_center">
+                            <div class="h2">Новостей не найдено</div>
+                            <p>К сожалению на данный момент на сайте нет опубликованных новостей.</p>
+                            <a href="<?= Url::to(['/site/index']) ?> " class="btn btn-default back_to_home"><span>Вернуться на главную</span></a>
+                        </div>
+                    <?php endif; ?>
 
-            <?php else: ?>
-                <div>
-                    <span class="h2">Новостей не найдено</span>
-                    <p>К сожалению на данный момент на сайте нет опубликованных новостей.</p>
                 </div>
-                <a href="<?= Url::to(['/site/index']) ?>"><span>Вернуться на главную</span></a>
-            <?php endif; ?>
-
+            </div>
         </div>
     </div>
-</div>
 </div>

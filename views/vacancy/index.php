@@ -5,7 +5,7 @@ use yii\helpers\Url;
 $this->params['active_page'][] = 'vacancies';
 $this->params['active_parent_page'][] = 'about';
 ?>
-<div class="main_wrapper">
+<div class="main_wrapper vacancy">
     <ul class="breadcrumbs col-lg-offset-3">
         <li><a href="<?= Url::to(['/site/index']) ?>"><i class="fa fa-home"></i>Главная</a></li>
         <li>
@@ -28,7 +28,7 @@ $this->params['active_parent_page'][] = 'about';
                                 <li
                                     <?php
                                     if ($next_page->alias == 'vacancies') { ?>
-                                        class="active" style="background-color: #ff6b7f"
+                                        class="active"
                                     <?php }
                                     ?>
                                 >
@@ -45,10 +45,10 @@ $this->params['active_parent_page'][] = 'about';
         </div>
         <div class="content col-xs-12 col-sm-9 col-md-8 col-lg-9">
             <h1>Вакансии</h1>
-            <?php if( !empty($vacancy) ): ?>
+            <?php $vacancy=[]; if( !empty($vacancy) ): ?>
                 <?php foreach ($vacancy as $vacation): ?>
 
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 vacation">
+                    <div class="vacancy_item col-xs-12 col-sm-6 col-md-4 col-lg-4 vacation">
                         <div class="vacation_block">
                             <h3><?= $vacation->title?></h3>
                             <p><?= $vacation->short_description?></p>
@@ -62,11 +62,11 @@ $this->params['active_parent_page'][] = 'about';
                     </div>
                 <?php endforeach;?>
             <?php else: ?>
-                <div class="wishlist_page_header">
-                    <span class="h2">Вакансий не найдено</span>
+                <div class="empty_content empty_left">
+                    <div class="h2">Вакансий не найдено</div>
                     <p>К сожалению на данный момент на сайте нет опубликованных вакансий.</p>
+                    <a class="btn  btn-default" href="<?= Url::to(['/site/index']) ?>"><span>Вернуться на главную</span></a>
                 </div>
-                <a class="btn  btn-primary" href="<?= Url::to(['/site/index']) ?>"><span>Вернуться на главную</span></a>
             <?php endif; ?>
 
         </div>

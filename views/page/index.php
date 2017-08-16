@@ -62,7 +62,7 @@ use yii\helpers\Url;
                                     <li
                                         <?php
                                         if ($next_page->alias == $page->alias) { ?>
-                                            class="active" style="background-color: #ff6b7f"
+                                            class="active"
                                         <?php }
                                         ?>
                                     >
