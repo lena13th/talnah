@@ -100,6 +100,7 @@ $config = [
                 'login' => 'site/login',
                 'logout' => 'site/logout',
                 'admin' => 'admin/',
+                'admin/news/index' => 'admin/news/index',
                 'admin/*' => 'admin/',
 
 
