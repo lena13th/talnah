@@ -39,7 +39,7 @@ class News extends \yii\db\ActiveRecord
             [['title', 'content'], 'required'],
             [['published', 'related_event', 'related_sportbuilding'], 'integer'],
             [['content'], 'string'],
-            [['date_event_start', 'date_event_end', 'date_public', 'updated_on'], 'safe'],
+            [['date_event_start', 'date_event_end', 'date_public'], 'safe'],
             [['title', 'image'], 'string', 'max' => 255],
             [['short_description'], 'string', 'max' => 1023],
         ];
@@ -51,18 +51,17 @@ class News extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'news_id' => 'News ID',
-            'title' => 'Title',
-            'published' => 'Published',
-            'short_description' => 'Short Description',
-            'content' => 'Content',
-            'date_event_start' => 'Date Event Start',
-            'date_event_end' => 'Date Event End',
-            'image' => 'Image',
-            'related_event' => 'Related Event',
-            'related_sportbuilding' => 'Related Sportbuilding',
-            'date_public' => 'Date Public',
-            'updated_on' => 'Updated On',
+            'news_id' => 'ID',
+            'title' => 'Заголовок',
+            'published' => 'Опубликовано',
+            'short_description' => 'Краткое описание',
+            'content' => 'Содержание',
+            'date_event_start' => 'Дата начала события',
+            'date_event_end' => 'Дата окончания события',
+            'image' => 'Главное изображение',
+            'related_event' => 'Связанное событие из анонсов',
+            'related_sportbuilding' => 'Связанное сооружение',
+            'date_public' => 'Дата публикации',
         ];
     }
 }

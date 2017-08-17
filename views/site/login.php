@@ -34,7 +34,7 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Авторизация';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-login container">
+<div class="site-login">
     <?php // Yii::$app->getSecurity()->generatePasswordHash('123');?>
     <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
     <h1><?= Html::encode($this->title) ?></h1>

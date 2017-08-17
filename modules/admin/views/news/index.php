@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\modules\admin\models\NewsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'News';
+$this->title = 'Новости';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="news-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create News', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать новость', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'news_id',
+//            'news_id',
             'title',
             'published',
             'short_description',
@@ -35,7 +35,6 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'related_event',
             // 'related_sportbuilding',
             // 'date_public',
-            // 'updated_on',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

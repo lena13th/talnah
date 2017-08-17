@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\modules\admin\models\News */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'News', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Ноости', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="news-view">
@@ -15,11 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->news_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->news_id], [
+        <?= Html::a('Редактировать', ['update', 'id' => $model->news_id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалить', ['delete', 'id' => $model->news_id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Вы уверены что хотите удалить данную новость?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -28,7 +28,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'news_id',
             'title',
             'published',
             'short_description',
@@ -39,7 +38,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'related_event',
             'related_sportbuilding',
             'date_public',
-            'updated_on',
         ],
     ]) ?>
 
