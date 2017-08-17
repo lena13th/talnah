@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "news".
  *
- * @property integer $news_id
+ * @property integer $id
  * @property string $title
  * @property integer $published
  * @property string $short_description
@@ -22,6 +22,8 @@ use Yii;
  */
 class News extends \yii\db\ActiveRecord
 {
+    public $image;
+    public $gallery;
     /**
      * @inheritdoc
      */
@@ -40,8 +42,19 @@ class News extends \yii\db\ActiveRecord
             [['published', 'related_event', 'related_sportbuilding'], 'integer'],
             [['content'], 'string'],
             [['date_event_start', 'date_event_end', 'date_public'], 'safe'],
-            [['title', 'image'], 'string', 'max' => 255],
+            [['title'], 'string', 'max' => 255],
             [['short_description'], 'string', 'max' => 1023],
+            [['image'], 'file', 'extensions' => 'png, jpg'],
+            [['gallery'], 'file', 'extensions' => 'png, jpg', 'maxFiles' => 10],
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            'image' => [
+                'class' => 'rico\yii2images\behaviors\ImageBehave',
+            ]
         ];
     }
 
@@ -51,7 +64,7 @@ class News extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'news_id' => 'ID',
+            'id' => 'ID',
             'title' => 'Заголовок',
             'published' => 'Опубликовано',
             'short_description' => 'Краткое описание',
@@ -63,5 +76,31 @@ class News extends \yii\db\ActiveRecord
             'related_sportbuilding' => 'Связанное сооружение',
             'date_public' => 'Дата публикации',
         ];
+    }
+
+    public function upload(){
+        if($this->validate()){
+            $path = 'images/news_item/' . $this->image->baseName . '.' . $this->image->extension;
+            $this->image->saveAs($path);
+            $this->attachImage($path, true);
+            @unlink($path);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function uploadGallery(){
+        if($this->validate()){
+            foreach($this->gallery as $file){
+                $path = 'images/news_item/'. $file->baseName . '.' . $file->extension;
+                $file->saveAs($path);
+                $this->attachImage($path);
+                @unlink($path);
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 }

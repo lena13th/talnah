@@ -43,7 +43,7 @@ $this->params['active_page'][] = 'news';
                                 <?= Html::img("@web/img/news_preview/" . $item_news->image, ['alt' => 'Новость1']) ?>
                             </div>
                             <div class="news_item_content col-xs-12 col-sm-12 col-md-8">
-                                <a href="<?= Url::to(['/news/view', 'id' => $item_news->news_id]) ?>"
+                                <a href="<?= Url::to(['/news/view', 'id' => $item_news->id]) ?>"
                                    class="news_item_title">
                                     <?= $item_news->title ?></a>
                                 <div class="news_item_text">

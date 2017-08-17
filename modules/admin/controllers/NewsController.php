@@ -9,6 +9,11 @@ use app\modules\admin\controllers\AppAdminController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+
+use yii\data\ActiveDataProvider;
+use yii\web\Controller;
+use yii\web\UploadedFile;
+
 /**
  * NewsController implements the CRUD actions for News model.
  */
@@ -66,7 +71,16 @@ class NewsController extends AppAdminController
         $model = new News();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->news_id]);
+            $model->image = UploadedFile::getInstance($model, 'image');
+            if( $model->image ){
+                $model->upload();
+            }
+            unset($model->image);
+            $model->gallery = UploadedFile::getInstances($model, 'gallery');
+            $model->uploadGallery();
+
+            Yii::$app->session->setFlash('success', "Альбом {$model->name} сохранен");
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -85,7 +99,16 @@ class NewsController extends AppAdminController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->news_id]);
+            $model->image = UploadedFile::getInstance($model, 'image');
+            if( $model->image ){
+                $model->upload();
+            }
+            unset($model->image);
+            $model->gallery = UploadedFile::getInstances($model, 'gallery');
+            $model->uploadGallery();
+
+            Yii::$app->session->setFlash('success', "Новость сохранена");
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -104,6 +127,39 @@ class NewsController extends AppAdminController
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionDeletephoto($id, $image, $g)
+    {
+        $model = $this->findModel($id);
+        if ($g==0) {
+            $img = $model->getImage();
+            $images = $model->getImages();
+            $model->removeImage($img);
+            foreach($images as $imeg){
+                if($imeg->id==$image){
+                    $model->removeImage($imeg);
+                }
+            }
+        } else {
+            $images = $model->getImages();
+            foreach($images as $img){
+                if($img->id==$image){
+                    $model->removeImage($img);
+                }
+            }
+        }
+
+        if (Yii::$app->request->isAjax) {
+            $this->layout = false;
+            return 'success';
+        }
+        else {
+            Yii::$app->session->setFlash('success', "Изображение удалено");
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+        }
     }
 
     /**

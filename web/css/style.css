@@ -2878,6 +2878,10 @@ body {
   .page3 .index_events_image img {
     width: 100% !important; }
 
+.admin_buttons {
+  position: absolute;
+  z-index: -1; }
+
 .breadcrumbs {
   padding: 33px 0 0 25px; }
 

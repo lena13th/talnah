@@ -26,20 +26,26 @@ NewsAsset::register($this);
                         ?>
                     </span>
                 </div>
+                <?php $gallery = $news->getImages(); ?>
+
+<!--                --><?php //if (count($gallery) > 0) { ?>
                 <div class="slider">
                     <div class="owl-carousel owl-theme">
-                        <div class="item">
-                            <?= Html::img("@web/images/news_item/1/1.jpg", ['alt' => 'Новость1']) ?>
-                        </div>
-                        <div class="item">
-                            <?= Html::img("@web/images/news_item/1/2.jpg", ['alt' => 'Новость1']) ?>
-                        </div>
-                        <div class="item">
-                            <?= Html::img("@web/images/news_item/1/3.jpg", ['alt' => 'Новость1']) ?>
-                        </div>
+
+                        <?php if($gallery[0]->filePath == 'no_image.jpg') { ?>
+                        <?php } else { ?>
+                            <?php foreach ($gallery as $photo) { ?>
+                                <?php if($photo->isMain==0) { ?>
+                                    <div class="item">
+                                        <img src="<?php echo $photo->getUrl('800px')?>" alt="<?= $news->title ?>">
+                                    </div>
+                                <?php } ?>
+                            <?php } ?>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="clearfix"></div>
+<!--                --><?php //} ?>
                 <div class="news_item_content">
                     <div class="news_item_text">
                         <p><?= $news->content ?></p>

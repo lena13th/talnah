@@ -16,6 +16,7 @@ class ContactForm extends Model
     public $subject;
     public $message;
     public $verifyCode;
+    public $agreement;
 
 
     /**
@@ -25,7 +26,7 @@ class ContactForm extends Model
     {
         return [
             // name, email, subject and body are required
-            [['name', 'phone', 'message'], 'required'],
+            [['name', 'phone', 'message', 'agreement'], 'required'],
             // email has to be a valid email address
             ['email', 'email'],
             // verifyCode needs to be entered correctly
@@ -44,6 +45,7 @@ class ContactForm extends Model
             'email' => 'E-mail',
             'message' => 'Сообщение *',
             'phone' => 'Телефон *',
+            'agreement' => 'Согласие'
         ];
     }
 

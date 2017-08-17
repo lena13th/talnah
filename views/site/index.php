@@ -52,9 +52,11 @@ $this->params['active_page'][] = 'index';
                         </span>
                     </div>
                     <div class="news_item_image col-xs-12 col-sm-4">
-                        <?= Html::img("@web/img/news_preview/".$item_news->image, ['alt' => 'Новость1']) ?></div>
+                        <?php $image = $item_news->getImage(); ?>
+<!--                        <img src="--><?php //echo $image->getUrl('173px')?><!--" alt="--><?//= $item_news->title ?><!--">-->
+                        <?= Html::img($image->getUrl('173px'), ['alt' => $item_news->title]) ?></div>
                     <div class="news_item_content col-xs-12 col-sm-8">
-                        <a href="<?= Url::to(['/news/view', 'id'=>$item_news->news_id]) ?>" class="news_item_title"><?= $item_news->title ?></a>
+                        <a href="<?= Url::to(['/news/view', 'id'=>$item_news->id]) ?>" class="news_item_title"><?= $item_news->title ?></a>
                         <div class="news_item_text">
                             <p><?= $item_news->short_description ?></p>
                         </div>
