@@ -99,26 +99,14 @@ $config = [
                 'about/vacancies/<id:\d+>'=>'vacancy/view',
                 'login' => 'site/login',
                 'logout' => 'site/logout',
-//                'admin' => 'admin/',
-//                'admin/news/index' => 'admin/news/index',
-//                'admin/*' => 'admin/',
+                'admin' => 'admin/',
+                'admin/<controller>/<action>' => 'admin/<controller>/<action>',
 
-
-//                'admin/' => 'admin/',
                 '<grf:[\w+-]*\w+>/<parent_alias:[\w+-]*\w+>/contacts' => 'page/contacts',
 
-//                '<grf:[\w+-]*\w+>/<parent_alias:[\w+-]*\w+>/<alias:[\w+-]*\w+>' => 'page/index',
-//                '<parent_alias:[\w+-]*\w+>/<alias:[\w+-]*\w+>' => 'page/index',
-//                '<alias:[\w+-]*\w+>' => 'page/index',
-
-
-
-                //1aa/page/index?alias=vostok&sport=true
-
-
-
-
-
+                '<grf:[\w+-]*\w+>/<parent_alias:[\w+-]*\w+>/<alias:[\w+-]*\w+>' => 'page/index',
+                '<parent_alias:[\w+-]*\w+>/<alias:[\w+-]*\w+>' => 'page/index',
+                '<alias:[\w+-]*\w+>' => 'page/index',
             ],
         ],
         
