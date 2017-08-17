@@ -99,8 +99,7 @@ $config = [
                 'about/vacancies/<id:\d+>'=>'vacancy/view',
                 'login' => 'site/login',
                 'logout' => 'site/logout',
-                'admin' => 'admin/',
-                'admin/*' => 'admin/',
+
 
 
                 '<grf:[\w+-]*\w+>/<parent_alias:[\w+-]*\w+>/contacts' => 'page/contacts',
@@ -109,7 +108,8 @@ $config = [
                 '<parent_alias:[\w+-]*\w+>/<alias:[\w+-]*\w+>' => 'page/index',
                 '<alias:[\w+-]*\w+>' => 'page/index',
 
-
+                'admin' => 'admin/'
+//                'admin/*' => 'admin/',
 
                 //1aa/page/index?alias=vostok&sport=true
 
