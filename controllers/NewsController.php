@@ -28,7 +28,7 @@ class NewsController extends AppController
     public function actionView($id)
     {
 
-        $news = News::find()->where(['published' => 1])->andWhere(['news_id' => $id])->one();
+        $news = News::find()->where(['published' => 1])->andWhere(['id' => $id])->one();
         if (empty($news)) throw new \yii\web\HttpException(404, 'К сожалению такой новости не найдено.');
 
         $company = $this->getCompany();

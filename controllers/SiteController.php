@@ -149,7 +149,20 @@ class SiteController extends AppController
      */
     public function actionAsk()
     {
-        return $this->render('ask');
+        $model = new ContactForm();
+        $company = $this->getCompany();
+        $this->setMeta('Задать вопрос '.$company->name, '', 'Контактные данные, адрес и телефон '.$company->name);
+
+        if ($model->load(Yii::$app->request->post())) {
+            Yii::$app->mailer->compose('contact_view', ['model'=>$model])
+                ->setFrom(['mr-15@mail.ru' => 'Сайт спортивного комплекса Талнах'])
+                ->setTo('mr-15@mail.ru')
+                ->setSubject('Обратная связь с сайта')
+                ->send();
+            Yii::$app->session->setFlash('success', 'Ваше письмо отправлено.');
+            return $this->refresh();
+        }
+        return $this->render('ask', compact('model', 'company'));
     }
 
     /**

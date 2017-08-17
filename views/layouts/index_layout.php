@@ -33,7 +33,7 @@ IndexAsset::register($this);
         <?php $this->beginContent('@app/views/layouts/menu.php'); ?>
         <?php $this->endContent(); ?>
         <?php if (!Yii::$app->user->isGuest) { ?>
-            <div class="container" style="text-align:left">
+            <div class="admin_buttons">
                 <a href="<?= \yii\helpers\URL::to(['/admin']) ?>" class="btn btn-default" style="color:white!important">Админ</a>
                 <a href="<?= \yii\helpers\URL::to(['/site/logout']) ?>" class="btn btn-default"
                    style="color:white!important">Выход</a>

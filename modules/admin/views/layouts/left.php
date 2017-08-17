@@ -28,10 +28,6 @@ use app\modules\admin\components\OrderCountWidget;
                         'icon' => 'gear',
                         'url' => ['company/index', 'id'=>1],
                     ],
-//
-//
-//
-
                     [
                         'label' => 'Страницы сайта',
                         'icon' => 'files-o',
