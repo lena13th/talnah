@@ -134,7 +134,7 @@ class SiteController extends AppController
     public function actionContacts()
     {
         $dependency = new DbDependency([
-            'sql' => 'SELECT MAX(updated_on) FROM page',
+            'sql' => 'SELECT MAX(updated_on) FROM sportbuilding',
         ]);
         $sportbuildings = Yii::$app->db->cache(function ($db)  {
             return Sportbuilding::find()->with('page')->where(['published' => 1])->all();

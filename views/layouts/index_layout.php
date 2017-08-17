@@ -4,6 +4,7 @@ use app\components\CompanyWidget;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use app\assets\IndexAsset;
+
 IndexAsset::register($this);
 ?>
 
@@ -31,7 +32,15 @@ IndexAsset::register($this);
     <div class="nav_cover index_section1">
         <?php $this->beginContent('@app/views/layouts/menu.php'); ?>
         <?php $this->endContent(); ?>
-        <?= Html::img("@web/img/index_logo.png", ['alt' => 'Логотип', 'class'=> 'index-logo']) ?>
+        <?php if (!Yii::$app->user->isGuest) { ?>
+            <div class="container" style="text-align:left">
+                <a href="<?= \yii\helpers\URL::to(['/admin']) ?>" class="btn btn-default" style="color:white!important">Админ</a>
+                <a href="<?= \yii\helpers\URL::to(['/site/logout']) ?>" class="btn btn-default"
+                   style="color:white!important">Выход</a>
+            </div>
+        <?php } ?>
+
+        <?= Html::img("@web/img/index_logo.png", ['alt' => 'Логотип', 'class' => 'index-logo']) ?>
         <div class="index_section1_company_description">
             <div class="index_company_type">
                 <?= CompanyWidget::widget(['object' => 'organization']); ?>
@@ -53,10 +62,11 @@ IndexAsset::register($this);
             </a>
         </div>
     </div>
+
     <?= $content ?>
 
-    <?php  $this->beginContent('@app/views/layouts/footer.php'); ?>
-    <?php  $this->endContent(); ?>
+    <?php $this->beginContent('@app/views/layouts/footer.php'); ?>
+    <?php $this->endContent(); ?>
 
     <?php $this->endBody() ?>
     </body>

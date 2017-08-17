@@ -18,7 +18,7 @@ use yii\helpers\Url;
 
                     <div class="item col-xs-12 col-lg-6">
                         <div class="name col-xs-12">
-                            <h3> <?= $sportbuilding->full_title ?></h3>
+                            <h3> <?= $sportbuilding->page->full_title ?></h3>
                         </div>
                         <div class="info col-xs-12">
                             <div class="phones col-xs-12 col-md-4">
@@ -35,9 +35,6 @@ use yii\helpers\Url;
                             </div>
                         </div>
                     </div>
-<pre>
-    <?= print_r($sportbuilding->page->full_title) ?>
-</pre>
                     <?php
                     if ($key % 2) {
                         echo '<div class="clearfix"></div>';

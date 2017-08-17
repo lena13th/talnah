@@ -8,7 +8,7 @@ $config = [
     'bootstrap' => ['log'],
     'language' => 'ru-RU',
     'layout' => 'main',
-    'name' => 'Кафе "Экспресс"',
+    'name' => 'СК "Талнах"',
     'modules' => [
         'admin' => [
             'class' => 'app\modules\admin\Module',
@@ -97,6 +97,10 @@ $config = [
                 'questionary/' => 'site/questionary',
                 'about/vacancies/'=>'vacancy/index',
                 'about/vacancies/<id:\d+>'=>'vacancy/view',
+                'login' => 'site/login',
+                'logout' => 'site/logout',
+                'admin' => 'admin/',
+                'admin/*' => 'admin/',
 
 
                 '<grf:[\w+-]*\w+>/<parent_alias:[\w+-]*\w+>/contacts' => 'page/contacts',
