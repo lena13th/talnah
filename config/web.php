@@ -20,10 +20,10 @@ $config = [
             'class' => 'rico\yii2images\Module',
             //be sure, that permissions ok 
             //if you cant avoid permission errors you have to create "images" folder in web root manually and set 777 permissions
-            'imagesStorePath' => 'images/gallery', //path to origin images
-            'imagesCachePath' => 'images/gallery/cache', //path to resized copies
+            'imagesStorePath' => 'images/news', //path to origin images
+            'imagesCachePath' => 'images/news/cache', //path to resized copies
             'graphicsLibrary' => 'GD', //but really its better to use 'Imagick' 
-            'placeHolderPath' => '@webroot/images/gallery/no_image.jpg', // if you want to get placeholder when image not exists, string will be processed by Yii::getAlias
+            'placeHolderPath' => '@webroot/images/news/no_image.jpg', // if you want to get placeholder when image not exists, string will be processed by Yii::getAlias
         ],        
         'components' => [
             'view' => [
