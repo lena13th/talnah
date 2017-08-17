@@ -16,7 +16,7 @@ use app\modules\admin\components\OrderCountWidget;
                     [
                         'label' => 'Объявления',
                         'icon' => 'gear',
-                        'url' => ['company/index', 'id'=>1],
+                        'url' => ['ads/index', 'id'=>1],
                     ],
                     [
                         'label' => 'Новости',
@@ -26,7 +26,7 @@ use app\modules\admin\components\OrderCountWidget;
                     [
                         'label' => 'Мероприятия',
                         'icon' => 'gear',
-                        'url' => ['company/index', 'id'=>1],
+                        'url' => ['events/index', 'id'=>1],
                     ],
 //
 //
@@ -38,7 +38,7 @@ use app\modules\admin\components\OrderCountWidget;
                         'url' => '#',
                         'items' => [
                             ['label' => 'Раздел О нас', 'icon' => 'gear', 'url' => ['company/index', 'id'=>1],],
-                            ['label' => 'Вакансии', 'icon' => 'gear', 'url' => ['company/index', 'id'=>1],],
+                            ['label' => 'Вакансии', 'icon' => 'gear', 'url' => ['vacancy/index', 'id'=>1],],
                             ['label' => 'Анкета', 'icon' => 'gear', 'url' => ['company/index', 'id'=>1],],
                         ],
                     ],                       
