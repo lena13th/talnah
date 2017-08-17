@@ -146,7 +146,7 @@ $config = [
     ],    
     'params' => [
         'company_id'=>'1'
-    ],
+    ]
 ];
 
  if (YII_ENV_DEV) {
