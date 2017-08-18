@@ -1,4 +1,5 @@
 <?php
+use kartik\datecontrol\DateControl;
 use yii\helpers\Url;
 use yii\helpers\Html;
 $this->params['active_page'][] = 'index';
@@ -43,10 +44,12 @@ $this->params['active_page'][] = 'index';
                 <div class="news_item row">
                     <div class="news_item_event_date col-xs-12">
                         <i class="fa-calendar fa"></i>
-                        <span><?= $item_news->date_event_start ?>
+
+
+                        <span><?= Yii::$app->formatter->asDate($item_news->date_event_start) ?>
                             <?php
                                 if (!empty($item_news->date_event_end)){
-                                echo ' - '.$item_news->date_event_end;
+                                echo ' - '.Yii::$app->formatter->asDate($item_news->date_event_end);
                             }
                             ?>
                         </span>
@@ -60,7 +63,8 @@ $this->params['active_page'][] = 'index';
                         <div class="news_item_text">
                             <p><?= $item_news->short_description ?></p>
                         </div>
-                        <div class="news_item_public_date">Опубликовано: <?= $item_news->date_public ?></div>
+<!--                        <div class="news_item_public_date">Опубликовано: --><?//= $item_news->date_public ?><!--</div>-->
+                        <div class="news_item_public_date">Опубликовано: <?= Yii::$app->formatter->asDate( $item_news->date_public) ?></div>
                     </div>
                 </div>
                 <hr>
@@ -78,23 +82,23 @@ $this->params['active_page'][] = 'index';
                 <div class="news_item row">
                     <div class="news_item_event_date col-xs-12">
                         <i class="fa-calendar fa"></i>
-                        <span><?= $event->date_event_start ?>
+                        <span><?= Yii::$app->formatter->asDate($event->date_event_start) ?>
                             <?php
                             if (!empty($event->date_event_end)){
-                                echo ' - '.$event->date_event_end;
+                                echo ' - '.Yii::$app->formatter->asDate($event->date_event_end);
                             }
                             ?>
                         </span>
                     </div>
                     <div class="news_item_content col-xs-12">
-                        <a href="#" class="news_item_title"><?= $event->title ?></a>
+                        <a href="<?= Url::to(['/site/event', 'id'=>$event->id]) ?>" class="news_item_title"><?= $event->title ?></a>
                         <div class="news_item_text">
                             <p><?= $event->short_description ?></p>
                         </div>
                     </div>
                 </div>
                 <?php endforeach; ?>
-                <div class="button to_all_news"><a href="#">Календарь <i class="fa fa-angle-right"></i></a></div>
+                <div class="button to_all_news"><a href="<?= Url::to(['/calendar/index']) ?>">Календарь <i class="fa fa-angle-right"></i></a></div>
             </div>
         </div>
     </div>

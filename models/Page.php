@@ -7,7 +7,7 @@ class Page extends ActiveRecord{
 //	public static function tableName() {
 //			return 'vacancy';
 //	}
-    public function getBuilding(){
+    public function getSportbuilding(){
         return $this->hasOne(Sportbuilding::className(), ['alias' => 'alias']);
     }
 }

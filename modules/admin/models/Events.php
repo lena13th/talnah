@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "events".
  *
- * @property integer $event_id
+ * @property integer $id
  * @property string $title
  * @property integer $published
  * @property string $short_description
@@ -48,7 +48,7 @@ class Events extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'event_id' => 'Event ID',
+            'id' => 'Event ID',
             'title' => 'Title',
             'published' => 'Published',
             'short_description' => 'Short Description',

@@ -5,7 +5,7 @@ namespace app\controllers;
 use app\models\Ads;
 use app\models\Events;
 use app\models\News;
-use app\models\Sportbuilding;
+use app\models\Page;
 use Yii;
 use yii\caching\DbDependency;
 use yii\filters\AccessControl;
@@ -14,6 +14,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+
 
 class SiteController extends AppController
 {
@@ -79,7 +80,7 @@ class SiteController extends AppController
             'sql' => 'SELECT MAX(updated_on) FROM news',
         ]);
         $news = Yii::$app->db->cache(function ($db) {
-            return News::find()->where(['published' => 1])->all();
+            return News::find()->where(['published' => 1])->limit(5)->all();
         }, 0, $dependency);
 
         $dependency = new DbDependency([
@@ -90,8 +91,9 @@ class SiteController extends AppController
         }, 0, $dependency);
 
         $company = $this->getCompany();
+        $this->setMeta('Спортивный комплекс Талнах ', '', 'Контактные данные, адрес и телефон ' . $company->name);
 
-        return $this->render('index', compact('ads','company','news','events'));
+        return $this->render('index', compact('ads', 'company', 'news', 'events'));
     }
 
     /**
@@ -127,20 +129,23 @@ class SiteController extends AppController
     }
 
 
-
     /**
      * Displays contacts page.
      */
     public function actionContacts()
     {
-        $dependency = new DbDependency([
-            'sql' => 'SELECT MAX(updated_on) FROM sportbuilding',
-        ]);
-        $sportbuildings = Yii::$app->db->cache(function ($db)  {
-            return Sportbuilding::find()->with('page')->where(['published' => 1])->all();
-        }, 0, $dependency);
+//                Yii::$app->cache->flush();
 
-        return $this->render('contacts',compact('sportbuildings'));
+        $dependency = new DbDependency([
+            'sql' => 'SELECT MAX(updated_on) FROM page',
+        ]);
+        $sp='sportbuilding';
+        $pages = Yii::$app->db->cache(function ($db) use ($sp) {
+            return Page::find()->with($sp)->where(['published' => 1])->andWhere(['parent_alias' => $sp])->all();
+        }, 0, $dependency);
+        $this->setMeta('Контактные данные, адрес и телефон ', '', 'Контактные данные, адрес и телефон ' . $company->name);
+
+        return $this->render('contacts', compact('pages'));
     }
 
 
@@ -151,10 +156,9 @@ class SiteController extends AppController
     {
         $model = new ContactForm();
         $company = $this->getCompany();
-        $this->setMeta('Задать вопрос '.$company->name, '', 'Контактные данные, адрес и телефон '.$company->name);
 
         if ($model->load(Yii::$app->request->post())) {
-            Yii::$app->mailer->compose('contact_view', ['model'=>$model])
+            Yii::$app->mailer->compose('contact_view', ['model' => $model])
                 ->setFrom(['mr-15@mail.ru' => 'Сайт спортивного комплекса Талнах'])
                 ->setTo('mr-15@mail.ru')
                 ->setSubject('Обратная связь с сайта')
@@ -162,6 +166,8 @@ class SiteController extends AppController
             Yii::$app->session->setFlash('success', 'Ваше письмо отправлено.');
             return $this->refresh();
         }
+        $this->setMeta('Задать вопрос ', '', 'Контактные данные, адрес и телефон ' . $company->name);
+
         return $this->render('ask', compact('model', 'company'));
     }
 
@@ -170,7 +176,33 @@ class SiteController extends AppController
      */
     public function actionQuestionary()
     {
-        return $this->render('questionary');
+        $model = new ContactForm();
+        $company = $this->getCompany();
+        $this->setMeta('Анкетирование ' . $company->name, '', 'Контактные данные, адрес и телефон ' . $company->name);
+
+        if ($model->load(Yii::$app->request->post())) {
+            Yii::$app->mailer->compose('contact_view', ['model' => $model])
+                ->setFrom(['mr-15@mail.ru' => 'Сайт спортивного комплекса Талнах'])
+                ->setTo('mr-15@mail.ru')
+                ->setSubject('Обратная связь с сайта')
+                ->send();
+            Yii::$app->session->setFlash('success', 'Ваше письмо отправлено.');
+            return $this->refresh();
+        }
+        return $this->render('questionary', compact('model', 'company'));
+//
+
+//        return $this->render('questionary');
+    }
+    public function actionEvent($id)
+    {
+
+        $event = Events::find()->where(['published' => 1])->andWhere(['id' => $id])->one();
+        if (empty($event)) throw new \yii\web\HttpException(404, 'К сожалению такого мероприятия не найдено.');
+
+        $company = $this->getCompany();
+        $this->setMeta($event->title, '', ' ' . $company->name);
+        return $this->render('event', compact('event', 'company'));
     }
 
 }

@@ -1,4 +1,5 @@
 <?php
+use \kartik\datecontrol\Module;
 
 $params = require(__DIR__ . '/params.php');
 
@@ -41,7 +42,7 @@ $config = [
             // message source
             // 'downloadAction' => 'gridview/export/download',
             // 'i18n' => []
-        ]        
+        ]
     ],
     'components' => [
         'request' => [
@@ -58,6 +59,12 @@ $config = [
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
+        ],
+        'formatter' => [
+            'dateFormat' => 'dd.MM.yyyy',
+            'decimalSeparator' => ',',
+            'thousandSeparator' => ' ',
+            'currencyCode' => 'EUR',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -90,8 +97,10 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 '' => 'site/index',
+                'news/page=<page:\d+>' => 'news/index',
                 'news/' => 'news/index',
                 'news/<id:\d+>' => 'news/view',
+                'event/<id:\d+>' => 'site/event',
                 'contacts/' => 'site/contacts',
                 'ask/' => 'site/ask',
                 'questionary/' => 'site/questionary',
@@ -100,6 +109,13 @@ $config = [
                 'login' => 'site/login',
                 'logout' => 'site/logout',
                 'admin' => 'admin/',
+                'calendar/year=<yr:\d+>' => 'calendar/view',
+                'calendar/<yr:\d+>/<mn:[\w+-]*\w+>' => 'calendar/index',
+                'calendar/<yr:\d+>' => 'calendar/index',
+
+                'calendar' => 'calendar/index',
+//                'menu/page=<page:\d+>/size=<pageSize:\d+>/' => 'menu/index',
+
                 'admin/<controller>/<action>' => 'admin/<controller>/<action>',
 
                 'news_item/<id:\d+>' => 'news_item/view',
@@ -113,17 +129,6 @@ $config = [
                 '<parent_alias:[\w+-]*\w+>/<alias:[\w+-]*\w+>' => 'page/index',
                 '<alias:[\w+-]*\w+>' => 'page/index',
 
-
-
-                //1aa/page/index?alias=vostok&sport=true
-
-
-
-
-
-                '<grf:[\w+-]*\w+>/<parent_alias:[\w+-]*\w+>/<alias:[\w+-]*\w+>' => 'page/index',
-                '<parent_alias:[\w+-]*\w+>/<alias:[\w+-]*\w+>' => 'page/index',
-                '<alias:[\w+-]*\w+>' => 'page/index',
             ],
         ],
         

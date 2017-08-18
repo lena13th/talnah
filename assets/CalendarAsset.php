@@ -21,6 +21,7 @@ class CalendarAsset extends AssetBundle
 //        'css/calendar.css',
     ];
     public $js = [
+        'owlcarousel/jquery.min.js',
         'js/calendar.js'
     ];
     public $depends = [

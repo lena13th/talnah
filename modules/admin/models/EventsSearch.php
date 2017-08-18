@@ -18,7 +18,7 @@ class EventsSearch extends Events
     public function rules()
     {
         return [
-            [['event_id', 'published', 'related_sportbuilding'], 'integer'],
+            [['id', 'published', 'related_sportbuilding'], 'integer'],
             [['title', 'short_description', 'content', 'date_event_start', 'date_event_end', 'updated_on'], 'safe'],
         ];
     }
@@ -59,7 +59,7 @@ class EventsSearch extends Events
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'event_id' => $this->event_id,
+            'id' => $this->id,
             'published' => $this->published,
             'date_event_start' => $this->date_event_start,
             'date_event_end' => $this->date_event_end,

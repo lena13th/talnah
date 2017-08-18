@@ -2,6 +2,7 @@
 use yii\widgets\Breadcrumbs;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\widgets\LinkPager;
 
 $this->params['active_page'][] = 'news';
 ?>
@@ -31,10 +32,10 @@ $this->params['active_page'][] = 'news';
                         <div class="news_item col-xs-12 col-sm-6">
                             <div class="news_item_event_date col-xs-12">
                                 <i class="fa-calendar fa"></i>
-                                <span><?= $item_news->date_event_start ?>
+                                <span><?=Yii::$app->formatter->asDate( $item_news->date_event_start) ?>
                                     <?php
                                     if (!empty($item_news->date_event_end)) {
-                                        echo ' - ' . $item_news->date_event_end;
+                                        echo ' - ' . Yii::$app->formatter->asDate($item_news->date_event_end);
                                     }
                                     ?>
                                 </span>
@@ -49,7 +50,7 @@ $this->params['active_page'][] = 'news';
                                 <div class="news_item_text">
                                     <p><?= $item_news->short_description ?></p>
                                 </div>
-                                <div class="news_item_public_date">Опубликовано: <?= $item_news->date_public ?></div>
+                                <div class="news_item_public_date">Опубликовано: <?= Yii::$app->formatter->asDate($item_news->date_public )?></div>
                             </div>
                             <hr class="col-xs-10 col-sm-11">
                         </div>
@@ -61,13 +62,20 @@ $this->params['active_page'][] = 'news';
                         }
                         ?>
                     <?php endforeach; ?>
+<!--                    <div class="pagination_block col-xs-12">-->
+<!--                        <ul class="pagination">-->
+<!--                            <li class="prev disabled"><span>&laquo;</span></li>-->
+<!--                            <li class="active"><a href="/menu/4" data-page="0">1</a></li>-->
+<!--                            <li><a href="/menu/4/page=2" data-page="1">2</a></li>-->
+<!--                            <li class="next"><a href="/menu/4/page=2" data-page="1">&raquo;</a></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
                     <div class="pagination_block col-xs-12">
-                        <ul class="pagination">
-                            <li class="prev disabled"><span>&laquo;</span></li>
-                            <li class="active"><a href="/menu/4" data-page="0">1</a></li>
-                            <li><a href="/menu/4/page=2" data-page="1">2</a></li>
-                            <li class="next"><a href="/menu/4/page=2" data-page="1">&raquo;</a></li>
-                        </ul>
+                        <?php
+                        echo LinkPager::widget([
+                            'pagination' => $pages,
+                        ]);
+                        ?>
                     </div>
 
                     <?php else: ?>

@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
+$this->params['active_page'][] = 'contacts';
 
 ?>
 <div class="main_wrapper contacts">
@@ -14,24 +15,24 @@ use yii\helpers\Url;
             <h1 class="col-xs-12">Контакты</h1>
             <div class="contact_items">
 
-                <?php foreach ($sportbuildings as $sportbuilding): ?>
+                <?php foreach ($pages as $page): ?>
 
                     <div class="item col-xs-12 col-lg-6">
                         <div class="name col-xs-12">
-                            <h3> <?= $sportbuilding->page->full_title ?></h3>
+                            <h3> <?= $page->full_title ?></h3>
                         </div>
                         <div class="info col-xs-12">
                             <div class="phones col-xs-12 col-md-4">
                                 <h4>Телефон</h4>
-                                <?= $sportbuilding->phone ?>
+                                <?= $page->sportbuilding->phone ?>
                             </div>
                             <div class="adress col-xs-12 col-md-4">
                                 <h4>Адрес</h4>
-                                <?= $sportbuilding->address ?>
+                                <?= $page->sportbuilding->address ?>
                             </div>
                             <div class="worktime col-xs-12 col-md-4">
                                 <h4>Режим работы</h4>
-                                <?= $sportbuilding->work_hours ?>
+                                <?= $page->sportbuilding->work_hours ?>
                             </div>
                         </div>
                     </div>

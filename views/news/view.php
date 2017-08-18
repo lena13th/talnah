@@ -3,6 +3,9 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use app\assets\NewsAsset;
 NewsAsset::register($this);
+
+$this->params['active_page'][] = 'news';
+
 ?>
 <div class="main_wrapper news_item_page">
     <ul class="breadcrumbs col-xs-12 col-md-10 col-md-offset-1">
@@ -18,10 +21,10 @@ NewsAsset::register($this);
                 <div class="news_item_event_date">
                     <i class="fa-calendar fa"></i>
                     <span>
-                        <?= $news->date_event_start ?>
+                        <?=Yii::$app->formatter->asDate( $news->date_event_start) ?>
                         <?php
                         if (!empty($news->date_event_end)) {
-                            echo ' - ' . $news->date_event_end;
+                            echo ' - ' . Yii::$app->formatter->asDate($news->date_event_end);
                         }
                         ?>
                     </span>
@@ -50,7 +53,7 @@ NewsAsset::register($this);
                     <div class="news_item_text">
                         <p><?= $news->content ?></p>
                     </div>
-                    <div class="news_item_public_date">Опубликовано: <?= $news->date_public ?></div>
+                    <div class="news_item_public_date">Опубликовано: <?= Yii::$app->formatter->asDate($news->date_public) ?></div>
                 </div>
             </div>
         </div>

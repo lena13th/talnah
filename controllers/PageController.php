@@ -38,7 +38,7 @@ class PageController extends AppController
             }, 0, $dependency);
         }
         $company = $this->getCompany();
-        $this->setMeta($page->title.' '. $company->name . ', ', '', '-- ' . $company->name);
+        $this->setMeta($page->title, '', '-- ' . $company->name);
 
         return $this->render('index', compact('page', 'next_pages','child_pages','parent_page', 'company', 'grf'));
     }
@@ -60,8 +60,9 @@ class PageController extends AppController
             'sql' => 'SELECT MAX(updated_on) FROM sportbuilding',
         ]);
         $page = Yii::$app->db->cache(function ($db) use ($parent_alias) {
-            return Sportbuilding::find()->where(['published' => 1])->andWhere(['alias' => $parent_alias])->one();
+            return Sportbuilding::find()->andWhere(['alias' => $parent_alias])->one();
         }, 0, $dependency);
+        $this->setMeta('Контакты '.$parent_page->title, '', '-- ' . $company->name);
 
         return $this->render('contacts', compact('parent_alias','parent_page','page','next_pages','grf'));
 

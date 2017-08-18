@@ -51,7 +51,7 @@ use yii\helpers\Url;
                     <?php }
                     ?>
                 >
-                    <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> Календарь мероприятий</a>
+                    <a href="<?= Url::to(['/calendar/index']) ?>"><i class="fa fa-calendar" aria-hidden="true"></i> Календарь мероприятий</a>
                 </li>
                 <li
                     <?php

@@ -1,18 +1,16 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Rustam
- * Date: 23.07.2017
- * Time: 19:14
- */
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
+
+$this->params['active_page'][] = 'feedback';
+$this->params['active_child_page'][] = 'ask';
+
 ?>
 <div class="main_wrapper">
     <ul class="breadcrumbs col-lg-offset-3">
-        <li><a href="#"><i class="fa fa-home"></i>Главная</a></li>
+        <li><a href="<?= Url::to(['/site/index']) ?>"><i class="fa fa-home"></i>Главная</a></li>
         <li>Задать вопрос</li>
     </ul>
 
@@ -21,8 +19,8 @@ use yii\captcha\Captcha;
             <div class="left_block">
                 <div class="left_block_content">
                     <ul class="left_menu">
-                        <li class="active"><a href="#">Задать вопрос</a></li>
-                        <li><a href="#">Анкетирование</a></li>
+                        <li class="active"><a href="<?= Url::to(['/site/ask']) ?>">Задать вопрос</a></li>
+                        <li><a href="<?= Url::to(['/site/questionary']) ?>">Анкетирование</a></li>
                     </ul>
                 </div>
             </div>
