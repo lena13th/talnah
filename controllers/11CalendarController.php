@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Events;
+use app\models\News;
 use Yii;
 use yii\caching\DbDependency;
 
@@ -92,13 +93,11 @@ class CalendarController extends AppController
         $dependency = new DbDependency([
             'sql' => 'SELECT MAX(updated_on) FROM events',
         ]);
-        $date_m_y=date_create($yr.'-0'.$mn);
-//        echo $date_m_y;
-        $events = Yii::$app->db->cache(function ($db) use ($date_m_y) {
-//            return Events::find()->with('news')->where(['published' => 1])->all();
-            return Events::find()->with('news')->where(['published' => 1])->
-            andWhere(['like', 'date_event_start', DATE_FORMAT($date_m_y, 'Y-m')])->all();
+
+        $events = Yii::$app->db->cache(function ($db) {
+            return Events::find()->with('news')->where(['published' => 1])->all();
         }, 0, $dependency);
+
         $date_events = '';
 
         $number_days = cal_days_in_month(CAL_GREGORIAN, $mn, $yr);
@@ -107,34 +106,19 @@ class CalendarController extends AppController
         }
 
         foreach ($events as $key => $event) {
-            $date_event_start=$event->date_event_start;
-            if (empty($event->date_event_end)){$date_event_end=$date_event_start;}
-            else {$date_event_end=$event->date_event_end;}
+            $sql_event_date = date_create($event->date_event_start);
 
-            while ($date_event_start <= $date_event_end) {
-                $date_event_start1 = date_create($date_event_start);
-                $event_date_d = date_format($date_event_start1, 'd');
-                $event_date_m = date_format($date_event_start1, 'm');
-                $event_date_y = date_format($date_event_start1, 'Y');
-
-                if (($event_date_y == $yr) && ($event_date_m == $mn)) {
-
-                    if (strtotime($date_event_start) > strtotime(date("Y-m-d"))) {
-                        $date_events[(int)$event_date_d-1][] = array($event,'event');
-                    } else {
-                        if (!empty($event->news)) {
-                            $date_events[(int)$event_date_d - 1][] = array($event->news, 'news');
-                        } else {
-                            $date_events[(int)$event_date_d - 1][] = array($event, 'event');
-
-                        }
-                    }
+            $event_date_d = date_format($sql_event_date, 'd');
+            $event_date_m = date_format($sql_event_date, 'm');
+            $event_date_y = date_format($sql_event_date, 'Y');
+            if (($event_date_y == $yr) && ($event_date_m == $mn)) {
+                if (strtotime($event->date_event_start) > strtotime(date("Y-m-d"))) {
+                    $date_events[(int)$event_date_d-1][] = $event;
+                } else {
+                    $date_events[(int)$event_date_d-1][] = $event->news;
                 }
-
-                $date_event_start = date ("Y-m-d", strtotime("+1 day", strtotime($date_event_start)));
             }
         }
-
 
         $this->setMeta('Календарь ', '', 'календарь ');
 
@@ -146,6 +130,7 @@ class CalendarController extends AppController
 //            'week' => $week,
 //            'events' => $events,
             'date_events' => $date_events,
+//            'date_news' => $date_news
         ]);
     }
 

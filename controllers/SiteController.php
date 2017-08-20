@@ -63,29 +63,31 @@ class SiteController extends AppController
     public function actionIndex()
     {
         $this->layout = 'index_layout';
+//        Yii::$app->cache->flush();
 
         $dependency = new DbDependency([
             'sql' => 'SELECT MAX(updated_on) FROM ads',
         ]);
         $ads = Yii::$app->db->cache(function ($db) {
             return Ads::find()->where(['published' => 1])->all();
-        }, 0, $dependency);
+        }, 60, $dependency);
 
-        $dependency = new DbDependency([
+        $dependency1 = new DbDependency([
             'sql' => 'SELECT MAX(updated_on) FROM news',
         ]);
         $news = Yii::$app->db->cache(function ($db) {
-            return News::find()->where(['published' => 1])->limit(5)->all();
-        }, 0, $dependency);
+            return News::find()->where(['published' => 1])->orderBy(['date_public' => SORT_DESC])->limit(5)->all();
+        }, 60, $dependency1);
 
-        $dependency = new DbDependency([
+        $dependency2 = new DbDependency([
             'sql' => 'SELECT MAX(updated_on) FROM events',
         ]);
         $events = Yii::$app->db->cache(function ($db) {
-            return Events::find()->where(['published' => 1])->all();
-        }, 0, $dependency);
+            return Events::find()->where(['published' => 1])
+                ->andWhere(['>=', 'date_event_start', date('Y-m-d')])->orderBy('date_event_start')
+            ->all();
+        }, 60, $dependency2);
 
-        $company = $this->getCompany();
         $this->setMeta('Спортивный комплекс Талнах ', '', 'Контактные данные, адрес и телефон ' . $company->name);
 
         return $this->render('index', compact('ads', 'company', 'news', 'events'));
