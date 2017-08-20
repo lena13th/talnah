@@ -49,7 +49,7 @@ class LeftEventsWidget extends Widget
         ]);
 
         $events = Yii::$app->db->cache(function ($db) use ($pages, $query) {
-            return $query->offset($pages->offset)->limit($pages->limit)->with('news')->all();
+            return $query->offset($pages->offset)->limit(5)->with('news')->all();
         }, 0, $dependency);
 
         $date_news = '';

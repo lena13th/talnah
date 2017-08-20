@@ -12,7 +12,7 @@ use app\modules\admin\components\OrderCountWidget;
                 'options' => ['class' => 'sidebar-menu'],
                 'items' => [
 //                    ['label' => 'Панель управления', 'options' => ['class' => 'header']],
-                    ['label' => 'Редактировать данные', 'icon' => 'gear', 'url' => ['company/index', 'id'=>1],],
+                    ['label' => 'Редактировать данные', 'icon' => 'gear', 'url' => ['company/view']],
                     [
                         'label' => 'Объявления',
                         'icon' => 'gear',

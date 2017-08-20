@@ -9,7 +9,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
 
-print_r($news);
+//print_r($news);
 $news=$date_news[$yr];
 
 ?>
@@ -28,12 +28,16 @@ $news=$date_news[$yr];
                     <div class="news_item col-xs-12">
                         <div class="news_item_event_date col-xs-12">
                             <i class="fa-calendar fa"></i>
-                            <span><?=Yii::$app->formatter->asDate( $item_news->date_event_start) ?>
-                                <?php
-                                if (!empty($item_news->date_event_end)) {
-                                    echo ' - ' . Yii::$app->formatter->asDate($item_news->date_event_end);
-                                }
-                                ?>
+                            <span>
+                        <?php
+                        if (!empty($item_news->date_event_start)) {
+                            echo Yii::$app->formatter->asDate($item_news->date_event_start);
+
+                            if (!empty($item_news->date_event_end)) {
+                                echo ' - ' . Yii::$app->formatter->asDate($item_news->date_event_end);
+                            }
+                        }
+                        ?>
                                 </span>
                         </div>
                         <div class="news_item_image col-xs-12 col-sm-12 col-md-3">

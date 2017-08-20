@@ -13,7 +13,6 @@ $this->params['active_page'][] = 'news';
     </ul>
 
 
-    <!--     TODO для отчета о прош мер Для каждой новости удалить com-sm-6, для .main col-xs-9" -->
     <div class="main col-xs-12">
         <div class="content col-xs-12">
             <h1>Новости</h1>
@@ -30,15 +29,19 @@ $this->params['active_page'][] = 'news';
                         }
                         ?>
                         <div class="news_item col-xs-12 col-sm-6">
-                            <div class="news_item_event_date col-xs-12">
-                                <i class="fa-calendar fa"></i>
-                                <span><?=Yii::$app->formatter->asDate( $item_news->date_event_start) ?>
-                                    <?php
-                                    if (!empty($item_news->date_event_end)) {
-                                        echo ' - ' . Yii::$app->formatter->asDate($item_news->date_event_end);
-                                    }
-                                    ?>
-                                </span>
+                        <div class="news_item_event_date col-xs-12">
+                        <i class="fa-calendar fa"></i>
+                        <span>
+                        <?php
+                        if (!empty($item_news->date_event_start)) {
+                            echo Yii::$app->formatter->asDate($item_news->date_event_start);
+
+                            if (!empty($item_news->date_event_end)) {
+                                echo ' - ' . Yii::$app->formatter->asDate($item_news->date_event_end);
+                            }
+                            }
+                            ?>
+                            </span>
                             </div>
                             <div class="news_item_image col-xs-12 col-sm-12 col-md-4">
                                 <?= Html::img("@web/img/news_preview/" . $item_news->image, ['alt' => 'Новость1']) ?>
@@ -50,35 +53,36 @@ $this->params['active_page'][] = 'news';
                                 <div class="news_item_text">
                                     <p><?= $item_news->short_description ?></p>
                                 </div>
-                                <div class="news_item_public_date">Опубликовано: <?= Yii::$app->formatter->asDate($item_news->date_public )?></div>
+                                <div class="news_item_public_date">
+                                    Опубликовано: <?= Yii::$app->formatter->asDate($item_news->date_public) ?></div>
                             </div>
                             <hr class="col-xs-10 col-sm-11">
-                        </div>
-                        <?php
+                            </div>
+                            <?php
 
-                        if (($key % 2) || ($key == count($news) - 1)) {
-                            echo '</div>';
+                            if (($key % 2) || ($key == count($news) - 1)) {
+                                echo '</div>';
 
-                        }
-                        ?>
-                    <?php endforeach; ?>
-<!--                    <div class="pagination_block col-xs-12">-->
-<!--                        <ul class="pagination">-->
-<!--                            <li class="prev disabled"><span>&laquo;</span></li>-->
-<!--                            <li class="active"><a href="/menu/4" data-page="0">1</a></li>-->
-<!--                            <li><a href="/menu/4/page=2" data-page="1">2</a></li>-->
-<!--                            <li class="next"><a href="/menu/4/page=2" data-page="1">&raquo;</a></li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-                    <div class="pagination_block col-xs-12">
-                        <?php
-                        echo LinkPager::widget([
-                            'pagination' => $pages,
-                        ]);
-                        ?>
-                    </div>
+                            }
+                            ?>
+                            <?php endforeach; ?>
+                            <!--                    <div class="pagination_block col-xs-12">-->
+                            <!--                        <ul class="pagination">-->
+                            <!--                            <li class="prev disabled"><span>&laquo;</span></li>-->
+                            <!--                            <li class="active"><a href="/menu/4" data-page="0">1</a></li>-->
+                            <!--                            <li><a href="/menu/4/page=2" data-page="1">2</a></li>-->
+                            <!--                            <li class="next"><a href="/menu/4/page=2" data-page="1">&raquo;</a></li>-->
+                            <!--                        </ul>-->
+                            <!--                    </div>-->
+                            <div class="pagination_block col-xs-12">
+                                <?php
+                                echo LinkPager::widget([
+                                    'pagination' => $pages,
+                                ]);
+                                ?>
+                            </div>
 
-                    <?php else: ?>
+                            <?php else: ?>
                         <div class="empty_content empty_center">
                             <div class="h2">Новостей не найдено</div>
                             <p>К сожалению на данный момент на сайте нет опубликованных новостей.</p>

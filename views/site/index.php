@@ -46,12 +46,16 @@ $this->params['active_page'][] = 'index';
                         <i class="fa-calendar fa"></i>
 
 
-                        <span><?= Yii::$app->formatter->asDate($item_news->date_event_start) ?>
-                            <?php
-                                if (!empty($item_news->date_event_end)){
-                                echo ' - '.Yii::$app->formatter->asDate($item_news->date_event_end);
+                        <span>
+                        <?php
+                        if (!empty($item_news->date_event_start)) {
+                            echo Yii::$app->formatter->asDate($item_news->date_event_start);
+
+                            if (!empty($item_news->date_event_end)) {
+                                echo ' - ' . Yii::$app->formatter->asDate($item_news->date_event_end);
                             }
-                            ?>
+                        }
+                        ?>
                         </span>
                     </div>
                     <div class="news_item_image col-xs-12 col-sm-4">
