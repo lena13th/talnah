@@ -72,7 +72,10 @@ $this->params['active_page'][] = 'index';
                 <div class="button to_all_news"><a href="<?= Url::to(['/news/index']) ?>">Все новости <i class="fa fa-angle-right"></i></a></div>
             </div>
         </div>
-        <div class="right col-xs-12 col-sm-3 col-md-4 col-lg-3">
+
+            <?php if (!(empty($events))): ?>
+
+            <div class="right col-xs-12 col-sm-3 col-md-4 col-lg-3">
             <div class="h3">Анонсы спортивных мероприятий</div>
             <div class="news">
                 <?php foreach ($events as $key => $event): ?>
@@ -101,5 +104,8 @@ $this->params['active_page'][] = 'index';
                 <div class="button to_all_news"><a href="<?= Url::to(['/calendar/index']) ?>">Календарь <i class="fa fa-angle-right"></i></a></div>
             </div>
         </div>
+            <?php
+            endif;
+            ?>
     </div>
 </div>

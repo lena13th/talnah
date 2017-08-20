@@ -3,7 +3,6 @@
 namespace app\controllers;
 
 use app\models\Events;
-use app\models\News;
 use Yii;
 use yii\caching\DbDependency;
 
@@ -108,24 +107,11 @@ class CalendarController extends AppController
         }
 
         foreach ($events as $key => $event) {
-//            $sql_event_date = date_create($event->date_event_start);
-//            $sql_event_date_end = date_create($event->date_event_end);
-
-
-//            $date_event_start=strtotime($event->date_event_start);
-//            $date_event_end=strtotime($event->date_event_end);
-                        $date_event_start=$event->date_event_start;
-            $date_event_end=$event->date_event_end;
-
-//            echo strtotime($date_event_start);
-//echo '<br>';
-//            echo strtotime($date_event_end);
-//            echo '<br>';
+            $date_event_start=$event->date_event_start;
             if (empty($event->date_event_end)){$date_event_end=$date_event_start;}
             else {$date_event_end=$event->date_event_end;}
 
             while ($date_event_start <= $date_event_end) {
-////                    if ($date_event_start==$date_event_end){echo 'ee';};
                 $date_event_start1 = date_create($date_event_start);
                 $event_date_d = date_format($date_event_start1, 'd');
                 $event_date_m = date_format($date_event_start1, 'm');
@@ -136,7 +122,12 @@ class CalendarController extends AppController
                     if (strtotime($date_event_start) > strtotime(date("Y-m-d"))) {
                         $date_events[(int)$event_date_d-1][] = array($event,'event');
                     } else {
-                        $date_events[(int)$event_date_d-1][] = array($event->news,'news');
+                        if (!empty($event->news)) {
+                            $date_events[(int)$event_date_d - 1][] = array($event->news, 'news');
+                        } else {
+                            $date_events[(int)$event_date_d - 1][] = array($event, 'event');
+
+                        }
                     }
                 }
 
@@ -155,7 +146,6 @@ class CalendarController extends AppController
 //            'week' => $week,
 //            'events' => $events,
             'date_events' => $date_events,
-//            'date_news' => $date_news
         ]);
     }
 
