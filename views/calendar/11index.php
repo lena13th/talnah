@@ -13,9 +13,9 @@ $this->params['active_page'][] = 'calendar';
     </ul>
 
     <?php
-//    echo '<pre>';
-//    print_r($date_events);
-//echo '</pre>';
+    echo '<pre>';
+//    print_r($dd);
+echo '</pre>';
 
 //    ?>
 
@@ -77,26 +77,28 @@ $this->params['active_page'][] = 'calendar';
                                                         <div class="small_date_number"><?= $key + 1 ?></div>
                                                         <?php foreach ($days as $key1 => $day) { ?>
                                                         <div class="calendar_event">
-                                                            <div title="<?= $day[0]->title ?>"
-                                                                 class="event_link <?= (($key+1 > date('d'))&&($current_month>=date('m'))) ? 'active' : 'old' ?>"><?= $day[0]->title ?></div>
-                                                            <div class="event_item" attr-data="<?= $day[1].'-'.$day[0]->id?>">
+                                                            <div title="<?= $day->title ?>"
+                                                                 class="event_link <?= (($key+1 > date('d'))&&($current_month>=date('m'))) ? 'active' : 'old' ?>"><?= $day->title ?></div>
+                                                            <div class="event_item">
                                                                 <div class="event_title">
                                                                     <?php if(($key+1 > date('d'))&&($current_month>=date('m'))) { ?>
-                                                                    <a href="<?= Url::to(['/site/event', 'id'=>$day[0]->id]) ?>">
+                                                                    <a href="<?= Url::to(['/site/event', 'id'=>$day->id]) ?>">
                                                                                 <?php
                                                                                 }else{
                                                                                 ?>
-                                                                        <a href="<?= Url::to(['/news/view', 'id'=>$day[0]->id]) ?>">
+                                                                        <a href="<?= Url::to(['/news/view', 'id'=>$day->id]) ?>">
                                                                             <?php
                                                                             }
                                                                             ?>
 
 
-                                                                            <?= $day[0]->title ?></a></div>
-                                                                <div class="event_content"><?= $day[0]->short_description ?></div>
+                                                                            <?= $day->title ?></a></div>
+                                                                <div class="event_content"><?= $day->short_description ?></div>
                                                             </div>
                                                         </div>
-                                                            <?php } } else { ?>
+                                                            <?php }   ?>
+
+                                                    <?php } else { ?>
                                                         <div class="date_number"><?=$key+1?></div>
                                                     <?php }?>
                                                 </div><!--
