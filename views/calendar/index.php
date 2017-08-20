@@ -84,7 +84,8 @@ $this->params['active_page'][] = 'calendar';
                                             <?php }
                                         }
                                         foreach ($value[days] as $key => $day) { ?>
-                                            --><div class="day day_<?= ($day==1)? 'work': 'holiday'?> <?= ($key+1==date('d') && $mkey+1 == date('m'))? 'today': ''?>">
+<!--                                            --><!--div class="day day_--><?//= ($day==1)? 'work': 'holiday'?><!-- --><?//= ($key+1==date('d') && $mkey+1 == date('m'))? 'today': ''?><!--">
+                                            --><div class="day day_work <?= ($key+1==date('d') && $mkey+1 == date('m'))? 'today': ''?>">
                                                     <div class="small_week_title"><?= $week[date("N", mktime(0, 0, 0, $mkey+1,$key+1, $yr))];?></div>
 <!--                                                    --><?php //if ($event_date==$key) { ?>
                                                     <?php

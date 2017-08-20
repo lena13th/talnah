@@ -2994,7 +2994,15 @@ body {
   text-align: center;
   line-height: 76px;
   margin: 0;
-  padding: 0 10px; }
+  padding: 0 10px;
+  -webkit-border-top-right-radius: 5px !important;
+  -moz-border-top-right-radius: 5px !important;
+  -ms-border-top-right-radius: 5px !important;
+  border-top-right-radius: 5px !important;
+  -webkit-border-top-left-radius: 5px !important;
+  -moz-border-top-left-radius: 5px !important;
+  -ms-border-top-left-radius: 5px !important;
+  border-top-left-radius: 5px !important; }
 
 .week {
   display: none; }

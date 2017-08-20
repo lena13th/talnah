@@ -1,10 +1,14 @@
 <?php
+use \yii2mod\comments\widgets\Comment;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use app\assets\NewsAsset;
+
 NewsAsset::register($this);
 
 $this->params['active_page'][] = 'news';
+use rmrevin\yii\module\Comments;
+
 
 ?>
 <div class="main_wrapper news_item_page">
@@ -56,6 +60,12 @@ $this->params['active_page'][] = 'news';
                     <div class="news_item_public_date">Опубликовано: <?= Yii::$app->formatter->asDate($news->date_public) ?></div>
                 </div>
             </div>
+<!--            --><?php //echo Comment::widget([
+//                'model' => $news,
+//            ]); ?>
+<?php echo Comments\widgets\CommentListWidget::widget([
+            'entity' => (string) 'photo-15', // type and id
+            ]); ?>
         </div>
     </div>
 </div>

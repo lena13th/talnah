@@ -11,8 +11,6 @@ $this->params['active_page'][] = 'news';
         <li><a href="<?= Url::to(['/site/index']) ?>"><i class="fa fa-home"></i>Главная</a></li>
         <li>Новости</li>
     </ul>
-
-
     <!--     TODO для отчета о прош мер Для каждой новости удалить com-sm-6, для .main col-xs-9" -->
     <div class="main col-xs-12">
         <div class="content col-xs-12">
