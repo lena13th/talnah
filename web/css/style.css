@@ -2693,7 +2693,6 @@ html * {
         margin-left: -15px; }
 
   .submenu {
-    width: 250px;
     top: 70px;
     -webkit-transition: 0.2s ease-in-out;
     -moz-transition: 0.2s ease-in-out;
@@ -2749,7 +2748,8 @@ html * {
       color: #333;
       font-weight: 100;
       width: 100%;
-      padding-left: 15px; }
+      padding-left: 15px;
+      padding-right: 15px; }
     .menu_container .submenu li :hover {
       background: rgba(0, 0, 0, 0.01); }
   .menu_container .submenu li:last-child {
@@ -2994,7 +2994,15 @@ body {
   text-align: center;
   line-height: 76px;
   margin: 0;
-  padding: 0 10px; }
+  padding: 0 10px;
+  -webkit-border-top-right-radius: 5px !important;
+  -moz-border-top-right-radius: 5px !important;
+  -ms-border-top-right-radius: 5px !important;
+  border-top-right-radius: 5px !important;
+  -webkit-border-top-left-radius: 5px !important;
+  -moz-border-top-left-radius: 5px !important;
+  -ms-border-top-left-radius: 5px !important;
+  border-top-left-radius: 5px !important; }
 
 .week {
   display: none; }
@@ -3324,6 +3332,8 @@ body {
 .vacancy .vacancy_item {
   padding-left: 0;
   margin-bottom: 20px; }
+.vacancy .upload .field-vacancy-anketa label {
+  font-weight: 100; }
 
 .empty_content .back_to_home {
   margin: 0 auto;

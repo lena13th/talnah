@@ -79,7 +79,7 @@ class NewsController extends AppAdminController
             $model->gallery = UploadedFile::getInstances($model, 'gallery');
             $model->uploadGallery();
 
-            Yii::$app->session->setFlash('success', "Альбом {$model->name} сохранен");
+            Yii::$app->session->setFlash('success', "Новость сохранена");
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [

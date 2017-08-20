@@ -17,6 +17,14 @@ $config = [
             // 'layout'=>'admin',
             // 'layoutPath'=>'@app/themes/adminLTE/layouts',
         ],
+//        'comment' => [
+//            'class' => 'yii2mod\comments\Module',
+//        ],
+        'comments' => [
+            'class' => 'rmrevin\yii\module\Comments\Module',
+            'userIdentityClass' => 'app\models\User',
+            'useRbac' => false,
+        ],
         'yii2images' => [
             'class' => 'rico\yii2images\Module',
             //be sure, that permissions ok 
@@ -91,7 +99,15 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        
+        'i18n' => [
+            'translations' => [
+                'yii2mod.comments' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@yii2mod/comments/messages',
+                ],
+                // ...
+            ],
+        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -99,6 +115,7 @@ $config = [
                 '' => 'site/index',
                 'news/page=<page:\d+>' => 'news/index',
                 'news/' => 'news/index',
+                //news/view?id=2
                 'news/<id:\d+>' => 'news/view',
                 'event/<id:\d+>' => 'site/event',
                 'contacts/' => 'site/contacts',
@@ -117,11 +134,11 @@ $config = [
 //                'menu/page=<page:\d+>/size=<pageSize:\d+>/' => 'menu/index',
 
                 'admin/<controller>/<action>' => 'admin/<controller>/<action>',
+//                http://taln/comment/default/create?
 
                 'news_item/<id:\d+>' => 'news_item/view',
                 'news_item/' => 'news_item/index',
                 'images/' => 'yii2images/images/image-by-item-and-alias',
-
 
                 '<grf:[\w+-]*\w+>/<parent_alias:[\w+-]*\w+>/contacts' => 'page/contacts',
 

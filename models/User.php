@@ -3,8 +3,25 @@
 namespace app\models;
 use yii\db\ActiveRecord;
 
-class User extends ActiveRecord implements \yii\web\IdentityInterface
+class User extends ActiveRecord implements \yii\web\IdentityInterface,
+    \rmrevin\yii\module\Comments\interfaces\CommentatorInterface
 {
+
+    public function getCommentatorAvatar()
+    {
+        return false;
+    }
+
+    public function getCommentatorName()
+    {
+        return $this->name;
+    }
+
+    public function getCommentatorUrl()
+    {
+//        return ['/profile', 'id' => $this->id]; // or false, if user does not have a public page
+        return false;
+    }
 
     public static function tableName(){
         return 'user';

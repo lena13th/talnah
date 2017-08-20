@@ -27,7 +27,9 @@
         "yiisoft/yii2-imagine": "^2.1",
         "mihaildev/yii2-ckeditor": "*",
         "mihaildev/yii2-elfinder": "*",
-        "costa-rico/yii2-images": "dev-master"
+        "costa-rico/yii2-images": "dev-master",
+        "yii2mod/yii2-comments": "*",
+        "rmrevin/yii2-comments": "~1.4"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

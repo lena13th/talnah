@@ -222,7 +222,7 @@
     }
   }
   .submenu {
-    width: 250px;
+    //width: 250px;
     top: 70px;
     @include transition(0.2s);
     background: white*0.99;
@@ -284,6 +284,7 @@
         //padding:10px;
         width:100%;
         padding-left: 15px;
+        padding-right: 15px;
       }
       :hover {
         background: rgba(0,0,0,0.01);

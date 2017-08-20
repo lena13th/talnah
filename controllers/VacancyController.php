@@ -5,6 +5,7 @@ use app\models\Page;
 use app\models\Vacancy;
 use Yii;
 use yii\caching\DbDependency;
+use yii\web\UploadedFile;
 
 class VacancyController extends AppController
 {
@@ -34,6 +35,7 @@ class VacancyController extends AppController
 
 
     public function actionView($id) {
+        $model = new Vacancy();
         $dependency = new DbDependency([
             'sql' => 'SELECT MAX(updated_on) FROM page',
         ]);
@@ -41,11 +43,33 @@ class VacancyController extends AppController
             return Page::find()->where(['published' => 1])->andWhere(['parent_alias' => 'about'])->all();
         }, 0, $dependency);
 
-        $vacation = Vacancy::find()->where(['published'=>1])->andWhere(['vacancy_id'=>$id])->one();
+        $vacation = Vacancy::find()->where(['published' => 1])->andWhere(['vacancy_id' => $id])->one();
         if (empty($vacation)) throw new \yii\web\HttpException(404, 'К сожалению такой вакансии не найдено.');
 
         $company = $this->getCompany();
-        $this->setMeta('Вакансии '.$company->name.', ' .$vacation->title,'', 'Вакансии '.$company->name.', трудоустройство в Плешаново, Красногвардейский район');
-        return $this->render('view', compact('vacation','next_pages', 'company'));
+        $this->setMeta('Вакансии ' . $company->name . ', ' . $vacation->title, '', 'Вакансии ' . $company->name . ', трудоустройство в Плешаново, Красногвардейский район');
+
+        if ($model->load(Yii::$app->request->post()) && $model->anketa) {
+            $model->anketa = UploadedFile::getInstance($model, 'anketa');
+            $name = $model->anketa->baseName;
+            $ext = $model->anketa->extension;
+            $filename = ($name.'.'.$ext);
+            $model->anketa->saveAs($filename);
+            Yii::$app->mailer->compose()
+                ->setTo('mr-15@mail.ru')
+                ->setFrom('mr-15@mail.ru')
+                ->attach($filename)
+                ->send();
+            Yii::$app->session->setFlash('success', "Анкета отправлена");
+
+            return $this->redirect('view', compact('vacation', 'next_pages', 'company', 'model'));
+        } else {
+            return $this->render('view', compact('vacation', 'next_pages', 'company', 'model'));
+        }
+    }
+
+    public function actionUpload()
+    {
+
     }
 }
