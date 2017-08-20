@@ -155,6 +155,12 @@
     padding-left: 0;
     margin-bottom: 20px;
   }
+  // TOdO вернуться и убрать жирный шрифт в вакансии при загрузке анкеты
+  .upload .field-vacancy-anketa{
+    label {
+      font-weight: 100;
+    }
+  }
 }
 .empty_content {
   h2, .h2 {

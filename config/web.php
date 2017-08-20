@@ -140,11 +140,11 @@ $config = [
                 'news_item/' => 'news_item/index',
                 'images/' => 'yii2images/images/image-by-item-and-alias',
 
-//                '<grf:[\w+-]*\w+>/<parent_alias:[\w+-]*\w+>/contacts' => 'page/contacts',
-//
-//                '<grf:[\w+-]*\w+>/<parent_alias:[\w+-]*\w+>/<alias:[\w+-]*\w+>' => 'page/index',
-//                '<parent_alias:[\w+-]*\w+>/<alias:[\w+-]*\w+>' => 'page/index',
-//                '<alias:[\w+-]*\w+>' => 'page/index',
+                '<grf:[\w+-]*\w+>/<parent_alias:[\w+-]*\w+>/contacts' => 'page/contacts',
+
+                '<grf:[\w+-]*\w+>/<parent_alias:[\w+-]*\w+>/<alias:[\w+-]*\w+>' => 'page/index',
+                '<parent_alias:[\w+-]*\w+>/<alias:[\w+-]*\w+>' => 'page/index',
+                '<alias:[\w+-]*\w+>' => 'page/index',
 
             ],
         ],
