@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\modules\admin\models\Events */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Events', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Мероприятия', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="events-view">
@@ -15,11 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('Редактировать', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Вы уверены что хотите удалить данную новость?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -28,15 +28,24 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
-            'title',
+//            'id',
+            'title' ,
             'published',
-            'short_description',
-            'content:ntext',
+            [
+                'attribute' => 'short_description',
+                'format' => 'html'
+            ],
+            [
+                'attribute' => 'content',
+                'format' => 'html'
+            ],
+
+//            'short_description',
+//            'content:ntext',
             'date_event_start',
             'date_event_end',
-            'related_sportbuilding',
-            'updated_on',
+//            'related_sportbuilding',
+//            'updated_on',
         ],
     ]) ?>
 

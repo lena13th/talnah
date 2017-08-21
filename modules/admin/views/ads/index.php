@@ -27,8 +27,11 @@ $this->params['breadcrumbs'][] = $this->title;
 //            'ads_id',
             'title',
             'published',
-            'content',
-            'updated_on',
+            [
+                'attribute' => 'content',
+                'format' => 'html'
+            ],
+//            'updated_on',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

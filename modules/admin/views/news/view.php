@@ -43,13 +43,20 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'title',
             'published',
-            'short_description',
-            'content:ntext',
+            [
+                'attribute' => 'short_description',
+                'format' => 'html'
+            ],
+            [
+                'attribute' => 'content',
+                'format' => 'html'
+            ],
+
+//            'short_description',
+//            'content:ntext',
             'date_event_start',
             'date_event_end',
-            'image',
             'related_event',
-            'related_sportbuilding',
             'date_public',
         ],
     ]) ?>

@@ -3,8 +3,9 @@
 namespace app\models;
 use yii\db\ActiveRecord;
 
-class User extends ActiveRecord implements \yii\web\IdentityInterface,
-    \rmrevin\yii\module\Comments\interfaces\CommentatorInterface
+class User extends ActiveRecord implements \yii\web\IdentityInterface
+//class User extends ActiveRecord implements \yii\web\IdentityInterface,
+//    \rmrevin\yii\module\Comments\interfaces\CommentatorInterface
 {
 
     public function getCommentatorAvatar()

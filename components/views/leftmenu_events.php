@@ -6,10 +6,8 @@ if (!empty($date_news)) {
     sort($date_news);
     reset($date_news);
     $date_news = array_unique($date_news);
-
 }
 ?>
-
 <div class="left_block">
     <div class="left_block_content">
         <ul class="left_menu">

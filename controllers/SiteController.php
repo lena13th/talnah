@@ -89,6 +89,7 @@ class SiteController extends AppController
         }, 60, $dependency2);
 
         $this->setMeta('Спортивный комплекс Талнах ', '', 'Контактные данные, адрес и телефон ' . $company->name);
+        $company = $this->getCompany();
 
         return $this->render('index', compact('ads', 'company', 'news', 'events'));
     }

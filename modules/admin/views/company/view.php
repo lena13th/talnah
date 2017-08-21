@@ -24,13 +24,33 @@ $this->params['breadcrumbs'][] = $this->title;
 //            'company_id',
             'organization',
             'name',
-            'phone',
-            'address',
+            [
+                'attribute' => 'phone',
+                'format' => 'html'
+            ],
+            [
+                'attribute' => 'address',
+                'format' => 'html'
+            ],
             'email:email',
-            'requisites:ntext',
-            'documents:ntext',
-            'image',
-            'rekblock:ntext',
+            [
+                'attribute' => 'requisites',
+                'format' => 'html'
+            ],
+            [
+                'attribute' => 'documents',
+                'format' => 'html'
+            ],
+//            [
+//                'attribute' => 'image',
+//                'format' => 'html'
+//            ],
+//            [
+//                'attribute' => 'rekblock',
+//                'format' => 'html'
+//            ],
+//            'image',
+//            'rekblock:ntext',
 //            'meta_title',
 //            'meta_keywords',
 //            'meta_description',

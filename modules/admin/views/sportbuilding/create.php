@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\admin\models\Events */
+/* @var $model app\modules\admin\models\Sportbuilding */
 
-$this->title = 'Создания мероприятия';
-$this->params['breadcrumbs'][] = ['label' => 'Мероприятия', 'url' => ['index']];
+$this->title = 'Create Sportbuilding';
+$this->params['breadcrumbs'][] = ['label' => 'Sportbuildings', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="events-create">
+<div class="sportbuilding-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

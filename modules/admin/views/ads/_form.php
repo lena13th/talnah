@@ -1,5 +1,8 @@
 <?php
 
+use mihaildev\ckeditor\CKEditor;
+use mihaildev\elfinder\ElFinder;
+
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -16,9 +19,18 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'published')->textInput() ?>
 
-    <?= $form->field($model, 'content')->textInput(['maxlength' => true]) ?>
+<!--    --><?//= $form->field($model, 'content')->textInput(['maxlength' => true]) ?>
+    <?php
+    echo $form->field($model, 'content')->widget(CKEditor::className(), [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
+            'height' => 200,
+            'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+            'inline' => false, //по умолчанию false
+        ]),
+    ]);
+    ?>
 
-    <?= $form->field($model, 'updated_on')->textInput() ?>
+<!--    --><?//= $form->field($model, 'updated_on')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

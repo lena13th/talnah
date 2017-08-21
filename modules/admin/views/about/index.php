@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\modules\admin\models\EventsSearch */
+/* @var $searchModel app\modules\admin\models\PageSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Мероприятия';
+$this->title = 'Pages';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="events-index">
+<div class="page-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Создать мероприятие', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Page', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,14 +24,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            'page_id',
             'title',
+            'full_title',
+            'alias',
             'published',
-            'short_description',
-            'content:ntext',
-            // 'date_event_start',
-            // 'date_event_end',
-            // 'related_sportbuilding',
+            // 'content:ntext',
+            // 'parent_alias',
+            // 'meta_keywords',
+            // 'meta_description',
             // 'updated_on',
 
             ['class' => 'yii\grid\ActionColumn'],

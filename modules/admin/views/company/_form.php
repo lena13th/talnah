@@ -1,5 +1,7 @@
 <?php
 
+use mihaildev\ckeditor\CKEditor;
+use mihaildev\elfinder\ElFinder;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -22,13 +24,40 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'requisites')->textarea(['rows' => 6]) ?>
+    <?php
+    echo $form->field($model, 'requisites')->widget(CKEditor::className(), [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
+            'height' => 200,
+            'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+            'inline' => false, //по умолчанию false
+        ]),
+    ]);
+    ?>
 
-    <?= $form->field($model, 'documents')->textarea(['rows' => 6]) ?>
+    <?php
+    echo $form->field($model, 'documents')->widget(CKEditor::className(), [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
+            'height' => 200,
+            'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+            'inline' => false, //по умолчанию false
+        ]),
+    ]);
+    ?>
+    <?php
+    echo $form->field($model, 'rekblock')->widget(CKEditor::className(), [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
+            'height' => 200,
+            'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+            'inline' => false, //по умолчанию false
+        ]),
+    ]);
+    ?>
+
+<!--    --><?//= $form->field($model, '')->textarea(['rows' => 6]) ?>
 
 <!--    --><?//= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'rekblock')->textarea(['rows' => 6]) ?>
+<!--    --><?//= $form->field($model, '')->textarea(['rows' => 6]) ?>
 
 <!--    --><?//= $form->field($model, 'meta_title')->textInput(['maxlength' => true]) ?>
 <!---->

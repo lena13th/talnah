@@ -15,8 +15,8 @@ class LeftEventsWidget extends Widget
 
     public $tpl;
     public $yr;
-//    public $active_submenu;
-//    public $model; /* Нужно для админки - передаем значение текущего экземпляра модели. проще говоря - запись категории на странице которой мы находимся */
+//  public $active_submenu;
+//  public $model; /* Нужно для админки - передаем значение текущего экземпляра модели. проще говоря - запись категории на странице которой мы находимся */
 //	public $tree; /* Результат работы функции - из массива строится дерево со вложенностью */
 //	public $menuHtml; /* Готовый HTML код в зависимости от шаблона */
 //	public $xxx; /* Готовый HTML код в зависимости от шаблона */
@@ -38,7 +38,7 @@ class LeftEventsWidget extends Widget
             'sql' => 'SELECT MAX(updated_on) FROM events',
         ]);
 
-        $query = Events::find()->where(['published' => 1]);
+        $query = Events::find()->where(['published' => 1])->andWhere(['>', 'related_news', '0']);
 
         // Инициируем пагинацию
         $pages = new Pagination([
@@ -49,8 +49,8 @@ class LeftEventsWidget extends Widget
         ]);
 
         $events = Yii::$app->db->cache(function ($db) use ($pages, $query) {
-            return $query->offset($pages->offset)->limit(5)->with('news')->all();
-        }, 0, $dependency);
+            return $query->offset($pages->offset)->limit($pages->limit)->with('news')->all();
+        }, 1, $dependency);
 
         $date_news = '';
         foreach ($events as $key => $event) {
@@ -70,7 +70,7 @@ class LeftEventsWidget extends Widget
                     if ($event_date_d <= date("d")) {
                         $date_news[$event_date_y][]=$event->news;
                     }
-            }}
+                }}
         }
 
         return $this->render($this->tpl, compact('date_news','yr','pages'));

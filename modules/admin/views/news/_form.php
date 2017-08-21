@@ -1,5 +1,9 @@
 <?php
 
+use kartik\widgets\DatePicker;
+use mihaildev\ckeditor\CKEditor;
+use mihaildev\elfinder\ElFinder;
+
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -33,19 +37,79 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'short_description')->textInput(['maxlength' => true]) ?>
+<!--    --><?//= $form->field($model, 'short_description')->textInput(['maxlength' => true]) ?>
+    <?php
+    echo $form->field($model, 'short_description')->widget(CKEditor::className(), [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
+            'height' => 200,
+            'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+            'inline' => false, //по умолчанию false
+        ]),
+    ]);
+    ?>
 
-    <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
+<!--    --><?//= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
+    <?php
+    echo $form->field($model, 'content')->widget(CKEditor::className(), [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
+            'height' => 200,
+            'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+            'inline' => false, //по умолчанию false
+        ]),
+    ]);
+    ?>
 
-    <?= $form->field($model, 'date_event_start')->textInput() ?>
+<!--    --><?//= $form->field($model, 'date_event_start')->textInput() ?>
+    <div class="col-xs-12 col-md-4">
+        <label>Дата начала события</label>
+        <?= DatePicker::widget([
+            'model' => $model,
+            'attribute' => 'date_event_start',
+            'value' => date('Y-m-d'),
+            'options' => ['placeholder' => 'Выберите дату'],
+            'pluginOptions' => [
+                'format' => 'yyyy-mm-dd',
+                'todayHighlight' => true,
+            ],
+        ]);
+        ?><br>
+    </div>
+    <div class="col-xs-12 col-md-4">
+        <label>Дата окончания события</label>
+        <?= DatePicker::widget([
+            'model' => $model,
+            'attribute' => 'date_event_end',
+            'value' => date('Y-m-d'),
+            'options' => ['placeholder' => 'Выберите дату'],
+            'pluginOptions' => [
+                'format' => 'yyyy-mm-dd',
+                'todayHighlight' => true,
+            ],
+        ]);
+        ?><br>
+    </div>
+    <div class="col-xs-12 col-md-4">
+        <label>Дата публикации</label>
+        <?= DatePicker::widget([
+            'model' => $model,
+            'attribute' => 'date_public',
+            'value' => date('Y-m-d'),
+            'options' => ['placeholder' => 'Выберите дату'],
+            'pluginOptions' => [
+                'format' => 'yyyy-mm-dd',
+                'todayHighlight' => true,
+            ],
+        ]);
+        ?><br>
+    </div>
 
-    <?= $form->field($model, 'date_event_end')->textInput() ?>
+<!--    --><?//= $form->field($model, 'date_event_end')->textInput() ?>
 
-    <?= $form->field($model, 'related_event')->textInput() ?>
+<!--    --><?//= $form->field($model, 'related_event')->textInput() ?>
+<!---->
+<!--    --><?//= $form->field($model, 'related_sportbuilding')->textInput() ?>
 
-    <?= $form->field($model, 'related_sportbuilding')->textInput() ?>
-
-    <?= $form->field($model, 'date_public')->textInput() ?>
+<!--    --><?//= $form->field($model, 'date_public')->textInput() ?>
 
     <?php $gallery = $model->getImages(); ?>
 
