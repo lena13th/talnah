@@ -2,14 +2,15 @@
 
 namespace app\modules\admin\components;
 
-use app\modules\admin\models\Page;
+use app\modules\admin\models\Events;
 use yii\base\Widget;
 use Yii;
 use yii\caching\DbDependency;
 
-class Pages_parent extends Widget
+class RelatedNews extends Widget
 {
 
+//    public $id;
     public $model;
 //    public $active_submenu;
 //    public $model; /* Нужно для админки - передаем значение текущего экземпляра модели. проще говоря - запись категории на странице которой мы находимся */
@@ -29,14 +30,14 @@ class Pages_parent extends Widget
 //                Yii::$app->cache->flush();
 
         $dependency = new DbDependency([
-            'sql' => 'SELECT MAX(updated_on) FROM page',
+            'sql' => 'SELECT MAX(updated_on) FROM events',
         ]);
-
-        $pages = Yii::$app->db->cache(function ($db) {
-            return Page::find()->where(['parent_alias'=>'sportbuilding'])->all();
-        }, 60, $dependency);
         $model = $this->model;
 
-        return $this->render('pages_parent', compact('pages', 'model'));
+        $pages = Yii::$app->db->cache(function ($db) {
+            return Events::find()->all();
+        }, 60, $dependency);
+
+        return $this->render('news_parent', compact('pages', 'model'));
     }
 }

@@ -66,7 +66,25 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class' => 'yii\grid\ActionColumn',
                 'options'=> [
                     'width' => '80px'
-                ]
+                ],
+//                'buttons' => function ($url, $data, $key) {
+//                    [
+//                    'update' => function ($url, $data, $key) {
+//                        if (stripos(' structure directors requisites documents', $data->alias)) {
+//                            return  Html::a('Редактировать', $data->alias);
+//                        }
+//                    },
+//                    'view' => function ($url, $data, $key) {
+//                        if (stripos(' structure directors requisites documents', $data->alias)) {
+//                            return  Html::a('123', 'yandex.ru');
+//                        }
+//                    },
+//                    'delete' => function ($url, $data, $key) {
+//                        if (stripos(' structure directors requisites documents', $data->alias)) {
+//                            return  Html::a('123', 'yandex.ru');
+//                        }
+//                    },
+//                ],
             ]
         ],
     ]); ?>

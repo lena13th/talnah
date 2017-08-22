@@ -101,7 +101,11 @@ use yii\widgets\ActiveForm;
         ]);
         ?><br>
     </div>
-
+    <label for="product-category_id" class="control-label">Связанный анонс</label>
+    <select name="parent_[category_id]" id="product-category_id" class="form-control">
+        <option value="0"></option>
+        <?= app\modules\admin\components\RelatedNews::widget(['model'=>$model]) ?>
+    </select><br>
 <!--    --><?//= $form->field($model, 'date_event_end')->textInput() ?>
 
 <!--    --><?//= $form->field($model, 'related_event')->textInput() ?>

@@ -76,7 +76,6 @@ use yii\widgets\ActiveForm;
         <?= app\modules\admin\components\Pages_parent::widget(['model'=>$model]) ?>
     </select><br>
 
-
 <!--    --><?//= $form->field($model, 'parent_alias')->textInput(['maxlength' => true]) ?>
 
 <!--    --><?//= $form->field($model, 'meta_keywords')->textInput(['maxlength' => true]) ?>
