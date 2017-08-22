@@ -70,7 +70,14 @@ use yii\widgets\ActiveForm;
     ?>
 <!--    --><?//= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'parent_alias')->textInput(['maxlength' => true]) ?>
+    <label for="product-category_id" class="control-label">Родительская страница</label>
+    <select name="parent_[category_id]" id="product-category_id" class="form-control">
+        <option value="0"></option>
+        <?= app\modules\admin\components\Pages_parent::widget(['model'=>$model]) ?>
+    </select><br>
+
+
+<!--    --><?//= $form->field($model, 'parent_alias')->textInput(['maxlength' => true]) ?>
 
 <!--    --><?//= $form->field($model, 'meta_keywords')->textInput(['maxlength' => true]) ?>
 <!---->
