@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use kartik\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\admin\models\QuestionarySearch */
@@ -26,7 +26,27 @@ $this->params['breadcrumbs'][] = $this->title;
 
 //            'id',
             'name_field',
-            'published',
+            [
+//                'class'=>'kartik\grid\EditableColumn',
+                'attribute'=>'published',
+                'pageSummary'=>'Total',
+//                'editableOptions'=> [
+//                    'placement' => 'bottom',
+//                    'header' => ' ',
+////                    'inputType' => \kartik\editable\Editable::INPUT_DROPDOWN_LIST,
+//                    'data'=> ['Не опубликовано', 'Опубликовано'],
+//                ],
+                'filter' => Html::activeDropDownList($searchModel, 'published', ['Нет', 'Да'],['class'=>'form-control','prompt' => ' ']),
+                'value' => function($data) {
+                    if($data->published==1) {
+                        return '<span style="color:green;">Опубликовано</span>';
+                    }
+                    else {
+                        return '<span class="text-danger">Не опубликовано</span>';
+                    }
+                },
+                'format' => 'html'
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

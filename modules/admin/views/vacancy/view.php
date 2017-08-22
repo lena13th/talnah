@@ -30,7 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'vacancy_id',
             'title',
-            'published',
+            [
+                'attribute'=>'published',
+                'value' => checkPublic($model->published),
+            ],
             'short_description',
             [
                 'attribute' => 'content',

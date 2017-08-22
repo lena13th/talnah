@@ -69,6 +69,7 @@ class News extends \yii\db\ActiveRecord
             'published' => 'Опубликовано',
             'short_description' => 'Краткое описание',
             'content' => 'Содержание',
+            'gallery' => 'Фотографии',
             'date_event_start' => 'Дата начала события',
             'date_event_end' => 'Дата окончания события',
             'image' => 'Главное изображение',

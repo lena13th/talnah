@@ -31,7 +31,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'sportbuilding_id',
             'full_title',
             'alias',
-            'published',
+            [
+                'attribute'=>'published',
+                'value' => checkPublic($model->published),
+            ],
             'work_hours',
             'phone',
             'address',

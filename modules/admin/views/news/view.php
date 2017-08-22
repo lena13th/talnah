@@ -42,7 +42,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'html',
             ],
             'title',
-            'published',
+            [
+                'attribute'=>'published',
+                'value' => checkPublic($model->published),
+            ],
             [
                 'attribute' => 'short_description',
                 'format' => 'html'

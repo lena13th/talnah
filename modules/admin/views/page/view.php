@@ -43,7 +43,10 @@ $this->params['breadcrumbs'][] = $model->title;
             'title',
             'full_title',
 //            'alias',
-            'published',
+            [
+                'attribute'=>'published',
+                'value' => checkPublic($model->published),
+            ],
             [
                 'attribute' => 'sportbuilding.phone',
                 'format' => 'html'
@@ -82,7 +85,10 @@ $this->params['breadcrumbs'][] = $model->title;
                 'title',
 //                'full_title',
 //                'alias',
-                'published',
+                [
+                    'attribute'=>'published',
+                    'value' => checkPublic($model->published),
+                ],
                 [
                     'attribute' => 'content',
                     'format' => 'html'

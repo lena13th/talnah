@@ -58,7 +58,6 @@ use yii\widgets\ActiveForm;
    <?php   } ?>
 <!--    --><?//= $form->field($model, 'alias')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'published')->textInput() ?>
     <?php
     echo $form->field($model, 'content')->widget(CKEditor::className(), [
         'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
