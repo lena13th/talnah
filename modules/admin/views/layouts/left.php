@@ -102,7 +102,7 @@ use app\modules\admin\components\Sportb;
                         'items' => [
                             ['label' => 'Раздел О нас', 'icon' => 'gear', 'url' => ['page/index', 'parent_alias'=>'about'],],
                             ['label' => 'Вакансии', 'icon' => 'gear', 'url' => ['vacancy/index'],],
-//                            ['label' => 'Анкета', 'icon' => 'gear', 'url' => ['company/index', 'id'=>1],],
+                            ['label' => 'Анкета', 'icon' => 'gear', 'url' => ['questionary/index'],],
                         ],
                     ],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],

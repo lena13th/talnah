@@ -45,6 +45,16 @@ $this->params['active_child_page'][] = 'ask';
                 ])->textInput(array('placeholder' => 'Ваш телефон', 'class' => '')) ?>
                 <?= $form->field($model, 'email', ['enableLabel' => false])->textInput(array('placeholder' => 'Адрес электронной почты', 'class' => '')); ?>
                 <?= $form->field($model, 'message', ['enableLabel' => false])->textarea(['rows' => 4, 'placeholder' => 'Вопрос', 'class' => '']) ?>
+<?php
+//foreach ($questionary as $quest) {
+//    echo $quest;
+//    ?>
+<!--    -->
+<!--    --><?//= $form->field($model, 'text_'.$quest->id, ['enableLabel' => false])->textarea(['rows' => 4, 'placeholder' => $quest->name, 'class' => '']) ?>
+<!---->
+<!--    --><?php
+//}
+//                ?>
 <!--                --><?//= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
 //                    'template' => '<div><div class="col-xs-5">{image}</div><div class="col-xs-6 pull-right">{input}</div></div>',
 //                ]) ?>
