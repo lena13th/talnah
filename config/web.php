@@ -139,6 +139,11 @@ $config = [
                 'news_item/<id:\d+>' => 'news_item/view',
                 'news_item/' => 'news_item/index',
                 'images/' => 'yii2images/images/image-by-item-and-alias',
+                //1aa/elfinder/manager?filter=image&CKEditor=events-content&CKEditorFuncNum=183&langCode=ru#elf_l1_XA
+                'elfinder' => 'elfinder/',
+                'elfinder/manager' => 'elfinder/manager/',
+                'elfinder/connect' => 'elfinder/connect/',
+
 
                 '<grf:[\w+-]*\w+>/<parent_alias:[\w+-]*\w+>/contacts' => 'page/contacts',
 
@@ -155,8 +160,8 @@ $config = [
             'class' => 'mihaildev\elfinder\PathController',
             'access' => ['@'],
             'root' => [
-                'baseUrl'=>'/web',
-                // 'basePath'=>'@webroot',
+                'baseUrl'=>'/',
+//                 'basePath'=>'@webroot',
                 'path' => 'files',
                 'name' => 'Files'
             ],

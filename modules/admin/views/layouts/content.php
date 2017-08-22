@@ -9,6 +9,7 @@ use app\components\CompanyWidget;
         <?=
         Breadcrumbs::widget(
             [
+                'homeLink' => ['label' => 'Главная', 'url' => '/admin'],
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]
         ) ?>

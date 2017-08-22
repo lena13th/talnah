@@ -39,12 +39,17 @@ class PageSearch extends Page
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params,$parent_alias)
     {
-        $query = Page::find();
-
+//        if ($grf=='sportbuilding') {
+//            $query = Page::find()->with('sportbuilding')->where(['parent_alias' => $parent_alias]);
+//        }
+//        else {
+            $query = Page::find()->where(['parent_alias' => $parent_alias]);
+//        }
+//echo $qqqq;
         // add conditions that should always apply here
-
+//        ->where(['published' => 1])->andWhere(['alias' => $alias])->andWhere(['parent_alias' => $parent_alias])->one();
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);

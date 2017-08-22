@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Vacancy */
 
-$this->title = 'Create Vacancy';
-$this->params['breadcrumbs'][] = ['label' => 'Vacancies', 'url' => ['index']];
+$this->title = 'Создание вакансии';
+$this->params['breadcrumbs'][] = ['label' => 'Вакансии', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="vacancy-create">

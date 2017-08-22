@@ -48,16 +48,20 @@ class Page extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'page_id' => 'Page ID',
-            'title' => 'Title',
-            'full_title' => 'Full Title',
+            'page_id' => 'ID',
+            'title' => 'Заголовок',
+            'full_title' => 'Полное название комплекса',
             'alias' => 'Alias',
-            'published' => 'Published',
-            'content' => 'Content',
-            'parent_alias' => 'Parent Alias',
+            'published' => 'Опубликовано',
+            'content' => 'Содержание страницы',
+            'parent_alias' => 'Родительская страница',
             'meta_keywords' => 'Meta Keywords',
             'meta_description' => 'Meta Description',
             'updated_on' => 'Updated On',
         ];
+    }
+
+    public function getSportbuilding(){
+        return $this->hasOne(Sportbuilding::className(), ['alias' => 'alias']);
     }
 }

@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\modules\admin\models\Vacancy */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Vacancies', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Вакансии', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="vacancy-view">
@@ -15,11 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->vacancy_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->vacancy_id], [
+        <?= Html::a('Редактировать', ['update', 'id' => $model->vacancy_id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалить', ['delete', 'id' => $model->vacancy_id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Вы уверены что хотите удалить данную вакансию?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -32,12 +32,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             'published',
             'short_description',
-            'content:ntext',
+            [
+                'attribute' => 'content',
+                'format' => 'html'
+            ],
+//            'content:ntext',
             'salary',
-            'meta_title',
-            'meta_keywords',
-            'meta_description',
-            'updated_on',
+//            'meta_title',
+//            'meta_keywords',
+//            'meta_description',
+//            'updated_on',
         ],
     ]) ?>
 

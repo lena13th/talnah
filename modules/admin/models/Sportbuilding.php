@@ -33,7 +33,7 @@ class Sportbuilding extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['full_title', 'alias', 'work_hours', 'address'], 'required'],
+            [['alias', 'work_hours', 'address'], 'required'],
             [['published'], 'integer'],
             [['updated_on'], 'safe'],
             [['full_title', 'alias', 'address'], 'string', 'max' => 255],
@@ -48,13 +48,12 @@ class Sportbuilding extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'sportbuilding_id' => 'Sportbuilding ID',
-            'full_title' => 'Full Title',
+            'sportbuilding_id' => 'ID',
             'alias' => 'Alias',
-            'published' => 'Published',
-            'work_hours' => 'Work Hours',
-            'phone' => 'Phone',
-            'address' => 'Address',
+            'published' => 'Опубликовано',
+            'work_hours' => 'Режим работы',
+            'phone' => 'Телефон',
+            'address' => 'Адрес',
             'email' => 'Email',
             'updated_on' => 'Updated On',
         ];

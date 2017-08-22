@@ -48,12 +48,12 @@ class Vacancy extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'vacancy_id' => 'Vacancy ID',
-            'title' => 'Title',
-            'published' => 'Published',
-            'short_description' => 'Short Description',
-            'content' => 'Content',
-            'salary' => 'Salary',
+            'vacancy_id' => 'ID',
+            'title' => 'Заголовок',
+            'published' => 'Опубликовано',
+            'short_description' => 'Краткое описание',
+            'content' => 'Текст вакансии',
+            'salary' => 'Заработная плата',
             'meta_title' => 'Meta Title',
             'meta_keywords' => 'Meta Keywords',
             'meta_description' => 'Meta Description',

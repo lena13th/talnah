@@ -68,6 +68,8 @@ use yii\widgets\ActiveForm;
         ]);
         ?><br>
     </div>
+        <?= $form->field($model, 'related_news')->textInput() ?>
+
 
 <!--    --><?//= $form->field($model, 'date_event_start')->textInput() ?>
 <!---->

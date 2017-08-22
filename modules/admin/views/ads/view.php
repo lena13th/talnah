@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Удалить', ['delete', 'id' => $model->ads_id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Вы уверены что хотите удалить данную новость?',
+                'confirm' => 'Вы уверены что хотите удалить данное объявление?',
                 'method' => 'post',
             ],
         ]) ?>

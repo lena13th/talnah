@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\modules\admin\models\VacancySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Vacancies';
+$this->title = 'Вакансии';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="vacancy-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Vacancy', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать вакансию', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,12 +24,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'vacancy_id',
+//            'vacancy_id',
             'title',
             'published',
             'short_description',
-            'content:ntext',
-            // 'salary',
+//            'content:ntext',
+             'salary',
             // 'meta_title',
             // 'meta_keywords',
             // 'meta_description',

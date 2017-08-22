@@ -1,12 +1,11 @@
 <?php
 
-namespace app\components;
+namespace app\modules\admin\components;
 
-use app\modules\admin\models\Sportbuilding;
+use app\modules\admin\models\Page;
 use yii\base\Widget;
 use Yii;
 use yii\caching\DbDependency;
-use yii\data\Pagination;
 
 class Sportb extends Widget
 {
@@ -31,13 +30,13 @@ class Sportb extends Widget
 //                Yii::$app->cache->flush();
 
         $dependency = new DbDependency([
-            'sql' => 'SELECT MAX(updated_on) FROM sportbuilding',
+            'sql' => 'SELECT MAX(updated_on) FROM page',
         ]);
 
-        $sportb = Yii::$app->db->cache(function ($db) {
-            return Sportbuilding::find()->all();
+        $sportbs = Yii::$app->db->cache(function ($db) {
+            return Page::find()->where(['parent_alias'=>'sportbuilding'])->all();
         }, 60, $dependency);
 
-        return $this->render($this->tpl, compact('sportb'));
+        return $this->render('sportb', compact('sportbs'));
     }
 }
