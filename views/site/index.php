@@ -43,9 +43,7 @@ $this->params['active_page'][] = 'index';
                 <?php foreach ($news as $item_news): ?>
                 <div class="news_item row">
                     <div class="news_item_event_date col-xs-12">
-                        <i class="fa-calendar fa"></i>
-
-
+                        <i class="fa-calendar fa"></i><span>Дата события:</span>
                         <span>
                         <?php
                         if (!empty($item_news->date_event_start)) {

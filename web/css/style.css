@@ -2351,13 +2351,13 @@ html * {
   color: #DF4545;
   border: 1px solid #DF4545; }
 
-.btn-primary {
+.btn-primary, input[type='button'] {
   background: #4866a7 !important;
   color: white !important;
   border-color: #33539a !important;
   text-shadow: 0 0 0 !important;
   box-shadow: none !important; }
-  .btn-primary i {
+  .btn-primary i, input[type='button'] i {
     -webkit-transition: all 0.1s cubic-bezier(0.46, 0.03, 0.52, 0.96) ease-in-out;
     -moz-transition: all 0.1s cubic-bezier(0.46, 0.03, 0.52, 0.96) ease-in-out;
     -ms-transition: all 0.1s cubic-bezier(0.46, 0.03, 0.52, 0.96) ease-in-out;
@@ -2372,7 +2372,7 @@ html * {
   .btn-default:hover {
     background: rgba(0, 0, 0, 0.2); }
 
-.btn {
+.btn, input[type='button'] {
   -webkit-border-radius: 50px !important;
   -moz-border-radius: 50px !important;
   -ms-border-radius: 50px !important;
@@ -2451,7 +2451,7 @@ html * {
   -moz-transform: translate(75px, 0);
   /** Firefox **/ }
 
-.button {
+.button, input[type='button'] {
   border: none;
   font-size: 12px;
   background: #4866a7;
@@ -2460,16 +2460,16 @@ html * {
   -moz-border-radius: 25px !important;
   -ms-border-radius: 25px !important;
   border-radius: 25px !important; }
-  .button a, .button span {
+  .button a, input[type='button'] a, .button span, input[type='button'] span {
     color: white;
     text-decoration: none;
     padding: 10px 20px;
     display: block; }
-  .button i {
+  .button i, input[type='button'] i {
     margin-left: 15px; }
-  .button:hover {
+  .button:hover, input[type='button']:hover {
     background: #33539a; }
-  .button:active {
+  .button:active, input[type='button']:active {
     background: #33539a;
     margin-top: 1px;
     -webkit-box-shadow: inset 0px 3px 4px 0px rgba(0, 0, 0, 0.4);
@@ -2486,6 +2486,25 @@ html * {
   .socials a {
     padding: 8px;
     text-decoration: none; }
+
+input[type='button'] {
+  padding: 6px 12px;
+  outline: none;
+  border: none; }
+
+.download {
+  position: relative; }
+  .download input[type='button'] {
+    padding-right: 40px !important; }
+
+.download:after {
+  content: "\f019";
+  font-family: 'FontAwesome';
+  position: absolute;
+  line-height: 100%;
+  right: 18px;
+  color: white;
+  top: 2px; }
 
 /* MOBILE MENU */
 .menu_container {
@@ -2656,7 +2675,8 @@ html * {
     /** Firefox **/
     background: none;
     padding: 0;
-    text-align: center; }
+    text-align: center;
+    position: relative; }
     .menu_container .close_window, .menu_container .window_header {
       display: none; }
     .menu_container .inside_window {
@@ -2681,16 +2701,7 @@ html * {
         position: absolute; }
       .menu_container .menu > li.active::before {
         content: '';
-        border-right: 15px solid transparent;
-        border-left: 15px solid transparent;
-        border-bottom: 9px solid white;
-        border-top: 0px;
-        width: 0;
-        height: 0;
-        position: absolute;
-        top: 64px;
-        left: 50%;
-        margin-left: -15px; }
+        border: 0px; }
 
   .submenu {
     top: 70px;
@@ -2728,6 +2739,18 @@ html * {
       border-radius: 5px; }
       .menu_container .menu li a, .menu_container .menu li span {
         text-transform: uppercase; }
+      .menu_container .menu > li.active::before {
+        content: '';
+        border-right: 15px solid transparent;
+        border-left: 15px solid transparent;
+        border-bottom: 9px solid white;
+        border-top: 0px;
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 64px;
+        left: 50%;
+        margin-left: -15px; }
 
   .header_contacts {
     text-align: right;
@@ -2743,7 +2766,8 @@ html * {
   border-radius: 5px !important; }
   .menu_container .submenu li {
     border-bottom: 1px dashed #f2f2f2;
-    display: block; }
+    display: block;
+    white-space: nowrap; }
     .menu_container .submenu li a {
       color: #333;
       font-weight: 100;
@@ -3326,7 +3350,7 @@ body {
       display: inline;
       text-align: left;
       width: 20px; }
-  .feedback .form .button {
+  .feedback .form .button, .feedback .form input[type='button'] {
     margin-top: 20px; }
 
 .vacancy .vacancy_item {
