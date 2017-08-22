@@ -20,18 +20,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-   <?php if ($grf=='sportbuilding') { ?>
+   <?php if (!empty($model->sportbuilding)) { ?>
        <?= $form->field($model, 'full_title')->textInput(['maxlength' => true]) ?>
 <!--       --><?//= $form->field($model->sportbuilding, 'work_hours')->textInput() ?>
-       <?php
-       echo $form->field($model->sportbuilding, 'work_hours')->widget(CKEditor::className(), [
-           'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
-               'height' => 100,
-               'preset' => 'basic', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
-               'inline' => false, //по умолчанию false
-           ]),
-       ]);
-       ?>
        <?php
        echo $form->field($model->sportbuilding, 'phone')->widget(CKEditor::className(), [
            'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
@@ -51,12 +42,23 @@ use yii\widgets\ActiveForm;
        ]);
        ?>
 
+       <?php
+       echo $form->field($model->sportbuilding, 'work_hours')->widget(CKEditor::className(), [
+           'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
+               'height' => 100,
+               'preset' => 'basic', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+               'inline' => false, //по умолчанию false
+           ]),
+       ]);
+       ?>
+
+
 <!--       --><?//= $form->field($model->sportbuilding, 'phone')->textInput(['maxlength' => true]) ?>
 <!--       --><?//= $form->field($model->sportbuilding, 'address')->textInput(['maxlength' => true]) ?>
-       <?= $form->field($model->sportbuilding, 'email')->textInput(['maxlength' => true]) ?>
+<!--       --><?//= $form->field($model->sportbuilding, 'email')->textInput(['maxlength' => true]) ?>
 
    <?php   } ?>
-<!--    --><?//= $form->field($model, 'alias')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'alias')->textInput(['maxlength' => true]) ?>
 
     <?php
     echo $form->field($model, 'content')->widget(CKEditor::className(), [
@@ -69,13 +71,13 @@ use yii\widgets\ActiveForm;
     ?>
 <!--    --><?//= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
-    <label for="product-category_id" class="control-label">Родительская страница</label>
-    <select name="parent_[category_id]" id="product-category_id" class="form-control">
-        <option value="0"></option>
-        <?= app\modules\admin\components\Pages_parent::widget(['model'=>$model]) ?>
-    </select><br>
+<!--    <label for="product-category_id" class="control-label">Родительская страница</label>-->
+<!--    <select name="parent_[category_id]" id="product-category_id" class="form-control">-->
+<!--        <option value="0"></option>-->
+<!--        --><?//= app\modules\admin\components\Pages_parent::widget(['model'=>$model]) ?>
+<!--    </select><br>-->
 
-<!--    --><?//= $form->field($model, 'parent_alias')->textInput(['maxlength' => true]) ?>
+<!--    --><?//= $form->field($model, 'parent_alias')->hiddenInput(['parent_alias' => $parent_alias]) ?>
 
 <!--    --><?//= $form->field($model, 'meta_keywords')->textInput(['maxlength' => true]) ?>
 <!---->

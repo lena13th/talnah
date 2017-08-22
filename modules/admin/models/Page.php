@@ -17,6 +17,7 @@ use Yii;
  * @property string $meta_keywords
  * @property string $meta_description
  * @property string $updated_on
+ * @property mixed sportbuilding
  */
 class Page extends \yii\db\ActiveRecord
 {
@@ -34,7 +35,7 @@ class Page extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'full_title', 'alias'], 'required'],
+            [['title', 'alias'], 'required'],
             [['published'], 'integer'],
             [['content'], 'string'],
             [['updated_on'], 'safe'],
