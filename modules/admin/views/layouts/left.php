@@ -23,22 +23,22 @@ use app\modules\admin\components\Sportb;
                     ['label' => 'Редактировать данные', 'icon' => 'gear', 'url' => ['company/view']],
                     [
                         'label' => 'Объявления',
-                        'icon' => 'gear',
+                        'icon' => 'info-circle',
                         'url' => ['ads/index'],
                     ],
                     [
                         'label' => 'Новости',
-                        'icon' => 'gear',
+                        'icon' => 'newspaper-o',
                         'url' => ['news/index'],
                     ],
                     [
                         'label' => 'Мероприятия',
-                        'icon' => 'gear',
+                        'icon' => 'calendar',
                         'url' => ['events/index'],
                     ],
                     [
                         'label' => 'Спортивные сооружения',
-                        'icon' => 'gear',
+                        'icon' => 'building',
 //                        'url' => ['sportbuilding/index', 'id'=>1],
                         'url' => '#',
 //                        'items' => [ echo $sportb ],
