@@ -76,3 +76,27 @@
   }
   display: block;
 }
+
+input[type='button'] {
+  @extend .btn;
+  @extend .btn-primary;
+  @extend .button;
+  padding: 6px 12px;
+  outline: none;
+  border: none;
+}
+.download {
+  position: relative;
+  input[type='button'] {
+  padding-right: 40px!important;
+  }
+}
+.download:after {
+  content: "\f019";
+  font-family: 'FontAwesome';
+  position: absolute;
+  line-height: 100%;
+  right: 18px;
+  color:white;
+  top: 2px;
+}

@@ -156,7 +156,7 @@ $config = [
             'access' => ['@'],
             'root' => [
                 'baseUrl'=>'/web',
-                // 'basePath'=>'@webroot',            
+                // 'basePath'=>'@webroot',
                 'path' => 'files',
                 'name' => 'Files'
             ],
