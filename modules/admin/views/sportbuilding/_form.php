@@ -12,11 +12,14 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <div class="main_public">
+        <?= $form->field($model, 'published')->checkbox([ '0', '1', 'class'=>'is_boolean']) ?>
+    </div>
+
     <?= $form->field($model, 'full_title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'alias')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'published')->textInput() ?>
 
     <?= $form->field($model, 'work_hours')->textInput(['maxlength' => true]) ?>
 

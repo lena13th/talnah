@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use kartik\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\admin\models\EventsSearch */
@@ -26,7 +26,27 @@ $this->params['breadcrumbs'][] = $this->title;
 
 //            'id',
             'title',
-            'published',
+            [
+//                'class'=>'kartik\grid\EditableColumn',
+                'attribute'=>'published',
+                'pageSummary'=>'Total',
+//                'editableOptions'=> [
+//                    'placement' => 'bottom',
+//                    'header' => ' ',
+////                    'inputType' => \kartik\editable\Editable::INPUT_DROPDOWN_LIST,
+//                    'data'=> ['Не опубликовано', 'Опубликовано'],
+//                ],
+                'filter' => Html::activeDropDownList($searchModel, 'published', ['Нет', 'Да'],['class'=>'form-control','prompt' => ' ']),
+                'value' => function($data) {
+                    if($data->published==1) {
+                        return '<span style="color:green;">Опубликовано</span>';
+                    }
+                    else {
+                        return '<span class="text-danger">Не опубликовано</span>';
+                    }
+                },
+                'format' => 'html'
+            ],
             'short_description',
 //            'content:ntext',
             // 'date_event_start',
@@ -34,7 +54,12 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'related_sportbuilding',
             // 'updated_on',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'options'=> [
+                    'width' => '80px'
+                ]
+            ]
         ],
     ]); ?>
 </div>

@@ -19,7 +19,6 @@ use yii\widgets\ActiveForm;
 <div class="album-form">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
-
     <div class="main_public">
         <?= $form->field($model, 'published')->checkbox([ '0', '1', 'class'=>'is_boolean']) ?>
     </div>
