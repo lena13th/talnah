@@ -6,6 +6,8 @@ use app\models\Ads;
 use app\models\Events;
 use app\models\News;
 use app\models\Page;
+use app\models\Questionary;
+use app\models\QuestionaryForm;
 use Yii;
 use yii\caching\DbDependency;
 use yii\filters\AccessControl;
@@ -164,6 +166,8 @@ class SiteController extends AppController
             Yii::$app->session->setFlash('success', 'Ваше письмо отправлено.');
             return $this->refresh();
         }
+
+
         $this->setMeta('Задать вопрос ', '', 'Контактные данные, адрес и телефон ' . $company->name);
 
         return $this->render('ask', compact('model', 'company'));
@@ -174,20 +178,29 @@ class SiteController extends AppController
      */
     public function actionQuestionary()
     {
-        $model = new ContactForm();
+        $model = new QuestionaryForm();
         $company = $this->getCompany();
-        $this->setMeta('Анкетирование ' . $company->name, '', 'Контактные данные, адрес и телефон ' . $company->name);
+
+        $dependency = new DbDependency([
+            'sql' => 'SELECT MAX(updated_on) FROM questionary',
+        ]);
+        $questionary = Yii::$app->db->cache(function ($db) {
+            return Questionary::find()->where(['published' => 1])->all();
+        }, 0, $dependency);
 
         if ($model->load(Yii::$app->request->post())) {
-            Yii::$app->mailer->compose('contact_view', ['model' => $model])
+            Yii::$app->mailer->compose('questionary_view', ['model' => $model,'questionary'=>$questionary])
                 ->setFrom(['mr-15@mail.ru' => 'Сайт спортивного комплекса Талнах'])
                 ->setTo('mr-15@mail.ru')
-                ->setSubject('Обратная связь с сайта')
+                ->setSubject('Анкетирование')
                 ->send();
             Yii::$app->session->setFlash('success', 'Ваше письмо отправлено.');
             return $this->refresh();
         }
-        return $this->render('questionary', compact('model', 'company'));
+
+        $this->setMeta('Анкетирование ' . $company->name, '', 'Контактные данные, адрес и телефон ' . $company->name);
+
+        return $this->render('questionary', compact('model', 'company','questionary','questionaryform'));
 //
 
 //        return $this->render('questionary');

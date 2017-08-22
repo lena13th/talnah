@@ -40,13 +40,28 @@ $this->params['active_child_page'][] = 'questionary';
                 </div>
             <?php } ?>
             <div class="form col-xs-12 col-sm-8">
+                <?php
+//                $model=$questionary;
+                ?>
                 <?php $form = ActiveForm::begin(['id' => 'order-form']); ?>
                 <?= $form->field($model, 'name', ['enableLabel' => false])->textInput(array('placeholder' => 'Ваше имя', 'class' => '')); ?>
-                <?= $form->field($model, 'phone', ['enableLabel' => false])->widget(\yii\widgets\MaskedInput::className(), [
-                    'mask' => '+7 (999) 999-9999',
-                ])->textInput(array('placeholder' => 'Ваш телефон', 'class' => '')) ?>
+<!--                --><?//= $form->field($model, 'phone', ['enableLabel' => false])->widget(\yii\widgets\MaskedInput::className(), [
+//                    'mask' => '+7 (999) 999-9999',
+//                ])->textInput(array('placeholder' => 'Ваш телефон', 'class' => '')) ?>
                 <?= $form->field($model, 'email', ['enableLabel' => false])->textInput(array('placeholder' => 'Адрес электронной почты', 'class' => '')); ?>
-                <?= $form->field($model, 'message', ['enableLabel' => false])->textarea(['rows' => 4, 'placeholder' => 'Ваш отзыв, предложение', 'class' => '']) ?>
+<!--                --><?//= $form->field($model, 'message', ['enableLabel' => false])->textarea(['rows' => 4, 'placeholder' => 'Ваш отзыв, предложение', 'class' => '']) ?>
+
+                <?php
+                foreach ($questionary as $quest) {
+                    ?>
+
+                    <?= $form->field($model, 'text_'.$quest->id, ['enableLabel' => false])->textarea(['rows' => 2, 'placeholder' => $quest->name_field, 'class' => '']) ?>
+
+                    <?php
+                }
+                ?>
+
+
                 <!--                --><?//= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
                 //                    'template' => '<div><div class="col-xs-5">{image}</div><div class="col-xs-6 pull-right">{input}</div></div>',
                 //                ]) ?>
