@@ -33,7 +33,7 @@ use app\modules\admin\components\Sportb;
                         'label' => 'Спортивные сооружения',
                         'icon' => 'gear',
                         'url' => ['sportbuilding/index', 'id'=>1],
-                        app\modules\admin\components\Sportb::widget()
+//                        app\modules\admin\components\Sportb::widget()
 
         ],
                     [
