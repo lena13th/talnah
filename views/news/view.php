@@ -64,7 +64,8 @@ use rmrevin\yii\module\Comments;
 //                'model' => $news,
 //            ]); ?>
 <?php echo Comments\widgets\CommentListWidget::widget([
-           'entity' => (string) 'photo-15', // type and id
+           'entity' => (string) $news->id, // type and id
+            'options'=>['id'=>$news->id],
            ]); ?>
         </div>
     </div>
