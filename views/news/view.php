@@ -63,6 +63,7 @@ use rmrevin\yii\module\Comments;
 <!--            --><?php //echo Comment::widget([
 //                'model' => $news,
 //            ]); ?>
+            <hr>
 <?php echo Comments\widgets\CommentListWidget::widget([
            'entity' => (string) $news->id, // type and id
             'options'=>['id'=>$news->id],

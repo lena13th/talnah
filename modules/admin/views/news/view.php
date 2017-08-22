@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\helpers\Url;
-
+use rmrevin\yii\module\Comments;
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\News */
 
@@ -60,5 +60,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'date_public',
         ],
     ]) ?>
-
+    <?php echo Comments\widgets\CommentListWidget::widget([
+        'entity' => (string) $model->id, // type and id
+        'options'=>['id'=>$model->id],
+    ]); ?>
 </div>
