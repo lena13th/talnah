@@ -33,7 +33,7 @@ class PageController extends AppAdminController
      * Lists all Page models.
      * @return mixed
      */
-    public function actionIndex($parent_alias)
+    public function actionIndex($parent_alias,$grf=null)
     {
         $searchModel = new PageSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $parent_alias);
@@ -42,6 +42,7 @@ class PageController extends AppAdminController
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
             'grf'=>$grf,
+            'parent_alias'=>$parent_alias,
         ]);
     }
 
@@ -62,14 +63,14 @@ class PageController extends AppAdminController
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate($grf=null)
+    public function actionCreate($parent_alias=null,$grf=null)
     {
         $model = new Page();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->page_id]);
         } else {
             return $this->render('create', [
-                'model' => $model, 'grf'=>$grf,
+                'model' => $model, 'parent_alias'=>$parent_alias,'grf'=>$grf,
             ]);
         }
     }
@@ -80,7 +81,7 @@ class PageController extends AppAdminController
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id)
+    public function actionUpdate($id,$grf=null)
     {
         $model = $this->findModel($id);
 
@@ -88,7 +89,7 @@ class PageController extends AppAdminController
             return $this->redirect(['view', 'id' => $model->page_id]);
         } else {
             return $this->render('update', [
-                'model' => $model,
+                'model' => $model,'grf'=>$grf,
             ]);
         }
     }

@@ -5,24 +5,29 @@ use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Page */
-
-$this->title = $model->full_title;
+if (!empty($model->full_title)) {
+    $this->title = $model->full_title;
+} else { $this->title = $model->title;}
 //$this->title = $model->sportbuilding->title;
-if ($grf=='sportbuilding'){
-    $this->params['breadcrumbs'][] = ['label' => 'Спортивные сооружения', 'url' => ['index']];
-}
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = $model->title;
 ?>
 <div class="page-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Редактировать', ['update', 'id' => $model->page_id], ['class' => 'btn btn-primary']) ?>
+        <?php
+         if ($grf=='sportbuilding'){
+             $text_delete='Вы уверены что хотите удалить информацию по данному комплексу?';
+         }else {
+             $text_delete='Вы уверены что хотите удалить данную страницу?';
+         }
+        ?>
+        <?= Html::a('Редактировать', ['update', 'id' => $model->page_id,'grf'=>$grf], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Удалить', ['delete', 'id' => $model->page_id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Вы уверены что хотите удалить данную страницу?',
+                'confirm' => $text_delete,
                 'method' => 'post',
             ],
         ]) ?>
@@ -30,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php
     if ($grf=='sportbuilding'){
-
+//СПортивные сооружения
     echo DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -43,6 +48,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'sportbuilding.phone',
                 'format' => 'html'
             ],
+            [
+                'attribute' => 'sportbuilding.work_hours',
+                'format' => 'html'
+            ],
+            [
+                'attribute' => 'sportbuilding.address',
+                'format' => 'html'
+            ],
+            [
+                'attribute' => 'sportbuilding.email',
+                'format' => 'html'
+            ],
+
             [
                 'attribute' => 'content',
                 'format' => 'html'
