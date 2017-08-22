@@ -7,7 +7,8 @@ use kartik\grid\GridView;
 /* @var $searchModel app\modules\admin\models\PageSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Страницы';
+    $this->title = 'Страницы раздела';
+
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="page-index">
@@ -16,7 +17,13 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Создать страницу', ['create', 'grf'=>$grf], ['class' => 'btn btn-success']) ?>
+<?php
+//$parent_alias=null;
+//if (empty($grf)){$grf=null;}
+?>
+        <?=
+        Html::a('Создать страницу', ['create', 'parent_alias'=>$parent_alias], ['class' => 'btn btn-success']);
+        ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
