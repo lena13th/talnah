@@ -33,14 +33,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'html'
             ],
             'email:email',
-            [
-                'attribute' => 'requisites',
-                'format' => 'html'
-            ],
-            [
-                'attribute' => 'documents',
-                'format' => 'html'
-            ],
+//            [
+//                'attribute' => 'requisites',
+//                'format' => 'html'
+//            ],
+//            [
+//                'attribute' => 'documents',
+//                'format' => 'html'
+//            ],
 //            [
 //                'attribute' => 'image',
 //                'format' => 'html'

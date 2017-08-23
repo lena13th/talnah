@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $model->title;
              $text_delete='Вы уверены что хотите удалить данную страницу?';
          }
         ?>
-        <?= Html::a('Редактировать', ['update', 'id' => $model->page_id,'grf'=>$grf], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Редактировать', ['update', 'id' => $model->page_id,'grf'=>$grf,'alias'=>$model->alias], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Удалить', ['delete', 'id' => $model->page_id], [
             'class' => 'btn btn-danger',
             'data' => [
@@ -52,24 +52,25 @@ $this->params['breadcrumbs'][] = $model->title;
                 'format' => 'html'
             ],
             [
-                'attribute' => 'sportbuilding.work_hours',
-                'format' => 'html'
-            ],
-            [
                 'attribute' => 'sportbuilding.address',
                 'format' => 'html'
             ],
             [
-                'attribute' => 'sportbuilding.email',
+                'attribute' => 'sportbuilding.work_hours',
                 'format' => 'html'
             ],
+
+//            [
+//                'attribute' => 'sportbuilding.email',
+//                'format' => 'html'
+//            ],
 
             [
                 'attribute' => 'content',
                 'format' => 'html'
             ],
 //            'content:ntext',
-            'parent_alias',
+//            'parent_alias',
 //            'meta_keywords',
 //            'meta_description',
 //            'updated_on',

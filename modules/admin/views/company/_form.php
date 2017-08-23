@@ -21,31 +21,50 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'phone')->textarea(['maxlength' => true, 'rows' => '2']) ?>
+    <?php
+    echo $form->field($model, 'phone')->widget(CKEditor::className(), [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
+            'height' => 100,
+            'preset' => 'basic', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+            'inline' => false, //по умолчанию false
+        ]),
+    ]);
+    ?>
+    <?php
+    echo $form->field($model, 'address')->widget(CKEditor::className(), [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
+            'height' => 100,
+            'preset' => 'basic', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+            'inline' => false, //по умолчанию false
+        ]),
+    ]);
+    ?>
 
-    <?= $form->field($model, 'address')->textarea(['maxlength' => true, 'rows' => '2']) ?>
+<!--    --><?//= $form->field($model, 'phone')->textarea(['maxlength' => true, 'rows' => '2']) ?>
+<!---->
+<!--    --><?//= $form->field($model, 'address')->textarea(['maxlength' => true, 'rows' => '2']) ?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?php
-    echo $form->field($model, 'requisites')->widget(CKEditor::className(), [
-        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
-            'height' => 200,
-            'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
-            'inline' => false, //по умолчанию false
-        ]),
-    ]);
-    ?>
-
-    <?php
-    echo $form->field($model, 'documents')->widget(CKEditor::className(), [
-        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
-            'height' => 200,
-            'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
-            'inline' => false, //по умолчанию false
-        ]),
-    ]);
-    ?>
+<!--    --><?php
+//    echo $form->field($model, 'requisites')->widget(CKEditor::className(), [
+//        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
+//            'height' => 200,
+//            'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+//            'inline' => false, //по умолчанию false
+//        ]),
+//    ]);
+//    ?>
+<!---->
+<!--    --><?php
+//    echo $form->field($model, 'documents')->widget(CKEditor::className(), [
+//        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
+//            'height' => 200,
+//            'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+//            'inline' => false, //по умолчанию false
+//        ]),
+//    ]);
+//    ?>
     <?php
     echo $form->field($model, 'rekblock')->widget(CKEditor::className(), [
         'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
@@ -71,7 +90,7 @@ use yii\widgets\ActiveForm;
 <!--    --><?//= $form->field($model, 'updated_on')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Сохранить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Сохранить' : 'Сохранить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

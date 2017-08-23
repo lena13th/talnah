@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\Sportbuilding;
 use Yii;
 use app\modules\admin\models\Page;
 use app\modules\admin\models\PageSearch;
@@ -66,7 +67,9 @@ class PageController extends AppAdminController
     public function actionCreate($parent_alias=null,$grf=null)
     {
         $model = new Page();
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) ) {
+            $model->parent_alias=$parent_alias;
+            $model->save();
             return $this->redirect(['view', 'id' => $model->page_id]);
         } else {
             return $this->render('create', [
@@ -81,12 +84,18 @@ class PageController extends AppAdminController
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id,$grf=null)
+    public function actionUpdate($id,$grf=null,$alias=null)
     {
         $model = $this->findModel($id);
+//        $model->load(Yii::$app->request->post());
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->page_id]);
+        if ($model->load(Yii::$app->request->post()) && $model->save()){
+            if ($grf=='sportbuilding'){
+                $modelsportb = $this->findModelSportb($alias);
+                $modelsportb->load(Yii::$app->request->post())->sportbuilding;
+                $modelsportb->save();
+            }
+            $this->redirect(['view', 'id' => $model->page_id,'grf'=>$grf]);
         } else {
             return $this->render('update', [
                 'model' => $model,'grf'=>$grf,
@@ -104,7 +113,7 @@ class PageController extends AppAdminController
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['/admin']);
     }
 
     /**
@@ -119,10 +128,22 @@ class PageController extends AppAdminController
         if ($grf=='sportbuilding'){
             $model = Page::find()->with('sportbuilding')->where(['page_id' => $id])->one();
         } else{
+//            $model = Page::find()->where('alias != :alias', ['alias'=>'vacancy'])->one();
+
             $model = Page::findOne($id);
         }
         if (($model) !== null) {
             return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+    protected function findModelSportb($alias)
+    {
+        $modelsportb = Sportbuilding::find()->where(['alias' => $alias])->one();
+
+        if (($modelsportb) !== null) {
+            return $modelsportb;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }

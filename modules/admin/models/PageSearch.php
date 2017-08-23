@@ -45,7 +45,7 @@ class PageSearch extends Page
 //            $query = Page::find()->with('sportbuilding')->where(['parent_alias' => $parent_alias]);
 //        }
 //        else {
-            $query = Page::find()->where(['parent_alias' => $parent_alias]);
+            $query = Page::find()->where(['parent_alias' => $parent_alias])->andWhere('alias != :alias', ['alias'=>'vacancies'])->andWhere('alias != :alias1', ['alias1'=>'contacts']);
 //        }
 //echo $qqqq;
         // add conditions that should always apply here
