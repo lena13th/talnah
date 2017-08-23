@@ -7,7 +7,7 @@ $this->params['active_page'][] = 'calendar';
 ?>
 
 <div class="main_wrapper">
-    <ul class="breadcrumbs col-lg-offset-3">
+    <ul class="breadcrumbs breadcrumbs_left">
         <li><a href="<?= Url::to(['/site/index']) ?>"><i class="fa fa-home"></i>Главная</a></li>
         <li>Календарь спортивных мероприятий</li>
     </ul>

@@ -2930,7 +2930,11 @@ body {
     margin-bottom: 0; } }
 .breadcrumbs_left {
   padding-left: 35px !important;
-  padding-right: 20px; }
+  padding-right: 20px;
+  padding-left: 35px !important;
+  padding-right: 20px;
+  max-width: 1366px;
+  margin: 0 auto; }
 
 .left {
   padding: 20px;
@@ -3233,7 +3237,7 @@ body {
       color: #d8a3a3; }
     .week_days .day_work .date_number {
       cursor: pointer;
-      color: #e7e7e7; }
+      color: #d7d7d7; }
       .week_days .day_work .date_number:hover {
         background: rgba(0, 0, 0, 0.01); }
     .week_days > div .small_date_number {
@@ -3368,5 +3372,23 @@ body {
 
 .empty_center {
   text-align: center; }
+
+.owl-nav {
+  position: absolute;
+  top: 0;
+  height: 90%;
+  margin-top: 0;
+  width: 100%; }
+  .owl-nav .owl-prev, .owl-nav .owl-next {
+    background: none !important;
+    width: 100px;
+    height: 480px;
+    line-height: 480px; }
+  .owl-nav .owl-prev:hover, .owl-nav .owl-next:hover {
+    background: rgba(255, 255, 255, 0.3) !important; }
+  .owl-nav .owl-prev {
+    float: left; }
+  .owl-nav .owl-next {
+    float: right; }
 
 /*# sourceMappingURL=style.css.map */

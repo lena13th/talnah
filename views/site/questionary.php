@@ -9,7 +9,7 @@ $this->params['active_child_page'][] = 'questionary';
 
 ?>
 <div class="main_wrapper">
-    <ul class="breadcrumbs col-lg-offset-3">
+    <ul class="breadcrumbs breadcrumbs_left">
         <li><a href="<?= Url::to(['/site/index']) ?>"><i class="fa fa-home"></i>Главная</a></li>
         <li>Анкетирование</li>
     </ul>

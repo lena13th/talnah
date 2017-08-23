@@ -3,6 +3,8 @@ $(document).ready(function() {
         margin: 0,
         loop: true,
         items: 1,
+        nav: true,
+        navText: ['<','>'],
         responsive : {
             // breakpoint from 0 up
             0 : {

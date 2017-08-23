@@ -7,13 +7,13 @@ use yii\widgets\LinkPager;
 $this->params['active_page'][] = 'news';
 ?>
 <div class="main_wrapper news">
-    <ul class="breadcrumbs_left breadcrumbs col-xs-12">
+    <ul class="breadcrumbs_left breadcrumbs">
         <li><a href="<?= Url::to(['/site/index']) ?>"><i class="fa fa-home"></i>Главная</a></li>
         <li>Новости</li>
     </ul>
 
 
-    <div class="main col-xs-12">
+    <div class="main">
         <div class="content col-xs-12">
             <h1>Новости</h1>
             <div class="">

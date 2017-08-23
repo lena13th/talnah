@@ -8,6 +8,7 @@ use yii\data\ActiveDataProvider;
 use app\modules\admin\controllers\AppAdminController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * CompanyController implements the CRUD actions for Company model.
@@ -54,6 +55,15 @@ class CompanyController extends AppAdminController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+
+            $model->image = UploadedFile::getInstance($model, 'image');
+            $file_name = 'bg.jpg';
+            $file_path = 'img';
+
+            $model->image->saveAs($file_path .'/'. $file_name);
+
+
             return $this->redirect(['view', 'id' => $model->company_id]);
         } else {
             return $this->render('update', [

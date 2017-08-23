@@ -177,3 +177,28 @@
 .empty_center {
   text-align: center;
 }
+
+.owl-nav {
+  position: absolute;
+  top:0;
+  height:90%;
+  margin-top: 0;
+  width:100%;
+  .owl-prev, .owl-next {
+    background: none!important;
+    width: 100px;
+    height: 480px;
+    line-height: 480px;
+  }
+  .owl-prev, .owl-next {
+    &:hover {
+      background: rgba(255,255,255, 0.3)!important;
+    }
+  }
+  .owl-prev {
+    float: left;
+  }
+  .owl-next  {
+    float: right;
+  }
+}

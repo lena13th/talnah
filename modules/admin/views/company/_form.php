@@ -14,6 +14,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?= Html::img("@web/img/bg.jpg", ['alt' => 'Фон', 'style' => 'width: 200px;']) ?>
+    <?= $form->field($model, 'image')->fileInput() ?>
+
     <?= $form->field($model, 'organization')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>

@@ -42,7 +42,7 @@ class Company extends \yii\db\ActiveRecord
             [['requisites', 'documents', 'rekblock'], 'string'],
             [['updated_on'], 'safe'],
             [['organization', 'name', 'address', 'image', 'meta_title', 'meta_keywords', 'meta_description'], 'string', 'max' => 255],
-            [['phone'], 'string', 'max' => 100],
+            [['phone', 'image'], 'string', 'max' => 100],
             [['email'], 'string', 'max' => 50],
         ];
     }
@@ -61,7 +61,7 @@ class Company extends \yii\db\ActiveRecord
             'email' => 'Email',
             'requisites' => 'Реквизиты',
             'documents' => 'Учредительные документы',
-            'image' => 'Image',
+            'image' => 'Фоновое изображение',
             'rekblock' => 'Рекламный блок',
             'meta_title' => 'Meta Title',
             'meta_keywords' => 'Meta Keywords',

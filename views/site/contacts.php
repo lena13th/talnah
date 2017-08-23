@@ -5,12 +5,12 @@ $this->params['active_page'][] = 'contacts';
 
 ?>
 <div class="main_wrapper contacts">
-    <ul class="breadcrumbs breadcrumbs_left  col-xs-12">
+    <ul class="breadcrumbs breadcrumbs_left">
         <li><a href="<?= Url::to(['/site/index']) ?>"><i class="fa fa-home"></i>Главная</a></li>
         <li>Контакты</li>
     </ul>
 
-    <div class="main col-xs-12">
+    <div class="main">
         <div class="content col-xs-12">
             <h1 class="col-xs-12">Контакты</h1>
             <div class="contact_items">

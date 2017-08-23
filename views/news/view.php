@@ -12,7 +12,7 @@ use rmrevin\yii\module\Comments;
 
 ?>
 <div class="main_wrapper news_item_page">
-    <ul class="breadcrumbs col-xs-12 col-md-10 col-md-offset-1">
+    <ul class="breadcrumbs col-xs-12 col-md-10 col-md-offset-1" style="padding-left:15px">
         <li><a href="<?= Url::to(['/site/index']) ?>"><i class="fa fa-home"></i>Главная</a></li>
         <li><a href="<?= Url::to(['/news/index']) ?>">Новости</a></li>
         <li><?= $news->title ?></li>
