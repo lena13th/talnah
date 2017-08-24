@@ -56,6 +56,7 @@ class CompanyController extends AppAdminController
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
+            if (UploadedFile::getInstance($model, 'image')){
 
             $model->image = UploadedFile::getInstance($model, 'image');
             $file_name = 'bg.jpg';
@@ -63,7 +64,7 @@ class CompanyController extends AppAdminController
 
             $model->image->saveAs($file_path .'/'. $file_name);
 
-
+            }
             return $this->redirect(['view', 'id' => $model->company_id]);
         } else {
             return $this->render('update', [

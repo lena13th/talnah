@@ -618,7 +618,7 @@
                 "yii2",
                 "yii2-images"
             ],
-            "time": "2017-05-02 08:54:30"
+            "time": "2017-05-02T08:54:30+00:00"
         },
         {
             "name": "dmstr/yii2-adminlte-asset",
@@ -1128,7 +1128,7 @@
                 "popover-x",
                 "widget"
             ],
-            "time": "2017-06-28 05:11:45"
+            "time": "2017-06-28T05:11:45+00:00"
         },
         {
             "name": "kartik-v/yii2-grid",
@@ -1181,7 +1181,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-08-07 16:20:15"
+            "time": "2017-08-07T16:20:15+00:00"
         },
         {
             "name": "kartik-v/yii2-krajee-base",
@@ -1846,7 +1846,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2016-07-06 19:29:22"
+            "time": "2016-07-06T19:29:22+00:00"
         },
         {
             "name": "kartik-v/yii2-widget-select2",
@@ -2260,7 +2260,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-12-05 10:37:16"
+            "time": "2015-12-05T10:37:16+00:00"
         },
         {
             "name": "mihaildev/yii2-ckeditor",
