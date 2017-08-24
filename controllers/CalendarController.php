@@ -87,12 +87,13 @@ class CalendarController extends AppController
 //            }
 //        }
 
-        Yii::$app->cache->flush();
+//        Yii::$app->cache->flush();
+
+        $date_m_y=date_create($yr.'-0'.$mn);
 
         $dependency = new DbDependency([
             'sql' => 'SELECT MAX(updated_on) FROM events',
         ]);
-        $date_m_y=date_create($yr.'-0'.$mn);
 //        echo $date_m_y;
         $events = Yii::$app->db->cache(function ($db) use ($date_m_y) {
 //            return Events::find()->with('news')->where(['published' => 1])->all();

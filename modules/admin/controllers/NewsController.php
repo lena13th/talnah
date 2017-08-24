@@ -8,6 +8,7 @@ use app\modules\admin\models\NewsSearch;
 use app\modules\admin\controllers\AppAdminController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\db\Connection;
 
 
 use yii\data\ActiveDataProvider;
@@ -106,6 +107,8 @@ class NewsController extends AppAdminController
             unset($model->image);
             $model->gallery = UploadedFile::getInstances($model, 'gallery');
             $model->uploadGallery();
+
+            Yii::$app->db->createCommand()->update('events', ['related_news' => $model->id], 'id='.$model->related_event)->execute();
 
             Yii::$app->session->setFlash('success', "Новость сохранена");
             return $this->redirect(['view', 'id' => $model->id]);
