@@ -87,7 +87,7 @@ use app\modules\admin\components\Sportb;
                                 'icon' => 'gear',
                                 'items' => [
                                     ['label' => 'Редактировать данные', 'icon' => 'gear', 'url' => ['page/view', 'id'=>43,'grf'=>'sportbuilding'],],
-                                    ['label' => 'Страницы', 'icon' => 'gear', 'url' => ['page/index', 'parent_alias'=>'stk]'],],
+                                    ['label' => 'Страницы', 'icon' => 'gear', 'url' => ['page/index', 'parent_alias'=>'stk'],],
                                 ],
                             ],
 

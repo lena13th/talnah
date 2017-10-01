@@ -65,30 +65,41 @@ $this->params['active_page'][] = 'calendar';
                                         --><div class="empty_day"></div><!--
                                             <?php }
                                         }
-
                                         foreach ($date_events as $key => $days) { ?>
                                             --><div class="day day_work <?= ($key+1==date('d') && $current_month == date('m'))? 'today': ''?>">
                                                     <div class="small_week_title"><?= $week[date("N", mktime(0, 0, 0, $current_month,$key+1, $yr))];?></div>
 <!--                                                    --><?php //if ($event_date==$key) { ?>
                                                     <?php
 //                                                    $date_event=$date_events[$key+1];
-                                                    if (!empty($days)) { ?>
+                                                    if (!empty($days)) { 
 
+                                                        ?>
                                                         <div class="small_date_number"><?= $key + 1 ?></div>
-                                                        <?php foreach ($days as $key1 => $day) { ?>
+                                                        <?php foreach ($days as $key1 => $day) {
+
+                                                         ?>
                                                         <div class="calendar_event">
                                                             <div title="<?= $day[0]->title ?>"
                                                                  class="event_link <?= (($key+1 > date('d'))&&($current_month>=date('m'))) ? 'active' : 'old' ?>"><?= $day[0]->title ?></div>
                                                             <div class="event_item" attr-data="<?= $day[1].'-'.$day[0]->id?>">
                                                                 <div class="event_title">
-                                                                    <?php if(($key+1 > date('d'))&&($current_month>=date('m'))) { ?>
-                                                                    <a href="<?= Url::to(['/site/event', 'id'=>$day[0]->id]) ?>">
+                                                                    <?php 
+                                                                    //if(($key+1 > date('d'))&&($current_month>=date('m'))) { 
+
+                                                                    ?>
+                                                                    <a href="<?php 
+                                                                    if ($day[1] == 'event') {
+                                                                   echo Url::to(['/site/event', 'id'=>$day[0]->id]) ;
+                                                                      } elseif($day[1] == 'news') {
+                                                                   echo Url::to(['/news/view', 'id'=>$day[0]->id]);
+                                                                      } 
+                                                                   ?>">
                                                                                 <?php
-                                                                                }else{
+                                                                              //  }else{
+
                                                                                 ?>
-                                                                        <a href="<?= Url::to(['/news/view', 'id'=>$day[0]->id]) ?>">
                                                                             <?php
-                                                                            }
+                                                                          //  }
                                                                             ?>
 
 

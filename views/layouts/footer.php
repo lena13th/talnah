@@ -36,9 +36,9 @@ use yii\helpers\Url;
                     <li><a href="<?= Url::to(['/page/index', 'alias' => 'sportbuilding']) ?>">Спортивные сооружения</a></li>
                     <li><a href="<?= Url::to(['/news/index']) ?>">Новости</a></li>
                     <li><a href="<?= Url::to(['/page/index', 'alias' => 'about',]) ?>">О нас</a></li>
-                    <li><a href="#">Календарь мероприятий</a></li>
+                    <li><a href="<?=Url::to(['/calendar/index']) ?>">Календарь мероприятий</a></li>
                     <li><a href="<?= Url::to(['/site/contacts']) ?>">Контакты</a></li>
-                    <li><a href="<?= Url::to(['/site/feedback']) ?>">Обратная связь</a></li>
+                    <li><a href="<?= Url::to(['/page/index', 'alias' => 'ask',]) ?>">Обратная связь</a></li>
                 </ul>
             </div>
             <div class="footer_menu_container">
