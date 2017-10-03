@@ -28,7 +28,7 @@ $news=$date_news[$yr];
             <div class="news_item col-xs-12">
                 <div class="news_item_event_date col-xs-12">
                     <i class="fa-calendar fa"></i>
-                    <span><?=Yii::$app->formatter->asDate( $item_news->date_event_start) ?>
+                    <span>Дата события: <?=Yii::$app->formatter->asDate( $item_news->date_event_start) ?>
                         <?php
                         if (!empty($item_news->date_event_end)) {
                             echo ' - ' . Yii::$app->formatter->asDate($item_news->date_event_end);
@@ -37,7 +37,10 @@ $news=$date_news[$yr];
                                 </span>
                 </div>
                 <div class="news_item_image col-xs-12 col-sm-12 col-md-3">
-                    <?= Html::img("@web/img/news_preview/" . $item_news->image, ['alt' => 'Новость1']) ?>
+<!--                    --><?//= Html::img("@web/img/news_preview/" . $item_news->image, ['alt' => 'Новость1']) ?>
+                    <?php $image = $item_news->getImage(); ?>
+                    <?= Html::img($image->getUrl('173px'), ['alt' => $item_news->title]) ?>
+
                 </div>
                 <div class="news_item_content col-xs-12 col-sm-12 col-md-9">
                     <a href="<?= Url::to(['/news/view', 'id' => $item_news->id]) ?>"

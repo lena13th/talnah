@@ -135,6 +135,7 @@ class SiteController extends AppController
     public function actionContacts()
     {
 //                Yii::$app->cache->flush();
+        $company = $this->getCompany();
 
         $dependency = new DbDependency([
             'sql' => 'SELECT MAX(updated_on) FROM page',
@@ -145,7 +146,7 @@ class SiteController extends AppController
         }, 0, $dependency);
         $this->setMeta('Контактные данные, адрес и телефон ', '', 'Контактные данные, адрес и телефон ' . $company->name);
 
-        return $this->render('contacts', compact('pages'));
+        return $this->render('contacts', compact('pages', 'company'));
     }
 
 

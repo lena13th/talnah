@@ -40,6 +40,16 @@ use yii\widgets\ActiveForm;
     ]);
     ?>
 
+    <?php
+    echo $form->field($model, 'field_contacts')->widget(CKEditor::className(), [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
+            'height' => 200,
+            'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+            'inline' => false, //по умолчанию false
+        ]),
+    ]);
+    ?>
+
 <!--    --><?//= $form->field($model, 'phone')->textarea(['maxlength' => true, 'rows' => '2']) ?>
 <!---->
 <!--    --><?//= $form->field($model, 'address')->textarea(['maxlength' => true, 'rows' => '2']) ?>

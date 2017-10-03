@@ -31,7 +31,7 @@ $this->params['active_page'][] = 'news';
                         <div class="news_item col-xs-12 col-sm-6">
                             <div class="news_item_event_date col-xs-12">
                                 <i class="fa-calendar fa"></i>
-                                <span><?=Yii::$app->formatter->asDate( $item_news->date_event_start) ?>
+                                <span>Дата события: <?=Yii::$app->formatter->asDate( $item_news->date_event_start) ?>
                                     <?php
                                     if (!empty($item_news->date_event_end)) {
                                         echo ' - ' . Yii::$app->formatter->asDate($item_news->date_event_end);

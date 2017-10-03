@@ -13,6 +13,9 @@ $this->params['active_page'][] = 'contacts';
     <div class="main">
         <div class="content col-xs-12">
             <h1 class="col-xs-12">Контакты</h1>
+            <div class="phones col-xs-12">
+                <?= $company->field_contacts ?>
+            </div>
             <div class="contact_items">
 
                 <?php foreach ($pages as $key => $page): ?>

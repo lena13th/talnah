@@ -32,6 +32,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'address',
                 'format' => 'html'
             ],
+//            [
+//                'attribute' => 'field_contacts',
+//                'format' => 'html'
+//            ],
             'email:email',
 //            [
 //                'attribute' => 'requisites',

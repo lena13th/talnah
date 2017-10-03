@@ -15,6 +15,7 @@ $this->params['active_page'][] = 'calendar';
     <?php
 //    echo '<pre>';
 //    print_r($date_events);
+//    echo $current_month<=date('m');
 //echo '</pre>';
 
 //    ?>
@@ -80,7 +81,7 @@ $this->params['active_page'][] = 'calendar';
                                                          ?>
                                                         <div class="calendar_event">
                                                             <div title="<?= $day[0]->title ?>"
-                                                                 class="event_link <?= (($key+1 > date('d'))&&($current_month>=date('m'))) ? 'active' : 'old' ?>"><?= $day[0]->title ?></div>
+                                                                 class="event_link <?= ((($key+1 > date('d'))&&($current_month=date('m')))||($current_month>date('m'))) ? 'active' : 'old' ?>"><?= $day[0]->title ?></div>
                                                             <div class="event_item" attr-data="<?= $day[1].'-'.$day[0]->id?>">
                                                                 <div class="event_title">
                                                                     <?php 

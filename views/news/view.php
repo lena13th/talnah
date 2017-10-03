@@ -24,7 +24,7 @@ use rmrevin\yii\module\Comments;
             <div class="news_item">
                 <div class="news_item_event_date">
                     <i class="fa-calendar fa"></i>
-                    <span>
+                    <span> Дата события: 
                         <?=Yii::$app->formatter->asDate( $news->date_event_start) ?>
                         <?php
                         if (!empty($news->date_event_end)) {

@@ -12,6 +12,7 @@ use Yii;
  * @property string $name
  * @property string $phone
  * @property string $address
+ * @property string $field_contacts
  * @property string $email
  * @property string $requisites
  * @property string $documents
@@ -41,7 +42,7 @@ class Company extends \yii\db\ActiveRecord
             [['organization', 'name'], 'required'],
             [['requisites', 'documents', 'rekblock'], 'string'],
             [['updated_on'], 'safe'],
-            [['organization', 'name', 'address', 'image', 'meta_title', 'meta_keywords', 'meta_description'], 'string', 'max' => 255],
+            [['organization', 'name', 'address','field_contacts', 'image', 'meta_title', 'meta_keywords', 'meta_description'], 'string', 'max' => 255],
             [['phone', 'image'], 'string', 'max' => 100],
             [['email'], 'string', 'max' => 50],
         ];
@@ -61,6 +62,7 @@ class Company extends \yii\db\ActiveRecord
             'email' => 'Email',
             'requisites' => 'Реквизиты',
             'documents' => 'Учредительные документы',
+            'field_contacts' => 'Поле на странице Контакты',
             'image' => 'Фоновое изображение',
             'rekblock' => 'Рекламный блок',
             'meta_title' => 'Meta Title',
