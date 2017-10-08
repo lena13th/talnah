@@ -76,6 +76,8 @@ $this->params['active_page'][] = 'calendar';
 
                                                         ?>
                                                         <div class="small_date_number"><?= $key + 1 ?></div>
+                                                        <div class="cal_ev">
+
                                                         <?php foreach ($days as $key1 => $day) {
 
                                                          ?>
@@ -108,7 +110,11 @@ $this->params['active_page'][] = 'calendar';
                                                                 <div class="event_content"><?= $day[0]->short_description ?></div>
                                                             </div>
                                                         </div>
-                                                            <?php } } else { ?>
+                                                            
+                                                            <?php } ?>
+                                                        </div>
+                                                        <?php
+                                                    } else { ?>
                                                         <div class="date_number"><?=$key+1?></div>
                                                     <?php }?>
                                                 </div><!--
