@@ -12,10 +12,24 @@ class PageController extends AppController
 
     public function actionIndex($alias, $parent_alias = null, $grf = null)
     {
+        $company = $this->getCompany();
         if (!empty($parent_alias)){
             $page = Page::find()->where(['published' => 1])->andWhere(['alias' => $alias])->andWhere(['parent_alias' => $parent_alias])->one();
         } else {
-            $page = Page::find()->where(['published' => 1])->andWhere(['alias' => $alias])->one();
+            if ($alias=='sportbuilding'){
+                $page->title = 'Спортивные сооружения';
+                $page->content = $company->sportbuilding;
+                $page->alias=$alias;
+            }
+            elseif ($alias=='about'){
+                $page->title = 'О нас';
+                $page->content = $company->about_company;
+                $page->alias=$alias;
+
+            }
+            else {
+                $page = Page::find()->where(['published' => 1])->andWhere(['alias' => $alias])->one();
+            }
         }
         if (empty($page)) {
             throw new \yii\web\HttpException(404, 'К сожалению такой страницы не найдено.');
@@ -37,10 +51,10 @@ class PageController extends AppController
                 return Page::find()->where(['published' => 1])->andWhere(['parent_alias' => $page->parent_alias])->all();
             }, 0, $dependency);
         }
-        $company = $this->getCompany();
         $this->setMeta($page->title, '', '-- ' . $company->name);
 
-        return $this->render('index', compact('page', 'next_pages','child_pages','parent_page', 'company', 'grf'));
+//        return $this->render('index', compact('page', 'next_pages','child_pages','parent_page', 'company', 'grf'));
+        return $this->render('index', compact('page', 'next_pages','child_pages','parent_page', 'company', 'grf','alias'));
     }
 
     public function actionContacts($parent_alias, $grf)

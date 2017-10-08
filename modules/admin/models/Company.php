@@ -13,6 +13,8 @@ use Yii;
  * @property string $phone
  * @property string $address
  * @property string $field_contacts
+ * @property string $about_company
+ * @property string $sportbuilding
  * @property string $email
  * @property string $requisites
  * @property string $documents
@@ -40,7 +42,7 @@ class Company extends \yii\db\ActiveRecord
     {
         return [
             [['organization', 'name'], 'required'],
-            [['requisites', 'documents', 'rekblock'], 'string'],
+            [['requisites', 'documents', 'rekblock','about_company','sportbuilding'], 'string'],
             [['updated_on'], 'safe'],
             [['organization', 'name', 'address','field_contacts', 'image', 'meta_title', 'meta_keywords', 'meta_description'], 'string', 'max' => 255],
             [['phone', 'image'], 'string', 'max' => 100],
@@ -63,6 +65,8 @@ class Company extends \yii\db\ActiveRecord
             'requisites' => 'Реквизиты',
             'documents' => 'Учредительные документы',
             'field_contacts' => 'Поле на странице Контакты',
+            'about_company' => 'Информация о компании (страница О нас)',
+            'sportbuilding' => 'Страница Спортивные сооружения',
             'image' => 'Фоновое изображение',
             'rekblock' => 'Рекламный блок',
             'meta_title' => 'Meta Title',
