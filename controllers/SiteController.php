@@ -86,7 +86,7 @@ class SiteController extends AppController
         ]);
         $events = Yii::$app->db->cache(function ($db) {
             return Events::find()->where(['published' => 1])
-                ->andWhere(['>=', 'date_event_start', date('Y-m-d')])->orderBy('date_event_start')
+                ->andWhere(['>=', 'date_event_start', date('Y-m-d')])->limit(5)->orderBy('date_event_start')
             ->all();
         }, 60, $dependency2);
 

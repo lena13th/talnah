@@ -45,6 +45,7 @@ use rmrevin\yii\module\Comments;
                                 <?php if($photo->isMain==0) { ?>
                                     <div class="item">
                                         <img src="<?php echo $photo->getUrl('800px')?>" alt="<?= $news->title ?>">
+                                        <a class="download_photo" href="<?php echo $photo->getUrl('800px')?>" download>Скачать <i class="fa fa-download" aria-hidden="true"></i></a>
                                     </div>
                                 <?php } ?>
                             <?php } ?>
