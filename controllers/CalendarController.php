@@ -89,7 +89,7 @@ class CalendarController extends AppController
 
 //        Yii::$app->cache->flush();
 
-        $date_m_y=date_create($yr.'-0'.$mn);
+        $date_m_y=date_create($yr.'-'.$mn);
 
         $dependency = new DbDependency([
             'sql' => 'SELECT MAX(updated_on) FROM events',

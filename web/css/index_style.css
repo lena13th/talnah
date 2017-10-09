@@ -2379,6 +2379,21 @@ html * {
   border-radius: 50px !important;
   font-size: 14px !important; }
 
+.download_photo {
+  cursor: pointer;
+  width: 100px;
+  text-align: center;
+  color: white;
+  height: 40px;
+  line-height: 37px;
+  border-radius: 50px;
+  border: 2px solid white;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.5); }
+
+.download_photo:hover, .download_photo:active, .download_photo:visited, .download_photo:focus {
+  color: white; }
+
 .window {
   padding-top: 20px;
   -webkit-transition: 0.4s ease-in-out;
@@ -2932,6 +2947,12 @@ body {
   .news .news_item_content .news_item_public_date {
     color: #bababa;
     font-size: 12px; }
+
+.slider .download_photo {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -50px; }
 
 .left {
   padding: 20px;

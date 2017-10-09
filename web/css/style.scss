@@ -179,26 +179,30 @@
 }
 
 .owl-nav {
-  position: absolute;
-  top:0;
-  height:90%;
-  margin-top: 0;
-  width:100%;
   .owl-prev, .owl-next {
-    background: none!important;
-    width: 100px;
-    height: 480px;
-    line-height: 480px;
+    position: absolute;
+    display: block!important;
+    top: 50%;
+    margin-top: -50px!important;
+
+    cursor: pointer;
+    width: 40px;
+    text-align: center;
+    color: white;
+    height: 40px;
+    line-height: 28px;
+    border-radius: 50px!important;
+    border: 2px solid white;
+    font-size: 14px;
+    background: rgba(0,0,0,0.5)!important;
   }
   .owl-prev, .owl-next {
     &:hover {
       background: rgba(255,255,255, 0.3)!important;
     }
   }
-  .owl-prev {
-    float: left;
-  }
-  .owl-next  {
-    float: right;
-  }
+}
+
+.owl-next {
+  right: 0;
 }

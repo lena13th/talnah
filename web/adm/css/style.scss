@@ -196,7 +196,7 @@ label {
 	  transition: all .2s; /* анимация, чтобы чекбокс переключался плавно */
 	}	
 	/* Меняем фон чекбокса, когда он включен. */
-	label>input:checked:before,  {
+	label>input:checked:before {
 	  background: #9FD468;
 	}
 	/* Сдвигаем переключатель чекбокса, когда он включен. */
