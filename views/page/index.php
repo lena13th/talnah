@@ -98,7 +98,13 @@ use yii\helpers\Url;
                 <?php
                 if ($page->alias == 'vacancies') {
 
+//                } elseif (($alias==sportbuilding)||($alias==about)){
+//                    ?>
+<!--                    --><?//= $page ?>
+<!---->
+<!--                    --><?php
                 } else {
+
                     ?>
                     <?= $page->content ?>
 

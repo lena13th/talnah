@@ -29,7 +29,8 @@
         "mihaildev/yii2-elfinder": "*",
         "costa-rico/yii2-images": "dev-master",
         "yii2mod/yii2-comments": "*",
-        "rmrevin/yii2-comments": "~1.4"
+        "rmrevin/yii2-comments": "~1.4",
+        "creocoder/yii2-nested-sets": "^0.9.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
