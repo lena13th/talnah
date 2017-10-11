@@ -160,8 +160,8 @@ class SiteController extends AppController
 
         if ($model->load(Yii::$app->request->post())) {
             Yii::$app->mailer->compose('contact_view', ['model' => $model])
-                ->setFrom(['mr-15@mail.ru' => 'Сайт спортивного комплекса Талнах'])
-                ->setTo('mr-15@mail.ru')
+                ->setFrom(['sportkompleks17@mail.ru' => 'Сайт спортивного комплекса Талнах'])
+                ->setTo('sportkompleks17@mail.ru')
                 ->setSubject('Обратная связь с сайта')
                 ->send();
             Yii::$app->session->setFlash('success', 'Ваше письмо отправлено.');
@@ -191,8 +191,8 @@ class SiteController extends AppController
 
         if ($model->load(Yii::$app->request->post())) {
             Yii::$app->mailer->compose('questionary_view', ['model' => $model,'questionary'=>$questionary])
-                ->setFrom(['mr-15@mail.ru' => 'Сайт спортивного комплекса Талнах'])
-                ->setTo('mr-15@mail.ru')
+                ->setFrom(['sportkompleks17@mail.ru' => 'Сайт спортивного комплекса Талнах'])
+                ->setTo('sportkompleks17@mail.ru')
                 ->setSubject('Анкетирование')
                 ->send();
             Yii::$app->session->setFlash('success', 'Ваше письмо отправлено.');

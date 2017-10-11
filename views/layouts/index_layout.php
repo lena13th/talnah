@@ -23,6 +23,8 @@ IndexAsset::register($this);
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+        <meta name="google-site-verification" content="f6F4NOc-LjSHjrNhJ1v9HQzl3gd5eMnzf5EII1dVp1E" />
+        <meta name="yandex-verification" content="01416f3124e064ff" />
     </head>
 
     <body data-spy="scroll">

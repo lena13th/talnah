@@ -2,6 +2,9 @@ Options +FollowSymLinks
 IndexIgnore */*
 RewriteEngine on
 
+RewriteCond %{HTTPS} =off 
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [QSA,L]
+
 RewriteCond %{REQUEST_URI} !^/(web)
 RewriteRule ^assets/(.*)$ /web/assets/$1 [L]
 RewriteRule ^css/(.*)$ /web/css/$1 [L]

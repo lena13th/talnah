@@ -83,8 +83,8 @@ $config = [
             'transport' => [
             'class' => 'Swift_SmtpTransport',
             'host'=>'smtp.mail.ru',
-            'username' => 'mr-15@mail.ru',
-            'password' => 'nokia5530xpressmusic',
+            'username' => 'sportkompleks17@mail.ru',
+            'password' => 'gmalay325466',
             'port' => '465',
             'encryption' => 'ssl',
             ],
