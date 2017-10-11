@@ -54,7 +54,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'html'
             ],
             'title',
-//            'full_title',
+            [
+                'attribute'=>'pageOrder',
+                'options'=> [
+                    'width' => '80px'
+                ],
+            ],
 //            'alias',
             // 'content:ntext',
             // 'parent_alias',

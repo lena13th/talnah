@@ -44,11 +44,11 @@ class PageController extends AppController
             }, 0, $dependency);
         }
         $child_pages = Yii::$app->db->cache(function ($db) use ($alias) {
-            return Page::find()->where(['published' => 1])->andWhere(['parent_alias' => $alias])->all();
+            return Page::find()->where(['published' => 1])->andWhere(['parent_alias' => $alias])->orderBy(['pageOrder' => SORT_ASC])->all();
         }, 0, $dependency);
         if (empty($child_pages)){
             $next_pages = Yii::$app->db->cache(function ($db) use ($page) {
-                return Page::find()->where(['published' => 1])->andWhere(['parent_alias' => $page->parent_alias])->all();
+                return Page::find()->where(['published' => 1])->andWhere(['parent_alias' => $page->parent_alias])->orderBy(['pageOrder' => SORT_ASC])->all();
             }, 0, $dependency);
         }
         $this->setMeta($page->title, '', '-- ' . $company->name);
@@ -68,7 +68,7 @@ class PageController extends AppController
             }, 0, $dependency);
 //        }
         $next_pages = Yii::$app->db->cache(function ($db) use ($parent_alias) {
-            return Page::find()->where(['published' => 1])->andWhere(['parent_alias' => $parent_alias])->all();
+            return Page::find()->where(['published' => 1])->andWhere(['parent_alias' => $parent_alias])->orderBy(['pageOrder' => SORT_ASC])->all();
         }, 0, $dependency);
         $dependency1 = new DbDependency([
             'sql' => 'SELECT MAX(updated_on) FROM sportbuilding',

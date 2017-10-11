@@ -17,6 +17,7 @@ use Yii;
  * @property string $meta_keywords
  * @property string $meta_description
  * @property string $updated_on
+ * @property integer $pageOrder
  * @property mixed sportbuilding
  */
 class Page extends \yii\db\ActiveRecord
@@ -36,7 +37,7 @@ class Page extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'alias'], 'required'],
-            [['published'], 'integer'],
+            [['published', 'pageOrder'], 'integer'],
             [['content'], 'string'],
             [['updated_on'], 'safe'],
             [['title', 'full_title', 'alias', 'parent_alias', 'meta_keywords', 'meta_description'], 'string', 'max' => 255],
@@ -59,6 +60,7 @@ class Page extends \yii\db\ActiveRecord
             'meta_keywords' => 'Meta Keywords',
             'meta_description' => 'Meta Description',
             'updated_on' => 'Updated On',
+            'pageOrder' => 'Порядковый номер',
         ];
     }
 

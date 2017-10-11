@@ -70,7 +70,6 @@ $this->params['breadcrumbs'][] = $model->title;
                 'format' => 'html'
             ],
 //            'content:ntext',
-//            'parent_alias',
 //            'meta_keywords',
 //            'meta_description',
 //            'updated_on',
@@ -94,7 +93,7 @@ $this->params['breadcrumbs'][] = $model->title;
                     'attribute' => 'content',
                     'format' => 'html'
                 ],
-
+                'pageOrder',
 //                'content:ntext',
 //                'parent_alias',
 //                'meta_keywords',

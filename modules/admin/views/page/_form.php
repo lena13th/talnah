@@ -69,6 +69,7 @@ use yii\widgets\ActiveForm;
         ]),
     ]);
     ?>
+    <?= $form->field($model, 'pageOrder')->textInput(['maxlength' => true]) ?>
 <!--    --><?//= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
 <!--    <label for="product-category_id" class="control-label">Родительская страница</label>-->
