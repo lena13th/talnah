@@ -81,7 +81,7 @@ $this->params['active_page'][] = 'calendar';
                                                                  class="event_link <?= ((($key+1 > date('d'))&&($current_month>=date('m')))||($current_month>date('m'))) ? 'active' : 'old' ?>"><?= $day[0]->title ?></div>
                                                             <div class="event_item" attr-data="<?= $day[1].'-'.$day[0]->id?>">
                                                                 <div class="event_title">
-                                                                    <?php if(($key+1 > date('d'))&&($current_month>=date('m'))) { ?>
+                                                                    <?php if((($key+1 > date('d'))&&($current_month>=date('m')))||($current_month>date('m'))) { ?>
                                                                     <a href="<?= Url::to(['/site/event', 'id'=>$day[0]->id]) ?>">
                                                                                 <?php
                                                                                 }else{

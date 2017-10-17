@@ -42,9 +42,9 @@ class Company extends \yii\db\ActiveRecord
     {
         return [
             [['organization', 'name'], 'required'],
-            [['requisites', 'documents', 'rekblock','about_company','sportbuilding'], 'string'],
+            [['requisites', 'documents', 'rekblock','about_company','field_contacts','sportbuilding'], 'string'],
             [['updated_on'], 'safe'],
-            [['organization', 'name', 'address','field_contacts', 'image', 'meta_title', 'meta_keywords', 'meta_description'], 'string', 'max' => 255],
+            [['organization', 'name', 'address', 'image', 'meta_title', 'meta_keywords', 'meta_description'], 'string', 'max' => 255],
             [['phone', 'image'], 'string', 'max' => 100],
             [['email'], 'string', 'max' => 50],
         ];
