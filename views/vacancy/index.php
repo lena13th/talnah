@@ -49,7 +49,7 @@ $this->params['active_parent_page'][] = 'about';
                         <div class="vacation_block">
                             <h3><?= $vacation->title?></h3>
                             <p><?= $vacation->short_description?></p>
-                            <div class="h3"><?= $vacation->salary?> <span class="rub">Р</span></div>
+                            <div class="h3"><?= $vacation->salary?></div>
                             <div class="caption">
                                 <div class="prod_list_item_buttons">
                                     <a href="<?= Url::to(['/vacancy/view', 'id'=>$vacation->vacancy_id]) ?>" class="btn btn-default" role="button">Ознакомиться с вакансией</a>

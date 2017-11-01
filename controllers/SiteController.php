@@ -160,7 +160,7 @@ class SiteController extends AppController
 
         if ($model->load(Yii::$app->request->post())) {
             Yii::$app->mailer->compose('contact_view', ['model' => $model])
-                ->setFrom(['talnahsport@талнахспорт.рф' => 'Сайт спортивного комплекса Талнах'])
+                ->setFrom(['sportkompleks17@mail.ru' => 'Сайт спортивного комплекса Талнах'])
                 ->setTo('sportkompleks17@mail.ru')
                 ->setSubject('Обратная связь с сайта')
                 ->send();
@@ -191,7 +191,7 @@ class SiteController extends AppController
 
         if ($model->load(Yii::$app->request->post())) {
             Yii::$app->mailer->compose('questionary_view', ['model' => $model,'questionary'=>$questionary])
-                ->setFrom(['talnahsport@талнахспорт.рф' => 'Сайт спортивного комплекса Талнах'])
+                ->setFrom(['sportkompleks17@mail.ru' => 'Сайт спортивного комплекса Талнах'])
                 ->setTo('sportkompleks17@mail.ru')
                 ->setSubject('Анкетирование')
                 ->send();

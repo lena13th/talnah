@@ -61,7 +61,7 @@ $this->params['active_parent_page'][] = 'about';
                 </div>
             <?php } ?>
             <p><?= $vacation->content ?></p>
-            <div class="h3"><?= $vacation->salary ?> <span class="rub">Р</span></div>
+            <div class="h3"><?= $vacation->salary ?></div>
 
             <div class="upload">
 <!--                <div class="h4">Загрузите анкету</div>-->

@@ -17,7 +17,7 @@ $this->params['active_page'][] = 'calendar';
 //    print_r($date_events);
 //echo '</pre>';
 
-//    ?>
+    ?>
 
     <div class="main">
         <div class="left main_left col-xs-12 col-md-12 col-lg-3">
@@ -59,7 +59,7 @@ $this->params['active_page'][] = 'calendar';
                                     <div class="week_days">
                                         <!--
                                         <?php
-                                        $x = date("N", mktime(0, 0, 0, $current_month,1, $yr));
+                                        $x = date("N", mktime(0, 0, 0, $current_month, 1, $yr));
                                         if ($x!=1) {
                                             for ($j = 1; $j < $x; $j++) { ?>
                                         --><div class="empty_day"></div><!--
@@ -73,7 +73,9 @@ $this->params['active_page'][] = 'calendar';
                                                     <?php
 //                                                    $date_event=$date_events[$key+1];
                                                     if (!empty($days)) { ?>
-
+                                                        <?php if (count($days)>2) { ?>
+                                                            <div class="events_wrapper">
+                                                        <?php } ?>
                                                         <div class="small_date_number"><?= $key + 1 ?></div>
                                                         <?php foreach ($days as $key1 => $day) { ?>
                                                         <div class="calendar_event">
@@ -85,18 +87,28 @@ $this->params['active_page'][] = 'calendar';
                                                                     <a href="<?= Url::to(['/site/event', 'id'=>$day[0]->id]) ?>">
                                                                                 <?php
                                                                                 }else{
+                                                                                if ($day[1]=="news"){
                                                                                 ?>
                                                                         <a href="<?= Url::to(['/news/view', 'id'=>$day[0]->id]) ?>">
                                                                             <?php
+                                                                                } elseif ($day[1]=="event") {
+                                                                                    ?>
+                                                                                    <a href="<?= Url::to(['/site/event', 'id'=>$day[0]->id]) ?>">
+                                                                                <?php
+                                                                                    
+                                                                                }
                                                                             }
                                                                             ?>
-
-
+                                                                
+                                                                
                                                                             <?= $day[0]->title ?></a></div>
                                                                 <div class="event_content"><?= $day[0]->short_description ?></div>
                                                             </div>
                                                         </div>
-                                                            <?php } } else { ?>
+                                                        <?php }
+                                                            if (count($days)>2) { ?>
+                                                            </div>
+                                                        <?php } } else { ?>
                                                         <div class="date_number"><?=$key+1?></div>
                                                     <?php }?>
                                                 </div><!--

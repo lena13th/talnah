@@ -25,6 +25,7 @@ IndexAsset::register($this);
         <![endif]-->
         <meta name="google-site-verification" content="f6F4NOc-LjSHjrNhJ1v9HQzl3gd5eMnzf5EII1dVp1E" />
         <meta name="yandex-verification" content="01416f3124e064ff" />
+        <meta name="yandex-verification" content="bc6c31f8175498ed" />
     </head>
 
     <body data-spy="scroll">

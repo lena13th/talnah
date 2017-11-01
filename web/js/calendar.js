@@ -1,11 +1,24 @@
 /**
  * Created by Rustam on 13.08.2017.
  */
-$('.event_link').click(function(event){
-    $('.show_event').removeClass('show_event');
-    $(this).next('.event_item').toggleClass('show_event');
-    event.stopPropagation();
-});
+$('.event_link').click(
+    function(event){
+     $('.show_event').removeClass('show_event');
+     $(this).next('.event_item').toggleClass('show_event');
+     event.stopPropagation();
+    }
+);
+
+$('.events_wrapper').hover(
+    function(event){},
+    function(){
+        if ($(window).width() >= '768'){
+            $('.event_item').removeClass('show_event'); 
+        }
+    }
+);
+
+
 $(document).keyup(function(e) {
     if (e.keyCode === 27) {
         $('.event_item').removeClass('show_event');

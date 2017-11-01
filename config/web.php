@@ -82,11 +82,11 @@ $config = [
             'useFileTransport' => false,
             'transport' => [
             'class' => 'Swift_SmtpTransport',
-            'host'=>'smtp.beget.com',
-            'username' => 'talnahsport@талнахспорт.рф',
+            'host'=>'smtp.mail.ru',
+            'username' => 'sportkompleks17@mail.ru',
             'password' => 'gmalay325466',
-        //'port' => '25',
-          //  'encryption' => 'ssl',
+            'port' => '465',
+            'encryption' => 'ssl',
             ],
         ],
         'log' => [
